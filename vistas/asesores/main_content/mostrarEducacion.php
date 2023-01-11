@@ -1,0 +1,1 @@
+<h1>Mostrar educación</h1>
