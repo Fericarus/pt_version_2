@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="campo">
-                                <label for="nombre">Contraseña:</label>
+                                <label for="nombre">Contraseñasima:</label>
                                 <input type="password" id="passwordLogin" name="passwordLogin" placeholder="Ingresa tu contraseña" required />
                             </div>
                         </div>
