@@ -9,6 +9,18 @@ include "../includes/config/database.php";
 $email = htmlentities(addslashes($_POST["email"]));
 $passwordLogin = htmlentities(addslashes($_POST["passwordLogin"]));
 
+// Validar email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo '<script>alert("Ingrese un correo electrónico válido.")</script>';
+    echo '<script type="text/javascript" >window.location.href="../login.php";</script>';
+}
+
+// Validar contraseña
+if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $passwordLogin)) {
+    echo '<script>alert("La contraseña se compone de al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial (@$!%*#?&).")</script>';
+    echo '<script type="text/javascript" >window.location.href="../login.php";</script>';
+}
+
 // Preparamos las distintas sentencias sql
 $sqlClientes = "SELECT * FROM clientes WHERE email = :email AND password = :passwordLogin";
 $sqlAsesores = "SELECT * FROM asesores WHERE email = :email AND password = :passwordLogin";
@@ -48,10 +60,19 @@ try {
         "location:../vistas/administradores/administradores.php",
         "administrador"
     );
+
+    // Si no se encontró ningún usuario en la BD
+    if (
+        login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente") == NULL &&
+        login($email, $passwordLogin, $sqlClientes, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor") == NULL &&
+        login($email, $passwordLogin, $sqlClientes, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
+    ) {
+        echo '<script>alert("Usuario o contraseña incorrectos")</script>';
+        echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+    }
 } catch (Exception $e) {
     die("Error: " . $e->getMessage());
 }
-
 
 // Función que permite loguear dependiendo el tipo de usuario
 function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipoCliente)
@@ -92,6 +113,8 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
 
         // Redireccionamos a la página clientes
         header($location);
+    } else {
+        //echo "hola";
     }
 }
 
