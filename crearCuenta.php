@@ -134,7 +134,7 @@
                             <input type="password" id="confirmarPassword" name="confirmarPassword" placeholder="Confirma tu contraseña" required />
                         </div>
 
-                        <input type="submit" value="Crear Cuenta" class="boton">
+                        <input type="submit" value="Crear Cuenta" class="boton" name="submit">
 
                     </form>
 
