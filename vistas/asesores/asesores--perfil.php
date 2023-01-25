@@ -62,12 +62,16 @@
     $(".cerrar_sesion").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
-            url: "main_content/cerrarSesion.php",
+            url: "../../funciones/cerrarSesion.php",
             success: function(details) {
                 $("#details").html(details);
             }
         })
     })
+
+    
+
+
 </script>
 
 </html>

@@ -23,18 +23,23 @@
 
     <div class="contenedor">
 
+        <!-- Menu vertical -->
         <?php require('../../layout/layout_clientes/nav_clientes--citas.php') ?>
 
+        <!-- Sección principal -->
         <div class="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
 
+            <!-- Barra de dirección -->
             <div class="ruta">
-                <a href="clientes.php">
-                    <h2>Inicio</h2>
-                </a>
+                <a href="clientes.php"><h2>Inicio</h2></a>
+                <h2>/ Citas</h2>
             </div>
+
+            <!-- Sección que se recargará con la función ajax -->
+            <div class="details" id="details"></div>
 
         </div>
 

@@ -23,6 +23,7 @@
 
     <div class="contenedor">
 
+        <!-- Menu vertical -->
         <?php require('../../layout/layout_clientes/nav_clientes--asesores.php') ?>
 
         <div class="main">
@@ -30,15 +31,19 @@
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
 
-            <div class="ruta">
-                <a href="clientes.php">
-                    <h2>Inicio</h2>
-                </a>
-            </div>
+            <!-- Barra de dirección -->
+            <span class="ruta">
+                <a href="clientes.php"><h2>Inicio</h2></a>
+                <h2>/ Asesores</h2>
+            </span>
+
+            <!-- Sección que se recargará con la función ajax -->
+            <div class="details" id="details"></div>
 
         </div>
 
     </div>
+
 </body>
 
 </html>

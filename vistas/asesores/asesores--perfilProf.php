@@ -52,6 +52,7 @@
     $(".agregar_educación").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
+            // Insertamos en #details el contenido de main_content/agregarEducacion.php
             url: "main_content/agregarEducacion.php",
             success: function(details) {
                 $("#details").html(details);

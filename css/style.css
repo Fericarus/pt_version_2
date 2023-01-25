@@ -205,7 +205,7 @@ body {
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
-  background: var(--white);
+  background: #FEFEFE;
   transition: 0.5s;
 }
 
@@ -293,6 +293,13 @@ body {
   align-items: center;
 }
 
+.details {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .details_index figure {
   display: flex;
   justify-content: center;
@@ -315,6 +322,18 @@ body {
   margin: 5rem 0 5rem 0;
 }
 
+.main__container--table {
+  display: flex;
+  justify-content: center;
+  width: 90rem;
+  min-width: 65rem;
+  max-width: 120rem;
+  /*height: 35rem;*/
+  position: absolute;
+  z-index: 10;
+  margin: 5rem 0 5rem 0;
+}
+
 .formulario {
   display: flex;
   flex-direction: column;
@@ -327,6 +346,39 @@ body {
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
 }
 
+/*********************************** Tabla **********************************************/
+.formulario table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #fff;
+  margin-bottom: 2rem;
+}
+
+table tr:last-child {
+  border-bottom: none;
+}
+
+table tr {
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 991px) {
   .main__container--form {
     width: 100%;
@@ -337,10 +389,21 @@ body {
   }
 }
 
+.main__container--title {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
 .main__container--title h1,
 .main__container--title p {
   display: flex;
   justify-content: center;
+}
+
+.title_table h1,
+.title_table p {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .campo__container {
@@ -395,7 +458,7 @@ body {
 
 .boton {
   width: 15rem;
-  margin: 1rem auto 1rem auto;
+  margin: 1rem 0 1rem auto;
   display: flex;
   height: 3.8rem;
   background-color: var(--azul);
@@ -421,4 +484,13 @@ body {
 .boton:active {
   transition: 0.2s;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
+}
+
+tbody tr td {
+  font-size: 1.2rem;
+}
+
+
+tbody tr td:last-child .boton{
+  margin: 1rem -2rem 1rem 1rem;
 }

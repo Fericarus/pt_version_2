@@ -29,43 +29,51 @@ $sqlAdministradores = "SELECT * FROM administradores WHERE email = :email AND pa
 try {
 
     // Consulta a la tabla Clientes
-    login(
-        $email,
-        $passwordLogin,
-        $sqlClientes,
-        $dbh,
-        "id_cliente",
-        "location:../vistas/clientes/clientes.php",
-        "cliente"
-    );
+    login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente");
 
     // Consulta a la tabla Asesores
-    login(
-        $email,
-        $passwordLogin,
-        $sqlAsesores,
-        $dbh,
-        "id_asesor",
-        "location:../vistas/asesores/asesores.php",
-        "asesor"
-    );
+    login($email, $passwordLogin, $sqlAsesores, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor");
 
     // Consulta a la tabla Administradores
-    login(
-        $email,
-        $passwordLogin,
-        $sqlAsesores,
-        $dbh,
-        "id_administrador",
-        "location:../vistas/administradores/administradores.php",
-        "administrador"
-    );
+    login($email, $passwordLogin, $sqlAdministradores, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador");
 
-    // Si no se encontró ningún usuario en la BD
+    // Realizamos el login según el tipo de usuario
     if (
-        login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente") == NULL &&
-        login($email, $passwordLogin, $sqlClientes, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor") == NULL &&
-        login($email, $passwordLogin, $sqlClientes, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
+        // Login clientes
+        login(
+            $email,
+            $passwordLogin,
+            $sqlClientes,
+            $dbh,
+            "id_cliente",
+            "location:../vistas/clientes/clientes.php",
+            "cliente"
+        )
+        == NULL &&
+
+        // Login asesores
+        login(
+            $email,
+            $passwordLogin,
+            $sqlClientes,
+            $dbh,
+            "id_asesor",
+            "location:../vistas/asesores/asesores.php",
+            "asesor"
+        )
+        == NULL &&
+
+        // Login administradores
+        login(
+            $email,
+            $passwordLogin,
+            $sqlClientes,
+            $dbh,
+            "id_administrador",
+            "location:../vistas/administradores/administradores.php",
+            "administrador"
+        )
+        == NULL
     ) {
         echo '<script>alert("Usuario o contraseña incorrectos")</script>';
         echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
@@ -73,6 +81,10 @@ try {
 } catch (Exception $e) {
     die("Error: " . $e->getMessage());
 }
+
+
+
+
 
 // Función que permite loguear dependiendo el tipo de usuario
 function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipoCliente)
@@ -102,6 +114,39 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         // Creamos una sesión para el usuario
         session_start();
 
+        if($tipoCliente == 'cliente') {
+            $_SESSION["id"] = $datos["id_cliente"];
+            $_SESSION["nombre"] = $datos["nombre"];
+            $_SESSION["apellido_paterno"] = $datos["apellido_paterno"];
+            $_SESSION["apellido_materno"] = $datos["apellido_materno"];
+            $_SESSION["email"] = $datos["email"];
+            $_SESSION["telefono"] = $datos["telefono"];
+            $_SESSION["id_alcaldia"] = $datos["id_alcaldia1"];
+            $_SESSION["id_colonia"] = $datos["id_colonia1"];
+            $_SESSION["id_giro"] = $datos["id_giro1"];
+            $_SESSION["tipoUsuario"] = $tipoCliente;
+        }
+
+        if($tipoCliente == 'asesor') {
+            $_SESSION["id"] = $datos["id_asesor"];
+            $_SESSION["nombre"] = $datos["nombre"];
+            $_SESSION["apellido_paterno"] = $datos["apellido_paternoA"];
+            $_SESSION["apellido_materno"] = $datos["apellido_maternoA"];
+            $_SESSION["email"] = $datos["email"];
+            $_SESSION["telefono"] = $datos["telefono"];
+            $_SESSION["tipoUsuario"] = $tipoCliente;
+        }
+
+        if($tipoCliente == 'administrador') {
+            $_SESSION["id"] = $datos["id_administrador"];
+            $_SESSION["nombre"] = $datos["nombre"];
+            $_SESSION["apellido_paterno"] = $datos["apellido_paternoAd"];
+            $_SESSION["apellido_materno"] = $datos["apellido_maternoAd"];
+            $_SESSION["email"] = $datos["email"];
+            $_SESSION["tipoUsuario"] = $tipoCliente;
+        }
+
+        /*
         // Almacenamos en variables de sesión la información de los resultados
         $_SESSION["id_cliente"] = $datos["id_cliente"];
         $_SESSION["nombre"] = $datos["nombre"];
@@ -110,6 +155,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["email"] = $datos["email"];
         $_SESSION["telefono"] = $datos["telefono"];
         $_SESSION["tipoUsuario"] = $tipoCliente;
+        */
 
         // Redireccionamos a la página clientes
         header($location);
