@@ -34,7 +34,9 @@
 
             <!-- Barra de dirección -->
             <span class="ruta">
-                <a href="clientes.php"><h2>Inicio</h2></a>
+                <a href="clientes.php">
+                    <h2>Inicio</h2>
+                </a>
                 <h2>/ Mi perfil</h2>
             </span>
 
@@ -46,7 +48,20 @@
     </div>
 </body>
 
+<!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
+    // Mostrar cuenta
+    $(".mostrar_cuenta").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            url: "main_content/mostrarCuenta.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+
+    // Cerrar sesión
     $(".cerrar_sesion").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({

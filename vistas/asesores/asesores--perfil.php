@@ -49,6 +49,7 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
+    // Mostrar cuenta
     $(".mostrar_cuenta").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
@@ -59,6 +60,7 @@
         })
     })
 
+    // cerrar sesión
     $(".cerrar_sesion").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({

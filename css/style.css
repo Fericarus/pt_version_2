@@ -205,7 +205,7 @@ body {
   width: calc(100% - 300px);
   left: 300px;
   min-height: 100vh;
-  background: #FEFEFE;
+  background: #fefefe;
   transition: 0.5s;
 }
 
@@ -368,24 +368,13 @@ table tr {
   font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 991px) {
   .main__container--form {
     width: 100%;
   }
 
   .formulario {
-    box-shadow: 0 0 0 0 ;
+    box-shadow: 0 0 0 0;
   }
 }
 
@@ -457,22 +446,22 @@ table tr {
 }
 
 .boton {
-  width: 15rem;
   margin: 1rem 0 1rem auto;
   display: flex;
   height: 3.8rem;
+  width: 12rem;
+  font-size: 1.2rem;
   background-color: var(--azul);
   color: var(--blanco);
   border: 0;
   border-radius: 0.5rem;
-  font-size: 1.4rem;
   cursor: pointer;
   text-decoration: none;
   justify-content: center;
   align-items: center;
-  font-size: 1.35rem;
   font-weight: bold;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  text-align: center;
 }
 
 .boton:hover {
@@ -486,11 +475,63 @@ table tr {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
 }
 
+.boton-editar {
+  background-color: var(--verde);
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  width: 10rem;
+}
+
+.boton-editar:hover {
+  background-color: var(--blanco);
+  color: var(--verde);
+  transition: 0.2s;
+}
+
+.boton-editar:active {
+  transition: 0.2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
+}
+
+.boton-contrasena {
+  background-color: #6b0dff;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  width: 10rem;
+  text-align: center;
+}
+
+.boton-contrasena:hover {
+  background-color: var(--blanco);
+  color: #490cee;
+  transition: 0.2s;
+}
+
+.boton-contrasena:active {
+  transition: 0.2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
+}
+
+.boton-eliminar {
+  background-color: #dd0016;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  width: 10rem;
+}
+
+.boton-eliminar:hover {
+  background-color: var(--blanco);
+  color: #dd0016;
+  transition: 0.2s;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+}
+
+.boton-eliminar:active {
+  transition: 0.2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
+}
+
 tbody tr td {
   font-size: 1.2rem;
 }
 
-
-tbody tr td:last-child .boton{
+tbody tr td:last-child .boton {
   margin: 1rem -2rem 1rem 1rem;
 }

@@ -2,7 +2,7 @@
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 // Si no hay nada en la variable de sesión usuario
-if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
+if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     header("location: ../../login.php");
 }
 ?>
@@ -15,7 +15,6 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             <h1>Mostrar cuenta</h1>
             <p>Datos del usuario</p>
         </div>
-
 
         <table>
             <thead>
@@ -38,15 +37,15 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                     include "../../../includes/config/database.php";
 
                     // Preparamos la sentencia
-                    $stmt = $dbh->prepare('SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"]);
+                    $stmt = $dbh->prepare('SELECT * FROM clientes WHERE id_cliente = ' . $_SESSION["id"]);
 
                     // Ejecutamos la sentencia
                     $stmt->execute();
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         echo "<td>" . $row['nombre'] . "</td>";
-                        echo "<td>" . $row['apellido_paternoA'] . "</td>";
-                        echo "<td>" . $row['apellido_maternoA'] . "</td>";
+                        echo "<td>" . $row['apellido_paterno'] . "</td>";
+                        echo "<td>" . $row['apellido_materno'] . "</td>";
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['telefono'] . "</td>";
                     }

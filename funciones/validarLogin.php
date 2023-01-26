@@ -40,40 +40,13 @@ try {
     // Realizamos el login según el tipo de usuario
     if (
         // Login clientes
-        login(
-            $email,
-            $passwordLogin,
-            $sqlClientes,
-            $dbh,
-            "id_cliente",
-            "location:../vistas/clientes/clientes.php",
-            "cliente"
-        )
-        == NULL &&
-
+        login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente") == NULL
+        &&
         // Login asesores
-        login(
-            $email,
-            $passwordLogin,
-            $sqlClientes,
-            $dbh,
-            "id_asesor",
-            "location:../vistas/asesores/asesores.php",
-            "asesor"
-        )
-        == NULL &&
-
+        login($email, $passwordLogin, $sqlClientes, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor") == NULL
+        &&
         // Login administradores
-        login(
-            $email,
-            $passwordLogin,
-            $sqlClientes,
-            $dbh,
-            "id_administrador",
-            "location:../vistas/administradores/administradores.php",
-            "administrador"
-        )
-        == NULL
+        login($email, $passwordLogin, $sqlClientes, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
     ) {
         echo '<script>alert("Usuario o contraseña incorrectos")</script>';
         echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
@@ -114,7 +87,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         // Creamos una sesión para el usuario
         session_start();
 
-        if($tipoCliente == 'cliente') {
+        if ($tipoCliente == 'cliente') {
             $_SESSION["id"] = $datos["id_cliente"];
             $_SESSION["nombre"] = $datos["nombre"];
             $_SESSION["apellido_paterno"] = $datos["apellido_paterno"];
@@ -127,7 +100,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
             $_SESSION["tipoUsuario"] = $tipoCliente;
         }
 
-        if($tipoCliente == 'asesor') {
+        if ($tipoCliente == 'asesor') {
             $_SESSION["id"] = $datos["id_asesor"];
             $_SESSION["nombre"] = $datos["nombre"];
             $_SESSION["apellido_paterno"] = $datos["apellido_paternoA"];
@@ -137,7 +110,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
             $_SESSION["tipoUsuario"] = $tipoCliente;
         }
 
-        if($tipoCliente == 'administrador') {
+        if ($tipoCliente == 'administrador') {
             $_SESSION["id"] = $datos["id_administrador"];
             $_SESSION["nombre"] = $datos["nombre"];
             $_SESSION["apellido_paterno"] = $datos["apellido_paternoAd"];
