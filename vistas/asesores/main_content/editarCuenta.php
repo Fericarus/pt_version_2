@@ -51,8 +51,11 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             // Incluimos la conexión a la base de datos
             include "../../../includes/config/database.php";
 
+            // Sentencia sql
+            $sql = "SELECT * FROM asesores WHERE id_asesor = " . $_SESSION['id'];
+
             // Preparamos la sentencia
-            $stmt = $dbh->prepare('SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"]);
+            $stmt = $dbh->prepare($sql);
 
             // Ejecutamos la sentencia
             $stmt->execute();
@@ -74,8 +77,11 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             // Incluimos la conexión a la base de datos
             include "../../../includes/config/database.php";
 
+            // Sentencia sql
+            $sql = 'SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"];
+
             // Preparamos la sentencia
-            $stmt = $dbh->prepare('SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"]);
+            $stmt = $dbh->prepare($sql);
 
             // Ejecutamos la sentencia
             $stmt->execute();
@@ -95,8 +101,11 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             // Incluimos la conexión a la base de datos
             include "../../../includes/config/database.php";
 
+            // Sentencia sql
+            $sql = 'SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"];
+
             // Preparamos la sentencia
-            $stmt = $dbh->prepare('SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"]);
+            $stmt = $dbh->prepare($sql);
 
             // Ejecutamos la sentencia
             $stmt->execute();
@@ -116,8 +125,11 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             // Incluimos la conexión a la base de datos
             include "../../../includes/config/database.php";
 
+            // Sentencia sql
+            $sql = 'SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"];
+
             // Preparamos la sentencia
-            $stmt = $dbh->prepare('SELECT * FROM asesores WHERE id_asesor = ' . $_SESSION["id"]);
+            $stmt = $dbh->prepare($sql);
 
             // Ejecutamos la sentencia
             $stmt->execute();
@@ -130,7 +142,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
         </div>
 
         <!-- Botón para actuañizar datos -->
-        <input type="submit" value="Actualizar datos" class="boton" name="submit">
+        <input type="submit" value="Actualizar datos" class="boton" name="submitAsesores">
 
     </form>
 

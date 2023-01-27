@@ -1,6 +1,6 @@
 <?php
 
-// Función para validar el campo nombre. Redirige en caso de error
+// Función para validar el campo nombre. Redirige a href en caso de error
 function validarNombre($nombre, $href)
 {
     if (empty($nombre)) {
@@ -16,7 +16,7 @@ function validarNombre($nombre, $href)
     }
 }
 
-// Función para validar el campo apellido paterno. Redirige en caso de error
+// Función para validar el campo apellido paterno. Redirige a href en caso de error
 function validarApellidoPaterno($apellido_paterno, $href)
 {
     if (empty($apellido_paterno)) {
@@ -32,7 +32,7 @@ function validarApellidoPaterno($apellido_paterno, $href)
     }
 }
 
-// Función para validar el campo apellido paterno. Redirige en caso de error
+// Función para validar el campo apellido paterno. Redirige a href en caso de error
 function validarApellidoMaterno($apellido_materno, $href)
 {
     if (empty($apellido_materno)) {
@@ -48,7 +48,7 @@ function validarApellidoMaterno($apellido_materno, $href)
     }
 }
 
-// Función para validar el campo Email. Redirige en caso de error
+// Función para validar el campo Email. Redirige a href en caso de error
 function validarEmail($email, $href)
 {
     if (empty($email)) {
@@ -64,7 +64,7 @@ function validarEmail($email, $href)
     }
 }
 
-// Función para validar el campo Teléfono. Redirige en caso de error
+// Función para validar el campo Teléfono. Redirige a href en caso de error
 function validarTelefono($telefono, $href)
 {
     if (empty($telefono)) {
@@ -72,7 +72,7 @@ function validarTelefono($telefono, $href)
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
     } else if (!preg_match("/^\d{10}$/", $telefono)) {
-        echo "<script>alert('Solo se permiten números en el teléfono.')</script>";
+        echo "<script>alert('Solo se permiten números en el teléfono y mínimo deben ser 10 dígitos.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
     } else {
@@ -80,7 +80,7 @@ function validarTelefono($telefono, $href)
     }
 }
 
-// Función para validar el campo Password. Redirige en caso de error
+// Función para validar el campo Password. Redirige en a href caso de error
 function validarPassword($password, $href)
 {
     if (empty($password)) {
@@ -97,7 +97,7 @@ function validarPassword($password, $href)
     }
 }
 
-// Función para comparar password. Redirige en caso de error
+// Función para comparar password. Redirige en caso a href de error
 function compararPasword($password1, $password2, $href)
 {
     if ($password1 != $password2) {
