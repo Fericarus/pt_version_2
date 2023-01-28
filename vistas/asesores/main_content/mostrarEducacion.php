@@ -61,7 +61,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 <script>
 
     let id_asesorEducacion = document.getElementById('id_asesorEducacion');
-    let id_educacion = JSON.parse(document.getElementById('id_educacion'));
+    let id_educacion = document.getElementById('id_educacion');
 
     console.log(id_educacion.value);
 
