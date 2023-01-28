@@ -530,8 +530,13 @@ table tr {
 
 tbody tr td {
   font-size: 1.2rem;
+  max-width: 22rem;
 }
 
 tbody tr td:last-child .boton {
   margin: 1rem -2rem 1rem 1rem;
+}
+
+.hidden {
+  display: none;
 }

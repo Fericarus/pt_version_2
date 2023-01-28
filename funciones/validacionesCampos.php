@@ -104,8 +104,22 @@ function compararPasword($password1, $password2, $href)
         echo "<script>alert('Los password deben coincidir')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
+    } else {
+        return true;
     }
-    else {
+}
+
+function soloLetras($campo, $href)
+{
+    if (empty($campo)) {
+        echo "<script>alert('El título es requerido.')</script>";
+        echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
+        return false;
+    } else if (!preg_match("/^[a-zA-Z áéíóúÁÉÍÓÚñÑ]*$/", $campo)) {
+        echo "<script>alert('Solo se permiten letras y espacios en el título.')</script>";
+        echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
+        return false;
+    } else {
         return true;
     }
 }

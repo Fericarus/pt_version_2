@@ -10,9 +10,9 @@
 
     <div class="usuario">
         <p>
-                <?php
-                echo "Bienvenido <strong>" . $_SESSION["nombre"] . "</strong>";
-                ?>
+            <?php
+            echo "Bienvenido <strong>" . $_SESSION["nombre"] . "</strong>";
+            ?>
         </p>
     </div>
 

@@ -1,0 +1,1 @@
+<h1>Eliminar Educacion</h1>

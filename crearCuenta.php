@@ -33,42 +33,43 @@
 
                     <form class="formulario" action="funciones/crearCuenta.php" method="POST">
 
+                        <!-- Titulo -->
                         <div class="main__container--title">
                             <h1>Cliente nuevo</h1>
                             <p>Llena el siguiente formulario para crear una cuenta</p>
                         </div>
 
-                        <!-- Nombre -->
+                        <!-- Campo Nombre -->
                         <div class="campo">
                             <label for="nombre">Nombre<span>*</span></label>
                             <input type="text" id="nombre" name="nombre" placeholder="Juán" required />
                         </div>
 
-                        <!-- Paterno -->
+                        <!-- Campo apellido paterno -->                 
                         <div class="campo">
                             <label for="nombre">Paterno<span>*</span></label>
                             <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="González" required />
                         </div>
 
-                        <!-- Materno -->
+                        <!-- Campo apellido materno -->
                         <div class="campo">
                             <label for="nombre">Materno<span>*</span></label>
                             <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Martínez" required />
                         </div>
 
-                        <!-- Email -->
+                        <!-- Campo Email -->
                         <div class="campo">
                             <label for="nombre">Correo<span>*</span></label>
                             <input type="email" id="email" name="email" placeholder="usuario@empresa.com" required />
                         </div>
 
-                        <!-- Telefono -->
+                        <!-- Campo Telefono -->
                         <div class="campo">
                             <label for="nombre">Teléfono<span>*</span></label>
                             <input type="number" id="telefono" name="telefono" placeholder="55 1234 1234" required />
                         </div>
 
-                        <!-- Alcaldía -->
+                        <!-- Campo Alcaldía -->
                         <div class="campo">
                             <label for="nombre">Alcaldía</label>
                             <select name="id_alcaldia1" id="id_alcaldia1">

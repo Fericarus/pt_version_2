@@ -119,18 +119,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
             $_SESSION["tipoUsuario"] = $tipoCliente;
         }
 
-        /*
-        // Almacenamos en variables de sesión la información de los resultados
-        $_SESSION["id_cliente"] = $datos["id_cliente"];
-        $_SESSION["nombre"] = $datos["nombre"];
-        $_SESSION["apellido_paterno"] = $datos["apellido_paterno"];
-        $_SESSION["apellido_materno"] = $datos["apellido_materno"];
-        $_SESSION["email"] = $datos["email"];
-        $_SESSION["telefono"] = $datos["telefono"];
-        $_SESSION["tipoUsuario"] = $tipoCliente;
-        */
-
-        // Redireccionamos a la página clientes
+        // Redireccionamos a la página 
         header($location);
     } else {
         //echo "hola";

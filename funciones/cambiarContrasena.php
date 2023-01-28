@@ -6,10 +6,6 @@ include "../includes/config/database.php";
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 
-
-
-
-
 // Cambiar contraseña Asesor
 if ($_SESSION["tipoUsuario"] == "asesor") {
     $redirect = '<script type="text/javascript" >window.location.href="../vistas/asesores/asesores.php";</script>';
@@ -21,10 +17,6 @@ if ($_SESSION["tipoUsuario"] == "cliente") {
     $redirect = '<script type="text/javascript" >window.location.href="../vistas/clientes/clientes.php";</script>';
     cambiarContrasena($dbh, "cliente", "clientes", "id_cliente", $redirect);
 }
-
-
-
-
 
 // Función para cambiar contraseñas de diferentes tipos de usuarios
 function cambiarContrasena($dbh, $tipoUsuario, $tabla, $idTipoUsuario, $redirect)

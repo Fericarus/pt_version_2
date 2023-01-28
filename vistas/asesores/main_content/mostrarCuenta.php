@@ -59,6 +59,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                     <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena">Cambiar contraseña</a></td>
 
                 </tr>
+
             </tbody>
 
         </table>
