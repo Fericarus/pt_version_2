@@ -9,7 +9,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
 ?>
 
-<div class="main__container--table">
+<div class="main__container--table title_table">
 
     <form class="formulario" action="../../funciones/agregarCertificacion.php" method="GET">
 

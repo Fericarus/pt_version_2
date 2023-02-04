@@ -15,7 +15,7 @@
 
         <?php require('./layout/nav_index.php') ?>
 
-        <div class="main">
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('./layout/topbar_index.php') ?>
