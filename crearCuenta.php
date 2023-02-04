@@ -31,7 +31,7 @@
 
                 <div class="main__container--form">
 
-                    <form class="formulario" action="funciones/crearCuenta.php" method="POST">
+                    <form class="formulario" action="funciones/crearCuenta.php" method="POST" onsubmit="return validateForm()">
 
                         <!-- Titulo -->
                         <div class="main__container--title">
@@ -42,31 +42,32 @@
                         <!-- Campo Nombre -->
                         <div class="campo">
                             <label for="nombre">Nombre<span>*</span></label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Juán" required />
+                            <input type="text" id="nombre" name="nombre" placeholder="Juán" oninput="validateForm()" />
+                            <span id="errorMessage" style="display: none;"></span>
                         </div>
 
-                        <!-- Campo apellido paterno -->                 
+                        <!-- Campo apellido paterno -->
                         <div class="campo">
                             <label for="nombre">Paterno<span>*</span></label>
-                            <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="González" required />
+                            <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="González" />
                         </div>
 
                         <!-- Campo apellido materno -->
                         <div class="campo">
                             <label for="nombre">Materno<span>*</span></label>
-                            <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Martínez" required />
+                            <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Martínez" />
                         </div>
 
                         <!-- Campo Email -->
                         <div class="campo">
                             <label for="nombre">Correo<span>*</span></label>
-                            <input type="email" id="email" name="email" placeholder="usuario@empresa.com" required />
+                            <input type="email" id="email" name="email" placeholder="usuario@empresa.com" />
                         </div>
 
                         <!-- Campo Telefono -->
                         <div class="campo">
                             <label for="nombre">Teléfono<span>*</span></label>
-                            <input type="number" id="telefono" name="telefono" placeholder="55 1234 1234" required />
+                            <input type="number" id="telefono" name="telefono" placeholder="55 1234 1234" />
                         </div>
 
                         <!-- Campo Alcaldía -->
@@ -126,13 +127,13 @@
                         <!-- Password -->
                         <div class="campo">
                             <label for="nombre">Contraseña<span>*</span></label>
-                            <input type="password" id="password" name="password" placeholder="Tu contraseña" required />
+                            <input type="password" id="password" name="password" placeholder="Tu contraseña" />
                         </div>
 
                         <!-- Confirmar Password -->
                         <div class="campo">
                             <label for="nombre">Confirmación<span>*</span></label>
-                            <input type="password" id="confirmarPassword" name="confirmarPassword" placeholder="Confirma tu contraseña" required />
+                            <input type="password" id="confirmarPassword" name="confirmarPassword" placeholder="Confirma tu contraseña" />
                         </div>
 
                         <input type="submit" value="Crear Cuenta" class="boton" name="submit">
@@ -166,6 +167,30 @@
             });
         });
     });
+
+    function validateForm() {
+        var nombre = document.getElementById("nombre").value;
+        var errorMessage = document.getElementById("errorMessage");
+        var emailPattern = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+
+        // Validamos si está vació
+        if (nombre === "") {
+            errorMessage.innerHTML = "El campo no puede estar vacío";
+            errorMessage.style.display = "block";
+        }
+
+        // Validamos contra la expresión regular
+        else if (!emailPattern.test(nombre)) {
+            errorMessage.innerHTML = "Solo se permiten letras y espacios en el nombre."
+            errorMessage.style.color = "red";
+            errorMessage.style.display = "block";
+            return false;
+        } else {
+            errorMessage.innerHTML = "";
+            errorMessage.style.display = "none";
+            return true;
+        }
+    }
 </script>
 
 </html>

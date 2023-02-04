@@ -1,7 +1,7 @@
 <div class="navegacion">
     <ul>
         <li>
-            <a href="index.php" class="contenedor__logo">
+            <a href="index.php" class="contenedor__logo" >
                 <div class="logo">
                     <h1>kreativika</h1>
                     <div class="puntoAzul"></div>
