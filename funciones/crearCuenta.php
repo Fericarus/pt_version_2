@@ -6,6 +6,9 @@ include "../includes/config/database.php";
 // Incluimos las funciones almacenadas en validacionesCampos.php
 include "./validacionesCampos.php";
 
+// Mandamos llamar la libreria de sweetalert2
+include "./scripts.php";
+
 if (isset($_POST['submit'])) {
 
     // Capturamos la información de los formularios. Depuramos los datos con htmlentities y addslashes
@@ -68,15 +71,49 @@ if (isset($_POST['submit'])) {
 
                                         // Ejecutamos la sentencia
                                         if ($stmt->execute()) {
-                                            echo '<script>alert("Registro exitoso")</script>';
-                                            echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+                                            echo "
+                                                <script>
+                                                    Swal.fire({
+                                                        'Good job!',
+                                                        '¡Registro exitoso!',
+                                                        'success'
+                                                    }) .then(function() {
+                                                        window.location.href='../index.php'
+                                                    });
+                                                </script>
+                                            ";
+                                            // echo '<script>alert("Registro exitoso")</script>';
+                                            // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
                                         } else {
-                                            echo '<script>alert("Ups, algo salió mal")</script>';
-                                            echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+                                            echo "
+                                            <script>
+                                                Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Ups...',
+                                                    text: 'Algo salió mal'
+                                                }) .then(function() {
+                                                    window.location.href='../index.php'
+                                                });
+                                            </script>
+                                            ";
+
+                                            // echo '<script>alert("Ups, algo salió mal")</>';
+                                            // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
                                         }
                                     } else {
-                                        echo '<script>alert("Parece ser que ese correo ya se encuentra registrado.")</script>';
-                                        echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+                                        echo "
+                                            <script>
+                                                Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Ups...',
+                                                    text: 'Parece ser que ese correo ya se encuentra registrado.'
+                                                }) .then(function() {
+                                                    window.location.href='../index.php'
+                                                });
+                                            </script>
+                                            ";
+                                        // echo '<script>alert("Parece ser que ese correo ya se encuentra registrado.")</script>';
+                                        // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
                                     }
                                 }
                             }
@@ -87,55 +124,5 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    // ---------------------------- Validación de formularios ------------------------------------------ //
-    // Validar nombre
-    /*
-    if (!preg_match("/^[a-zA-Z ]*$/", $nombre)) {
-        echo '<script>alert("Solo se permiten letras y espacios en el nombre.")</script>';
-        echo '<script type="text/javascript" >window.location.href="../crearCuenta.php";</script>';
-    }
-
-    // Validar apellido paterno
-    if (!preg_match("/^[a-zA-Z ]*$/", $apellido_paterno)) {
-        echo '<script>alert("Solo se permiten letras y espacios en el apellido paterno.")</script>';
-        echo '<script type="text/javascript" >window.location.href="../crearCuenta.php";</script>';
-    }
-
-    // Validar apellido materno
-    if (!preg_match("/^[a-zA-Z ]*$/", $apellido_materno)) {
-        echo '<script>alert("Solo se permiten letras y espacios en el apellido materno.")</script>';
-        echo '<script type="text/javascript" >window.location.href="../crearCuenta.php";</script>';
-    }
-
-    // Validar email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo '<script>alert("Ingrese un correo electrónico válido.")</script>';
-        echo '<script type="text/javascript" >window.location.href="../crearCuenta.php";</script>';
-    }
-
-    // Validar contraseña
-    if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $password)) {
-        echo '<script>alert("La contraseña debe tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial (@$!%*#?&).")</script>';
-        echo '<script type="text/javascript" >window.location.href="../crearCuenta.php";</script>';
-    }
-
-    // Validar contraseña
-    if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $confirmarPassword)) {
-        echo '<script>alert("La contraseña debe tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial (@$!%*#?&).")</script>';
-        echo '<script type="text/javascript" >window.location.href="../crearCuenta.php";</script>';
-    }
     
-
-    // Validar password
-    if ($password != $confirmarPassword) {
-        echo '<script>alert("Los password deben coincidir")</script>';
-        echo '<script type="text/javascript" >window.location.href="../crearCuenta.php";</script>';
-    }
-
-    // Hash al password
-    //$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    */
 }
-
-?>

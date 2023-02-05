@@ -3,6 +3,9 @@
 // Incluimos la conexión a la BD
 include "../includes/config/database.php";
 
+// Mandamos llamar la libreria de sweetalert2
+include "./scripts.php";
+
 // Capturamos la información de los formularios en las variables $email y $passwordLogin
 // La función htmlentities convierte todos los caracteres aplicables a entidades HTML
 // La función addslashes — Escapa un string con barras invertidas
@@ -48,16 +51,26 @@ try {
         // Login administradores
         login($email, $passwordLogin, $sqlClientes, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
     ) {
-        echo '<script>alert("Usuario o contraseña incorrectos")</script>';
-        echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+
+        // Mensaje de error
+        echo "
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ups...',
+                    text: 'Usuario o contraseña incorrectos'
+                }) .then(function() {
+                    window.location.href='../index.php'
+                });
+            </script>
+            ";
+
+        // echo '<script>alert("Usuario o contraseña incorrectos")</script>';
+        // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
     }
 } catch (Exception $e) {
     die("Error: " . $e->getMessage());
 }
-
-
-
-
 
 // Función que permite loguear dependiendo el tipo de usuario
 function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipoCliente)
@@ -86,72 +99,6 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
 
         // Creamos una sesión para el usuario
         session_start();
-
-        /*
-        // Establecer el tiempo de vida de la sesión a 30 minutos
-        $lifetime = 30 * 60;
-        session_set_cookie_params($lifetime);
-
-
-        // Revisar si ha pasado más de 30 minutos desde la última acción del usuario
-        if (time() - $_SESSION['last_activity'] > $lifetime) {
-            // Destruir la sesión y redirigir al usuario a la página de inicio de sesión
-            session_destroy();
-            header("Location: ../index.php");
-            exit;
-        }
-        
-
-
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
-
-            header("Location:../login.php");
-        }
-        // Asigna el tiempo actual a la variable de sesión 'LAST_ACTIVITY'
-        $_SESSION['LAST_ACTIVITY'] = time();
-
-        $duration = 5;
-
-        //Read the request time of the user
-
-        $time = $_SERVER['REQUEST_TIME'];
-
-        //Check the user's session exist or not
-
-        if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $duration) {
-
-            //Unset the session variables
-            session_unset();
-
-            //Destroy the session
-            session_destroy();
-
-            //Start another new session
-            session_start();
-        }
-
-        $_SESSION['LAST_ACTIVITY'] = $time;
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         if ($tipoCliente == 'cliente') {
             $_SESSION["id"] = $datos["id_cliente"];
