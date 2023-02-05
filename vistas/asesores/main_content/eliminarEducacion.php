@@ -65,9 +65,6 @@ $id_asesorEducacion = $_GET['id_asesorEducacion'];
 
 </div>
 
-</div>
-
-
 <script>
     // Botón Eliminar
     function eliminar($i) {

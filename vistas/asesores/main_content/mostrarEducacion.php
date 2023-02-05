@@ -11,7 +11,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
 <div class="main__container--table title_table">
 
-    <form class="formulario" action="../../funciones/agregarEducacion.php" method="GET">
+    <form class="formulario">
 
         <!-- Título del formulario -->
         <div class="main__container--title">
