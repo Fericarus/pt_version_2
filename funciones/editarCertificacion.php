@@ -9,6 +9,9 @@ include "../includes/config/database.php";
 // Incluimos las funciones almacenadas en validacionesCampos.php
 include "./validacionesCampos.php";
 
+// Mandamos llamar la libreria de sweetalert2
+include "./mensajesSweetAlert.php";
+
 // Capturamos la información de los formularios y depuramos los datos con htmlentities y addslashes
 $entidad_certificadora = htmlentities(addslashes($_POST["entidad_certificadora"]));
 $certificado = htmlentities(addslashes($_POST["certificado"]));
@@ -39,29 +42,13 @@ if (soloLetras($entidad_certificadora, "../vistas/asesores/asesores.php")) {
 
         // Ejecutamos la sentencia y Mensaje de éxito / Ups, falló algo
         if ($stmt2->execute() && $stmt->execute()) {
-            echo '<script>alert("¡Cambios guardados con éxito!")</script>';
-            $dbh = null;
-            echo '<script type="text/javascript">window.location.href="../vistas/asesores/asesores.php";</script>';
+            mensajeGoodJob("¡Cambios guardados con éxito!", "../vistas/asesores/asesores.php");
+            // echo '<script>alert("¡Cambios guardados con éxito!")</script>';
+            // $dbh = null;
+            // echo '<script type="text/javascript">window.location.href="../vistas/asesores/asesores.php";</script>';
         } else {
-            echo '<script>alert("Ups, falló algo!")</script>';
-
-            echo "<pre>";
-            var_dump($stmt->execute());
-            echo "</pre>";
-
-            echo "<pre>";
-            var_dump($stmt2->execute());
-            echo "</pre>";
-
-            echo "<pre>";
-             echo $id_asesorCertificacion;
-            echo "</pre>";
-
-            
-
-
-
-            //echo '<script type="text/javascript">window.location.href="../vistas/asesores/asesores.php";</script>';
+            mensajeError("Ups, falló algo!", "../vistas/asesores/asesores.php");
+            // echo '<script>alert("Ups, falló algo!")</script>';
         }
     }
 }

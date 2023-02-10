@@ -24,7 +24,6 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                 <td class="title">Institución educativa</td>
                 <td class="title">Título obtenido</td>
                 <td class="title"></td>
-                <td class="title"></td>
             </tr>
 
             <?php

@@ -14,7 +14,7 @@ $id_asesorEducacion = $_GET['id_asesorEducacion'];
 
 <div class="main__container--table title_table">
 
-    <form class='formulario'>";
+    <form class='formulario' action="../../funciones/eliminarEducacion.php" method="POST">";
 
         <!-- Título del formulario -->
         <div class="main__container--title">
@@ -22,7 +22,7 @@ $id_asesorEducacion = $_GET['id_asesorEducacion'];
             <p>¿Realmente desea eliminar los siguientes datos?</p>
         </div>
 
-        <table>
+        <table class="tableEliminar">
 
             <!-- Cabeceras de la tabla -->
             <tr>
@@ -45,16 +45,13 @@ $id_asesorEducacion = $_GET['id_asesorEducacion'];
             // Ejecutamos la sentencia
             $stmt->execute();
 
-            $n = 1;
-
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 echo "<td>" . $row['institucion'] . "</td>";
                 echo "<td>" . $row['titulo'] . "</td>";
-                echo "<input class='hidden' id='id_asesorEducacion" . $n . "' value='" . $row['id_asesorEducacion'] . "'></input>";
-                echo "<td><a onclick='eliminar(" . $n . ")'class='boton boton-eliminar' href='javascript:void(0)' code-val='+val.codigo+'>Eliminar</a></td>";
+                echo "<input class='hidden' name='id_asesorEducacion' id='id_asesorEducacion' value='" . $row['id_asesorEducacion'] . "'></input>";
+                echo "<td><input type='submit' value='Eliminar' class='boton boton-eliminar'></td>";
                 echo "</tr>";
-                $n++;
             }
 
             ?>
@@ -65,6 +62,7 @@ $id_asesorEducacion = $_GET['id_asesorEducacion'];
 
 </div>
 
+<!--
 <script>
     // Botón Eliminar
     function eliminar($i) {
@@ -80,4 +78,5 @@ $id_asesorEducacion = $_GET['id_asesorEducacion'];
         })
 
     }
+-->
 </script>

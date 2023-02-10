@@ -18,19 +18,17 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
 
         <table>
-            <thead>
+
+            <tbody class="tableCuenta">
+
                 <tr>
                     <td class="title">Nombre</td>
                     <td class="title">Apellido paterno</td>
-                    <td class="title">Apellido materno</td>
-                    <td class="title">Email</td>
+                    <td class="title child3">Apellido materno</td>
+                    <td class="title child4">Email</td>
                     <td class="title">Teléfono</td>
-                    <td class="title"></td>
-                    <td class="title"></td>
                 </tr>
-            </thead>
 
-            <tbody>
                 <tr>
 
                     <?php
@@ -46,17 +44,11 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         echo "<td>" . $row['nombre'] . "</td>";
                         echo "<td>" . $row['apellido_paternoA'] . "</td>";
-                        echo "<td>" . $row['apellido_maternoA'] . "</td>";
-                        echo "<td>" . $row['email'] . "</td>";
+                        echo "<td class='child3'>" . $row['apellido_maternoA'] . "</td>";
+                        echo "<td class='child4'>" . $row['email'] . "</td>";
                         echo "<td>" . $row['telefono'] . "</td>";
                     }
                     ?>
-
-                    <!-- Boton Editar -->
-                    <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-editar">Editar</a></td>
-
-                    <!-- Boton Cambiar contraseña -->
-                    <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena">Cambiar contraseña</a></td>
 
                 </tr>
 
@@ -64,11 +56,18 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
         </table>
 
+        <div class="contenedorBotones">
+            <!-- Boton Editar -->
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-editar">Editar</a>
+
+            <!-- Boton Cambiar contraseña -->
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena">Cambiar contraseña</a>
+        </div>
+
     </div>
 
 </div>
 
-</div>
 
 <script>
     // Boton Editar

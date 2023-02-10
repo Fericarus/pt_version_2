@@ -367,7 +367,7 @@ table tr {
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
@@ -396,6 +396,10 @@ table tr {
 .title_table p {
   display: flex;
   justify-content: flex-start;
+}
+
+.title_table p {
+  font-size: 1.2rem;
 }
 
 .campo__container {
@@ -531,16 +535,55 @@ table tr {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
 }
 
+tbody tr {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid #555;
+  padding: 0;
+}
+
+tbody tr td:first-child {
+  margin-right: .6rem;
+}
+
 tbody tr td {
-  font-size: 1.2rem;
-  max-width: 22rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  height: 5.7rem;
+}
+
+tbody tr td:nth-child(3),
+tbody tr td:nth-child(4) {
+  display: flex;
+  justify-content: flex-end;
 }
 
 tbody tr td:last-child .boton {
-  margin: 1rem -2rem 1rem 1rem;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
 .hidden {
   display: none;
 }
 
+.tableCuenta tr {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.tableEliminar tr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.child3,
+.child4 {
+  display: flex;
+  justify-content: flex-start !important; 
+}
+
+.contenedorBotones {
+  display: flex;
+  gap: 4rem;
+}

@@ -7,7 +7,7 @@ include "../includes/config/database.php";
 include "./validacionesCampos.php";
 
 // Mandamos llamar la libreria de sweetalert2
-include "./scripts.php";
+include "./mensajesSweetAlert.php";
 
 if (isset($_POST['submit'])) {
 
@@ -71,49 +71,12 @@ if (isset($_POST['submit'])) {
 
                                         // Ejecutamos la sentencia
                                         if ($stmt->execute()) {
-                                            echo "
-                                                <script>
-                                                    Swal.fire({
-                                                        'Good job!',
-                                                        '¡Registro exitoso!',
-                                                        'success'
-                                                    }) .then(function() {
-                                                        window.location.href='../index.php'
-                                                    });
-                                                </script>
-                                            ";
-                                            // echo '<script>alert("Registro exitoso")</script>';
-                                            // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+                                            mensajeGoodJob("¡Registro exitoso!", "../index.php");
                                         } else {
-                                            echo "
-                                            <script>
-                                                Swal.fire({
-                                                    icon: 'error',
-                                                    title: 'Ups...',
-                                                    text: 'Algo salió mal'
-                                                }) .then(function() {
-                                                    window.location.href='../index.php'
-                                                });
-                                            </script>
-                                            ";
-
-                                            // echo '<script>alert("Ups, algo salió mal")</>';
-                                            // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+                                            mensajeError("Algo salió mal", "../index.php");
                                         }
                                     } else {
-                                        echo "
-                                            <script>
-                                                Swal.fire({
-                                                    icon: 'error',
-                                                    title: 'Ups...',
-                                                    text: 'Parece ser que ese correo ya se encuentra registrado.'
-                                                }) .then(function() {
-                                                    window.location.href='../index.php'
-                                                });
-                                            </script>
-                                            ";
-                                        // echo '<script>alert("Parece ser que ese correo ya se encuentra registrado.")</script>';
-                                        // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
+                                        mensajeError("Parece ser que ese correo ya se encuentra registrado.", "../index.php");
                                     }
                                 }
                             }
@@ -123,6 +86,4 @@ if (isset($_POST['submit'])) {
             }
         }
     }
-
-    
 }

@@ -19,11 +19,10 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             <p>Servicios que proporciona el asesor:</p>
         </div>
 
-        <table>
+        <table class="tableEliminar">
             <tr>
                 <td class="title">Servicio</td>
                 <td class="title">Descripción del servicio</td>
-                <td class="title"></td>
                 <td class="title"></td>
             </tr>
 

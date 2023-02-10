@@ -1,9 +1,16 @@
+
+
 <?php
+
+use JetBrains\PhpStorm\Language;
+
+header('Content-Type: text/html; charset=UTF-8 lang=es');
+
 
 // Función para validar el campo nombre. Redirige a href en caso de error
 function validarNombre($nombre, $href)
 {
-    if (empty($nombre)) {
+    if (empty(trim($nombre))) {
         echo "<script>alert('El campo nombre es requerido.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
@@ -19,7 +26,7 @@ function validarNombre($nombre, $href)
 // Función para validar el campo apellido paterno. Redirige a href en caso de error
 function validarApellidoPaterno($apellido_paterno, $href)
 {
-    if (empty($apellido_paterno)) {
+    if (empty(trim($apellido_paterno))) {
         echo "<script>alert('El campo Apellido paterno es requerido.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
@@ -35,7 +42,7 @@ function validarApellidoPaterno($apellido_paterno, $href)
 // Función para validar el campo apellido paterno. Redirige a href en caso de error
 function validarApellidoMaterno($apellido_materno, $href)
 {
-    if (empty($apellido_materno)) {
+    if (empty(trim($apellido_materno))) {
         echo "<script>alert('El campo Apellido Materno es requerido.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
@@ -51,7 +58,7 @@ function validarApellidoMaterno($apellido_materno, $href)
 // Función para validar el campo Email. Redirige a href en caso de error
 function validarEmail($email, $href)
 {
-    if (empty($email)) {
+    if (empty(trim($email))) {
         echo "<script>alert('El correo electrónico es requerido.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
@@ -67,7 +74,7 @@ function validarEmail($email, $href)
 // Función para validar el campo Teléfono. Redirige a href en caso de error
 function validarTelefono($telefono, $href)
 {
-    if (empty($telefono)) {
+    if (empty(trim($telefono))) {
         echo "<script>alert('El telefono es requerido.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
@@ -83,7 +90,7 @@ function validarTelefono($telefono, $href)
 // Función para validar el campo Password. Redirige en a href caso de error
 function validarPassword($password, $href)
 {
-    if (empty($password)) {
+    if (empty(trim($password))) {
         echo "<script>alert('La contraseña es requerida.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
@@ -111,15 +118,21 @@ function compararPasword($password1, $password2, $href)
 
 function soloLetras($campo, $href)
 {
-    if (empty($campo)) {
-        echo "<script>alert('El título es requerido.')</script>";
+    if (empty(trim($campo))) {
+        echo "<script>alert('No puedes dejar espacios en blanco')</script>";
+        echo "<script type='text/javascript'>window.location.href='" . $href . "';</script>";
+        return false;
+    } else if(!preg_match("/^[A-Za-zÁÉÍÓÚéóúÑñ\s]+$/", $campo)) {
+        echo "<script>alert('El campo contiene caracteres no permitidos')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
-    } else if (!preg_match("/^[a-zA-Z áéíóúÁÉÍÓÚñÑ]*$/", $campo)) {
-        echo "<script>alert('Solo se permiten letras y espacios en el título.')</script>";
-        echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
-        return false;
+        // '/^[a-z][a-z0-9_#*$]{3,}/i'
     } else {
         return true;
     }
 }
+
+?>
+
+
+</html>

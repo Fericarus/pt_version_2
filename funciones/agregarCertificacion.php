@@ -6,6 +6,9 @@ include "../includes/config/database.php";
 // Incluimos las funciones almacenadas en validacionesCampos.php
 include "./validacionesCampos.php";
 
+// Mandamos llamar la libreria de sweetalert2
+include "./mensajesSweetAlert.php";
+
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 
@@ -45,12 +48,9 @@ if (soloLetras($entidad_certificadora, "../vistas/asesores/asesores.php")) {
 
         // Mensaje de éxito
         if ($stmt2->execute()) {
-            echo '<script>alert("¡Cambios guardados con éxito!")</script>';
-            echo '<script type="text/javascript">window.location.href="../vistas/asesores/asesores.php";</script>';
-            $dbh = null;
+            mensajeGoodJob("¡Cambios guardados con éxito!", "../vistas/asesores/asesores.php");
         } else {
-            echo "<script>alert('Ups, falló algo')</script>";
-            echo "<script type='text/javascript'>window.location.href='../vistas/asesores/asesores.php';</script>";
+            mensajeError("Ups, falló algo", "../vistas/asesores/asesores.php");
         }
     }
 }

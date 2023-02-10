@@ -6,6 +6,9 @@ include "../includes/config/database.php";
 // Incluimos las funciones almacenadas en validacionesCampos.php
 include "./validacionesCampos.php";
 
+// Mandamos llamar la libreria de sweetalert2
+include "./mensajesSweetAlert.php";
+
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 
@@ -69,12 +72,14 @@ function editarCuenta($dbh, $redirect, $tabla, $paterno, $materno, $idTipo) {
 
                         // Ejecutamos la sentencia
                         if ($stmt->execute()) {
-                            echo "<script>alert('¡Cambios guardados con éxito!')</script>";
-                            $dbh = null;
-                            echo "<script type='text/javascript'>window.location.href='" . $redirect . "';</script>";
+                            mensajeGoodJob('¡Cambios guardados con éxito!', $redirect);
+                            // echo "<script>alert('¡Cambios guardados con éxito!')</script>";
+                            // $dbh = null;
+                            // echo "<script type='text/javascript'>window.location.href='" . $redirect . "';</script>";
                         } else {
-                            echo "<script>alert('Ups, falló algo')</script>";
-                            echo "<script type='text/javascript'>window.location.href='" . $redirect . "';</script>";
+                            mensajeError('Ups, falló algo', $redirect);
+                            // echo "<script>alert('Ups, falló algo')</script>";
+                            // echo "<script type='text/javascript'>window.location.href='" . $redirect . "';</script>";
                         }
                     }
                 }

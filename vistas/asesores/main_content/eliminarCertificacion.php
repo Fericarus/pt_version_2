@@ -14,7 +14,7 @@ $id_asesorCertificacion = $_GET['id_asesorCertificacion'];
 
 <div class="main__container--table title_table">
 
-    <form class='formulario'>";
+    <form class='formulario' action="../../funciones/eliminarCertificacion.php" method="POST">
 
         <!-- Título del formulario -->
         <div class="main__container--title">
@@ -22,7 +22,7 @@ $id_asesorCertificacion = $_GET['id_asesorCertificacion'];
             <p>¿Realmente desea eliminar los siguientes datos?</p>
         </div>
 
-        <table>
+        <table class="tableEliminar">
 
             <!-- Cabeceras de la tabla -->
             <tr>
@@ -45,17 +45,14 @@ $id_asesorCertificacion = $_GET['id_asesorCertificacion'];
             // Ejecutamos la sentencia
             $stmt->execute();
 
-            $n = 1;
-
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 echo "<td>" . $row['entidad_certificadora'] . "</td>";
                 echo "<td>" . $row['certificado'] . "</td>";
-                echo "<input class='hidden' id='id_asesorCertificacion" . $n . "' value='" . $row['id_asesorCertificacion'] . "'></input>";
-                echo "<input class='hidden' id='id_certificacion" . $n . "' value='" . $row['id_certificacion'] . "'></input>";
-                echo "<td><a onclick='eliminar(" . $n . ")'class='boton boton-eliminar' href='javascript:void(0)' code-val='+val.codigo+'>Eliminar</a></td>";
+                echo "<input class='hidden' name='id_asesorCertificacion' value='" . $row['id_asesorCertificacion'] . "'></input>";
+                echo "<input class='hidden' name='id_certificacion' value='" . $row['id_certificacion'] . "'></input>";
+                echo "<td><input type='submit' value='Eliminar' class='boton boton-eliminar'></td>";
                 echo "</tr>";
-                $n++;
             }
 
             ?>
@@ -68,7 +65,7 @@ $id_asesorCertificacion = $_GET['id_asesorCertificacion'];
 
 </div>
 
-
+<!--
 <script>
     // Botón Eliminar
     function eliminar($i) {
@@ -86,3 +83,4 @@ $id_asesorCertificacion = $_GET['id_asesorCertificacion'];
 
     }
 </script>
+-->
