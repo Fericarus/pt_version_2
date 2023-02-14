@@ -13,8 +13,8 @@ include "./mensajesSweetAlert.php";
 session_start();
 
 // Capturamos la información de los formularios y depuramos los datos con htmlentities y addslashes
-$entidad_certificadora = htmlentities(addslashes($_POST["entidad_certificadora"]));
-$certificacion = htmlentities(addslashes($_POST["certificacion"]));
+$entidad_certificadora = $_POST["entidad_certificadora"];
+$certificacion = $_POST["certificacion"];
 
 // ---------------------------- Validación de formularios ------------------------------------------ //
 // Si todas las validaciones pasan, actualizamos los datos en la BD

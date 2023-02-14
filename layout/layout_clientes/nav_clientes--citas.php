@@ -13,13 +13,13 @@
             </a>
         </li>
         <li>
-            <a href="#">
+        <a href="javascript:void(0)" code-val="+val.codigo+" class="agendar_cita">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Agendar cita</span>
             </a>
         </li>
         <li>
-            <a href="#">
+        <a href="javascript:void(0)" code-val="+val.codigo+" class="mostrar_cita">
                 <span class="icono"><i class="fa-solid fa-briefcase"></i></span>
                 <span class="titulo">Mostrar citas</span>
             </a>

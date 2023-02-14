@@ -13,6 +13,7 @@ include "./mensajesSweetAlert.php";
 session_start();
 
 
+
 // Si mandamos llamar desde un perfil de Asesor
 if (isset($_POST['submitAsesores'])) {
 
@@ -42,11 +43,11 @@ if (isset($_POST['submitClientes'])) {
 function editarCuenta($dbh, $redirect, $tabla, $paterno, $materno, $idTipo) {
 
     // Capturamos la información de los formularios y depuramos los datos con htmlentities y addslashes
-    $nombre = htmlentities(addslashes($_POST["nombre"]));
-    $apellido_paterno = htmlentities(addslashes($_POST["apellido_paterno"]));
-    $apellido_materno = htmlentities(addslashes($_POST["apellido_materno"]));
-    $email = htmlentities(addslashes($_POST["email"]));
-    $telefono = htmlentities(addslashes($_POST["telefono"]));
+    $nombre = $_POST["nombre"];
+    $apellido_paterno = $_POST["apellido_paterno"];
+    $apellido_materno = $_POST["apellido_materno"];
+    $email = $_POST["email"];
+    $telefono = $_POST["telefono"];
 
     // ---------------------------- Validación de formularios ------------------------------------------ //
 

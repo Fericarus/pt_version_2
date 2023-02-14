@@ -47,3 +47,28 @@
 </body>
 
 </html>
+
+<!-- script para recargar una sección de la página sin renderizar todo el html -->
+<script>
+    // Mostrar cuenta
+    $(".agendar_cita").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            url: "main_content/agendarCita1.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+
+    // Cerrar sesión
+    $(".mostrar_cita").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            url: "main_content/mostrarCita.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+</script>

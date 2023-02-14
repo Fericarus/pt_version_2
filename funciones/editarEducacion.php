@@ -1,8 +1,5 @@
 <?php
 
-// Reanudamos sesión en caso de que se haya iniciado antes
-session_start();
-
 // Incluimos la conexión a la BD
 include "../includes/config/database.php";
 
@@ -12,13 +9,16 @@ include "./validacionesCampos.php";
 // Mandamos llamar la libreria de sweetalert2
 include "./mensajesSweetAlert.php";
 
-// Capturamos la información de los formularios y depuramos los datos con htmlentities y addslashes
-$institucion = htmlentities(addslashes($_POST["institucion"]));
-$titulo = htmlentities(addslashes($_POST["titulo"]));
-$id_asesorEducacion = htmlentities(addslashes($_POST["id_asesorEducacion"]));
+// Reanudamos sesión en caso de que se haya iniciado antes
+session_start();
+
+
+// Capturamos la información de los formularios
+$institucion = $_POST["institucion"];
+$titulo = $_POST["titulo"];
+$id_asesorEducacion = $_POST["id_asesorEducacion"];
 
 // Validación de formularios
-
 if (soloLetras($titulo, "../vistas/asesores/asesores.php")) {
 
     // Sentencia sql
@@ -42,4 +42,6 @@ if (soloLetras($titulo, "../vistas/asesores/asesores.php")) {
         // echo '<script>alert("Ups, falló algo")</script>';
         // echo '<script type="text/javascript">window.location.href="../asesores/asesores.php";</script>';
     }
+} else {
+    echo "no jalo";
 }

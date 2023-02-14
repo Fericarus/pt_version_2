@@ -16,20 +16,18 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             <p>Datos del usuario</p>
         </div>
 
-        <table>
-            <thead>
+        <table class="table-5-col">
+
+            <tbody>
+
                 <tr>
                     <td class="title">Nombre</td>
                     <td class="title">Apellido paterno</td>
                     <td class="title">Apellido materno</td>
                     <td class="title">Email</td>
                     <td class="title">Teléfono</td>
-                    <td class="title"></td>
-                    <td class="title"></td>
                 </tr>
-            </thead>
 
-            <tbody>
                 <tr>
 
                     <?php
@@ -51,16 +49,23 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
                     }
                     ?>
 
-                    <!-- Boton Editar -->
-                    <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-editar">Editar</a></td>
-
-                    <!-- Boton Cambiar contraseña -->
-                    <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena">Cambiar contraseña</a></td>
-
                 </tr>
+
             </tbody>
 
         </table>
+
+        <div class="contenedorBotones">
+
+            <!-- Boton Editar -->
+            <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-editar">Editar</a></td>
+
+            <!-- Boton Cambiar contraseña -->
+            <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena">Cambiar contraseña</a></td>
+
+        </div>
+
+
 
     </div>
 

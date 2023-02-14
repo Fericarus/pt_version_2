@@ -9,8 +9,8 @@ include "./scripts.php";
 // Capturamos la información de los formularios en las variables $email y $passwordLogin
 // La función htmlentities convierte todos los caracteres aplicables a entidades HTML
 // La función addslashes — Escapa un string con barras invertidas
-$email = htmlentities(addslashes($_POST["email"]));
-$passwordLogin = htmlentities(addslashes($_POST["passwordLogin"]));
+$email = $_POST["email"];
+$passwordLogin = $_POST["passwordLogin"];
 
 // Validar email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

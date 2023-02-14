@@ -9,19 +9,23 @@ include "./validacionesCampos.php";
 // Mandamos llamar la libreria de sweetalert2
 include "./mensajesSweetAlert.php";
 
+// Reanudamos sesión en caso de que se haya iniciado antes
+session_start();
+
+
 if (isset($_POST['submit'])) {
 
     // Capturamos la información de los formularios. Depuramos los datos con htmlentities y addslashes
-    $nombre = htmlentities(addslashes($_POST["nombre"]));
-    $apellido_paterno  = htmlentities(addslashes($_POST["apellido_paterno"]));
-    $apellido_materno = htmlentities(addslashes($_POST["apellido_materno"]));
-    $email = htmlentities(addslashes($_POST["email"]));
-    $telefono = htmlentities(addslashes($_POST["telefono"]));
-    $id_alcaldia1 = htmlentities(addslashes($_POST["id_alcaldia1"]));
-    $id_colonia1 = htmlentities(addslashes($_POST["id_colonia1"]));
-    $id_giro1 = htmlentities(addslashes($_POST["id_giro1"]));
-    $password = htmlentities(addslashes($_POST["password"]));
-    $confirmarPassword = htmlentities(addslashes($_POST["confirmarPassword"]));
+    $nombre = $_POST["nombre"];
+    $apellido_paterno = $_POST["apellido_paterno"];
+    $apellido_materno = $_POST["apellido_materno"];
+    $email = $_POST["email"];
+    $telefono = $_POST["telefono"];
+    $id_alcaldia1 = $_POST["id_alcaldia1"];
+    $id_colonia1 = $_POST["id_colonia1"];
+    $id_giro1 = $_POST["id_giro1"];
+    $password = $_POST["password"];
+    $confirmarPassword = $_POST["confirmarPassword"];
 
     // Si todas las validaciones pasan, actualizamos los datos en la BD
     if (validarNombre($nombre, "../crearCuenta.php")) {

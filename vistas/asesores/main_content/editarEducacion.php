@@ -74,7 +74,7 @@ $id_educacion = $_GET['id_educacion'];
 
             // Mostramos los resultados de la consulta en un input
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' class='campo' name='titulo' value='" . $row['titulo'] . "'/>";
+                echo "<input onkeyup='validadescripcion2(this.value)' type='text' class='campo' name='titulo' value='" . $row['titulo'] . "'/>";
             }
 
             ?>
@@ -88,3 +88,14 @@ $id_educacion = $_GET['id_educacion'];
     </form>
 
 </div>
+
+<script>
+    function validadescripcion2(valor) {
+        if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(valor)) {
+            console.log("ERROR");
+        }
+        else {
+            console.log("SUCCESS");
+        }
+    }
+</script>

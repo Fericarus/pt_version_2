@@ -1,15 +1,9 @@
-
-
 <?php
 
-use JetBrains\PhpStorm\Language;
-
-header('Content-Type: text/html; charset=UTF-8 lang=es');
-
-
 // Función para validar el campo nombre. Redirige a href en caso de error
-function validarNombre($nombre, $href)
+function validarNombre($nombre, $href) 
 {
+    
     if (empty(trim($nombre))) {
         echo "<script>alert('El campo nombre es requerido.')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
@@ -95,7 +89,7 @@ function validarPassword($password, $href)
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
     }
-    if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $password)) {
+    if (!preg_match("/^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $password)) {
         echo "<script>alert('La contraseña debe tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial (@$!%*#?&).')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
@@ -118,18 +112,19 @@ function compararPasword($password1, $password2, $href)
 
 function soloLetras($campo, $href)
 {
-    if (empty(trim($campo))) {
+
+     if (empty($campo)) {
         echo "<script>alert('No puedes dejar espacios en blanco')</script>";
         echo "<script type='text/javascript'>window.location.href='" . $href . "';</script>";
         return false;
-    } else if(!preg_match("/^[A-Za-zÁÉÍÓÚéóúÑñ\s]+$/", $campo)) {
+    } else if(!preg_match("/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/", $campo)) {
         echo "<script>alert('El campo contiene caracteres no permitidos')</script>";
         echo "<script type='text/javascript' >window.location.href='" . $href . "';</script>";
         return false;
-        // '/^[a-z][a-z0-9_#*$]{3,}/i'
     } else {
         return true;
     }
+    
 }
 
 ?>

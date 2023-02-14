@@ -392,6 +392,13 @@ table tr {
   justify-content: center;
 }
 
+.title__agendarCita {
+  height: calc(100% - 50vh);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .title_table h1,
 .title_table p {
   display: flex;
@@ -402,10 +409,15 @@ table tr {
   font-size: 1.2rem;
 }
 
+.fecha__container {
+  width: 90%;
+}
+
 .campo__container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-top: 1rem;
 }
 
 .campo {
@@ -480,6 +492,10 @@ table tr {
 .boton:active {
   transition: 0.2s;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
+}
+
+.boton-confirmar {
+  margin: 0;
 }
 
 .boton-editar {
@@ -577,6 +593,17 @@ tbody tr td:last-child .boton {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.table-5-col tr {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.table-5-col tr td:nth-child(3),
+.table-5-col tr td:nth-child(4) {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .child3,
 .child4 {
   display: flex;
@@ -586,4 +613,72 @@ tbody tr td:last-child .boton {
 .contenedorBotones {
   display: flex;
   gap: 4rem;
+}
+
+/*********************************** Card ***********************************/
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+.confirmar_cita {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 50%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  transition-duration: 300ms;
+  font-size: 1.6rem;
+  background-color: var(--black1);
+  color: var(--blanco);
+}
+
+.card2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  font-size: 1.6rem;
+  background-color: var(--black1);
+  color: var(--blanco);
+  height: 20rem;
+  margin: 2rem auto;
+}
+
+.card2 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.06);
+}
+
+.contenedorBotones2 {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.contenedorBotones2 a {
+  margin: 0;
 }
