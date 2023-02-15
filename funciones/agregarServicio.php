@@ -28,11 +28,6 @@ $stmt->bindParam(2, $_SESSION["id"]);
 // Ejecutamos la sentencia
 if ($stmt->execute()) {
     mensajeGoodJob('¡Cambios guardados con éxito!', '../vistas/asesores/asesores.php');
-    // echo "<script>alert('¡Cambios guardados con éxito!')</script>";
-    // $dbh = null;
-    // echo "<script type='text/javascript'>window.location.href='../vistas/asesores/asesores.php';</script>";
 } else {
     mensajeError('Ups, falló algo', '../vistas/asesores/asesores.php');
-    // echo "<script>alert('Ups, falló algo')</script>";
-    // echo "<script type='text/javascript'>window.location.href='../vistas/asesores/asesores.php';</script>";
 }

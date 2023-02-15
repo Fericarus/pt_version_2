@@ -36,14 +36,5 @@ if ($stmt->execute()) {
     // echo "Código de error SQLSTATE: " . $stmt->errorInfo()[0] . "<br>";
     // echo "Código de error específico de la base de datos: " . $stmt->errorInfo()[1] . "<br>";
     // echo "Descripción del error: " . $stmt->errorInfo()[2];
-    // echo "<pre>";
-    // var_dump($stmt->execute());
-    // echo "</pre>";
     mensajeError("Ups, falló algo", "../vistas/clientes/clientes.php");
 }
-
-// INSERT INTO citas(id_asesor1, id_cliente1, fecha, hora) VALUES ('1','6','2023-02-22','01:28')
-
-// echo "<pre>";
-// var_dump($stmt = $dbh->prepare($sql));
-// echo "</pre>";

@@ -34,13 +34,8 @@ if (soloLetras($titulo, "../vistas/asesores/asesores.php")) {
     // Ejecutamos la sentencia y Mensaje de éxito / Ups, falló algo
     if ($stmt->execute()) {
         mensajeGoodJob("¡Cambios guardados con éxito!", "../vistas/asesores/asesores.php");
-        // echo '<script>alert("¡Cambios guardados con éxito!")</script>';
-        // $dbh = null;
-        // echo '<script type="text/javascript">window.location.href="../asesores/asesores.php";</script>';
     } else {
         mensajeError("Ups, algo falló", "../vistas/asesores/asesores.php");
-        // echo '<script>alert("Ups, falló algo")</script>';
-        // echo '<script type="text/javascript">window.location.href="../asesores/asesores.php";</script>';
     }
 } else {
     echo "no jalo";

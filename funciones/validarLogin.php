@@ -7,8 +7,6 @@ include "../includes/config/database.php";
 include "./scripts.php";
 
 // Capturamos la información de los formularios en las variables $email y $passwordLogin
-// La función htmlentities convierte todos los caracteres aplicables a entidades HTML
-// La función addslashes — Escapa un string con barras invertidas
 $email = $_POST["email"];
 $passwordLogin = $_POST["passwordLogin"];
 
@@ -65,8 +63,6 @@ try {
             </script>
             ";
 
-        // echo '<script>alert("Usuario o contraseña incorrectos")</script>';
-        // echo '<script type="text/javascript" >window.location.href="../index.php";</script>';
     }
 } catch (Exception $e) {
     die("Error: " . $e->getMessage());

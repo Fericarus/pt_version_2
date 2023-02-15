@@ -49,10 +49,10 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
-    $(".consultar_citas").click(function() {
+    $(".mostrar_citas").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
-            url: "main_content/consultarCitas.php",
+            url: "main_content/mostrarCitas.php",
             success: function(details) {
                 $("#details").html(details);
             }

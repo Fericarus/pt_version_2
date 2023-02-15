@@ -15,5 +15,3 @@ session_start();
 session_destroy();
 
 mensajeGoodJob("Sesión cerrada correctamente", "../../login.php");
-// echo '<script>alert("Sesión cerrada correctamente")</script>';
-// echo '<script type="text/javascript" >window.location.href="../../login.php";</script>';

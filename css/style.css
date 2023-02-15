@@ -349,6 +349,15 @@ body {
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
 }
 
+.formulario div {
+  width: 100%;
+}
+
+.formulario div:last-child {
+  display: flex;
+  justify-content: center;
+}
+
 /*********************************** Tabla **********************************************/
 .formulario table {
   width: 100%;
@@ -554,7 +563,7 @@ table tr {
 tbody tr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #999;
   padding: 0;
 }
 
@@ -575,9 +584,6 @@ tbody tr td:nth-child(4) {
   justify-content: flex-end;
 }
 
-tbody tr td:last-child .boton {
-  margin: 1rem 1rem 1rem 1rem;
-}
 
 .hidden {
   display: none;
@@ -593,13 +599,36 @@ tbody tr td:last-child .boton {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.table-4-col tr {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
 .table-5-col tr {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 }
 
+.table-7-col tr {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.table-7-col tr:not(:first-child):hover {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.table-7-col tr td:nth-child(3),
+.table-7-col tr td:nth-child(4),
 .table-5-col tr td:nth-child(3),
-.table-5-col tr td:nth-child(4) {
+.table-5-col tr td:nth-child(4),
+.table-4-col tr td:nth-child(3),
+.table-4-col tr td:nth-child(4) {
   display: flex;
   justify-content: flex-start;
 }

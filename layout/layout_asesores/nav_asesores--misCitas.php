@@ -13,9 +13,9 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0)" code-val="+val.codigo+" class="consultar_citas">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="mostrar_citas">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Consultar mis citas</span>
+                <span class="titulo">Mostrar mis citas</span>
             </a>
         </li>
     </ul>
