@@ -184,6 +184,9 @@
         if (nombre === "") {
             errorMessageNombre.innerHTML = "El campo no puede estar vacío";
             errorMessageNombre.style.display = "block";
+            errorMessageNombre.style.color = "red";
+            errorMessageNombre.style.marginRight = "-152px";
+            errorMessageNombre.style.marginLeft = "34px";
         }
 
         // Validamos contra la expresión regular
