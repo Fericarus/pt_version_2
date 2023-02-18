@@ -327,7 +327,9 @@ body {
 
 .main__container--table {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
   width: 90rem;
   min-width: 65rem;
   max-width: 120rem;
@@ -406,6 +408,7 @@ table tr {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  color: #394147;
 }
 
 .title_table h1,
@@ -669,25 +672,32 @@ tbody tr td:nth-child(4) {
   border-radius: 1rem;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
   transition-duration: 300ms;
-  font-size: 1.6rem;
-  background-color: var(--black1);
-  color: var(--blanco);
+  font-size: 1.5rem;
+  background-color: #fff;
+  color: #7d858b;
+}
+
+.cardNombre,
+.cardEmail,
+.cardTelefono,
+.cardFecha,
+.cardHora {
+  color: #394147;
 }
 
 .card2 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
-  font-size: 1.6rem;
-  background-color: var(--black1);
-  color: var(--blanco);
-  height: 20rem;
-  margin: 2rem auto;
+  transition-duration: 300ms;
+  font-size: 1.4rem;
+  background-color: #fff;
+  color: #7d858b;
 }
 
 .card2 form {
@@ -698,7 +708,17 @@ tbody tr td:nth-child(4) {
 }
 
 .card:hover {
-  transform: scale(1.06);
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.card:hover span {
+  color: var(--blanco);
+}
+
+.card:active {
+  transition: 0.2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
 }
 
 .contenedorBotones2 {
@@ -710,4 +730,9 @@ tbody tr td:nth-child(4) {
 
 .contenedorBotones2 a {
   margin: 0;
+}
+
+/********************************** MENSAJES **************************************/
+.msjError {
+  color: red;
 }

@@ -38,20 +38,26 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
             echo "<div class='card' onclick='agregarAsesor(" . $row['id_asesor'] . ")'>";
-            echo "<div>";
-            echo "<span>Nombre: </span>";
-            echo "<span class='cardNombre'><strong>" . $row['nombre'] . " </strong></span>";
-            echo "<span class='cardPaterno'><strong>" . $row['apellido_paternoA'] . " </strong></span>";
-            echo "<span class='cardMaterno'><strong>" . $row['apellido_maternoA'] . " </strong></span>";
-            echo "</div>";
-            echo "<div>";
-            echo "<span>Email: </span>";
-            echo "<span class='cardEmail'><strong>" . $row['email'] . " </strong></span>";
-            echo "</div>";
-            echo "<div>";
-            echo "<span>Teléfono: </span>";
-            echo "<span class='cardTelefono'><strong>" . $row['telefono'] . " </strong></span>";
-            echo "</div>";
+                echo "<div>";
+                    echo "<p>Nombre: </p>";
+                    echo "<div class='card-data'>";
+                        echo "<span class='cardNombre'><strong>" . $row['nombre'] ." </strong></span>";
+                        echo "<span class='cardNombre'><strong>" . $row['apellido_paternoA'] ." </strong></span>";
+                        echo "<span class='cardNombre'><strong>" . $row['apellido_maternoA'] ." </strong></span>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "<div>";
+                    echo "<span>Email: </span>";
+                    echo "<div class='card-data'>";
+                    echo "<span class='cardEmail'><strong>" . $row['email'] . " </strong></span>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "<div>";
+                    echo "<span>Teléfono: </span>";
+                    echo "<div class='card-data'>";
+                    echo "<span class='cardTelefono'><strong>" . $row['telefono'] . " </strong></span>";
+                    echo "</div>";
+                echo "</div>";
             echo "</div>";
         }
         ?>
