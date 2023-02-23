@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="mostrar_citas">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Mostrar citas</span>
             </a>

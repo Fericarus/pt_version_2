@@ -13,13 +13,13 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="agregar_asesor">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Agregar asesor</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="mostrar_asesores">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Mostrar asesores</span>
             </a>

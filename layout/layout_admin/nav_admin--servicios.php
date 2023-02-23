@@ -13,13 +13,13 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="crear_servicio">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Crear servicio</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="mostrar_servicios">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Mostrar servicios</span>
             </a>

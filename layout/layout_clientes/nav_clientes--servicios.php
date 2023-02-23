@@ -1,4 +1,4 @@
-<div class="navegacion">
+<div class="navegacion" id="navegacion">
     <ul>
         <li>
             <a href="index.php" class="contenedor__logo">
@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+        <a href="javascript:void(0)" code-val="+val.codigo+" class="mostrar_servicios">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Mostrar servicios</span>
             </a>

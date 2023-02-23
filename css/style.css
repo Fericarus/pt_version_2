@@ -602,10 +602,18 @@ tbody tr td:nth-child(4) {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.table-2-col tr {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
 .table-4-col tr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  padding-left: 1rem;
 }
 
 .table-5-col tr {
@@ -624,6 +632,16 @@ tbody tr td:nth-child(4) {
 .tableMostrarClientes tr {
   display: grid;
   grid-template-columns: 3rem 19rem 1fr 8rem repeat(3, 1fr);
+}
+
+.tableMostrarAsesores tr {
+  display: grid;
+  grid-template-columns: 5rem 20rem 20rem 15rem;
+}
+
+.tableMostrarServicios tr {
+  display: grid;
+  grid-template-columns: 10rem 65rem;
 }
 
 /* .table-7-col tr:not(:first-child):hover {

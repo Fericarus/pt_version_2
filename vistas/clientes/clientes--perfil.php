@@ -27,7 +27,7 @@
         <?php require('../../layout/layout_clientes/nav_clientes--perfil.php') ?>
 
         <!-- Sección principal -->
-        <div class="main">
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>

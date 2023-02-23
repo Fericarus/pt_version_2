@@ -13,31 +13,25 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="agregar_dias_de_descanso">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Agregar día hábil</span>
+                <span class="titulo">Agregar días de descanso</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="mostrar_dias_de_descanso">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Mostrar días hábiles</span>
+                <span class="titulo">Mostrar días de descanso</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="definir_horarios_laborables">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Agregar horarios hábiles</span>
+                <span class="titulo">Horarios laborables</span>
             </a>
         </li>
         <li>
-            <a href="#">
-                <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Mostrar horarios hábiles</span>
-            </a>
-        </li>
-        <li>
-        <a href="javascript:void(0)" code-val="+val.codigo+" class="cerrar_sesion">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="cerrar_sesion">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Cerrar sesión</span>
             </a>

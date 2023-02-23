@@ -39,6 +39,7 @@
                 </a>
             </span>
 
+            <!-- Sección que se recargará con la función ajax -->
             <div class="details" id="details"></div>
 
         </div>

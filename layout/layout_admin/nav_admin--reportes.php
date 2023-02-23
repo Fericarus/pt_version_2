@@ -13,27 +13,21 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="clientes_por_zona">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Clientes por zona</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="clientes_por_giro">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
                 <span class="titulo">Clientes por giro</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="citas_por_cliente">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Citas por asesor</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Servicios por asesor</span>
+                <span class="titulo">Citas por cliente</span>
             </a>
         </li>
     </ul>

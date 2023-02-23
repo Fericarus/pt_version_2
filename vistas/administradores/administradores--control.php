@@ -50,6 +50,42 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
+    // Para ir a la sección agregar_educacion
+    $(".agregar_dias_de_descanso").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            // Insertamos en #details el contenido de main_content/agregarEducacion.php
+            url: "main_content/agregarDiasDeDescanso.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+
+    // Para ir a la sección mostrar_educacion
+    $(".mostrar_dias_de_descanso").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            url: "main_content/mostrarDiasDeDescanso.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+
+    // Para ir a la sección agregar_educacion
+    $(".definir_horarios_laborables").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            // Insertamos en #details el contenido de main_content/agregarEducacion.php
+            url: "main_content/definirHorariosLaborables.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+
+
     $(".cerrar_sesion").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({

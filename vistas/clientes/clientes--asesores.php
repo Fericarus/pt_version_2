@@ -26,7 +26,7 @@
         <!-- Menu vertical -->
         <?php require('../../layout/layout_clientes/nav_clientes--asesores.php') ?>
 
-        <div class="main">
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
@@ -47,3 +47,17 @@
 </body>
 
 </html>
+
+<!-- script para recargar una sección de la página sin renderizar todo el html -->
+<script>
+    // Mostrar cuenta
+    $(".mostrar_asesores").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            url: "main_content/mostrarAsesores.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+</script>

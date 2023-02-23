@@ -50,11 +50,12 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
-    $(".agregar_educación").click(function() {
+    // Para ir a la sección agregar_educacion
+    $(".mostrar_clientes").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
             // Insertamos en #details el contenido de main_content/agregarEducacion.php
-            url: "#",
+            url: "main_content/mostrarClientes.php",
             success: function(details) {
                 $("#details").html(details);
             }

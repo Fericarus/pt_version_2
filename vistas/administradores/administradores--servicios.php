@@ -50,16 +50,29 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
-    $(".agregar_educación").click(function() {
+    // Para ir a la sección agregar_educacion
+    $(".crear_servicio").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
             // Insertamos en #details el contenido de main_content/agregarEducacion.php
-            url: "#",
+            url: "main_content/crearServicio.php",
             success: function(details) {
                 $("#details").html(details);
             }
         })
     })
+
+    // Para ir a la sección mostrar_educacion
+    $(".mostrar_servicios").click(function() {
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            url: "main_content/mostrarServicios.php",
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
+    })
+
 </script>
 
 </html>
