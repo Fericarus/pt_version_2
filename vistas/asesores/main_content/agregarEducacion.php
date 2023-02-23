@@ -47,9 +47,12 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
         </div>
 
         <!-- Campo Título -->
-        <div class="campo">
-            <label for="nombre">Título obtenido:</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título obtenido" class="form_educacion" required />
+        <div>
+            <span id="errorMessageLetras" style="display: none;"></span>
+            <div class="campo">
+                <label for="nombre">Título obtenido:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título obtenido" class="form_educacion" oninput="validarLetras(this.id, 16.3)" required />
+            </div>
         </div>
 
         <!-- Boton para actualizar cambios -->
@@ -58,3 +61,5 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
     </form>
 
 </div>
+
+<script src="../../funciones/funciones.js"></script>

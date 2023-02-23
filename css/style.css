@@ -344,7 +344,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
   padding: 2rem;
   border-radius: 1rem;
@@ -444,7 +444,7 @@ table tr {
   font-size: 1.6rem;
   padding-right: 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  width: 20rem;
+  width: 17.5rem;
 }
 
 .campo input,
@@ -575,7 +575,7 @@ tbody tr td:first-child {
 }
 
 tbody tr td {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   height: 5.7rem;
@@ -621,10 +621,15 @@ tbody tr td:nth-child(4) {
   padding-left: 1rem;
 }
 
-.table-7-col tr:not(:first-child):hover {
+.tableMostrarClientes tr {
+  display: grid;
+  grid-template-columns: 3rem 19rem 1fr 8rem repeat(3, 1fr);
+}
+
+/* .table-7-col tr:not(:first-child):hover {
   background-color: var(--azul);
   color: var(--blanco);
-}
+} */
 
 .table-7-col tr td:nth-child(3),
 .table-7-col tr td:nth-child(4),
@@ -645,6 +650,25 @@ tbody tr td:nth-child(4) {
 .contenedorBotones {
   display: flex;
   gap: 4rem;
+}
+
+.paginacion a {
+  margin-right: 1rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--black2);
+  justify-content: center;
+  align-items: center;
+  border-radius: 4rem;
+  color: #000;
+}
+
+.paginacion a:hover {
+  color: #fff;
+  background-color: #0c8ce9;
 }
 
 /*********************************** Card ***********************************/

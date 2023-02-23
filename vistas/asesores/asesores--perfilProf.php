@@ -49,6 +49,7 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
+    // Para ir a la sección agregar_educacion
     $(".agregar_educación").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
@@ -60,6 +61,7 @@
         })
     })
 
+    // Para ir a la sección mostrar_educacion
     $(".mostrar_educación").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
@@ -70,6 +72,7 @@
         })
     })
 
+    // Para ir a la sección agregar_certificación
     $(".agregar_certificacion").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
@@ -80,6 +83,7 @@
         })
     })
 
+    // Para ir a la sección mostrar_certificación
     $(".mostrar_certificacion").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({

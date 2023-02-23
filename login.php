@@ -10,8 +10,10 @@
 </head>
 
 <body>
+
     <div class="contenedor">
 
+        <!-- Menú vertical -->
         <?php require('./layout/nav_index.php') ?>
 
         <div class="main" id="main">
@@ -19,11 +21,15 @@
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('./layout/topbar_index.php') ?>
 
+            <!-- Ruta -->
             <div class="ruta">
-                <a href="index.php"><h2>Inicio /</h2></a>
+                <a href="index.php">
+                    <h2>Inicio /</h2>
+                </a>
                 <h2>Ingresar</h2>
             </div>
 
+            <!-- Contenido principal -->
             <div class="details_index">
 
                 <div class="main__container--form">
@@ -36,15 +42,19 @@
                         </div>
 
                         <div class="campo__container">
-                            <div class="campo">
-                                <label for="nombre">Correo:</label>
-                                <input type="text" id="email" name="email" placeholder="usuario@empresa.com" required />
+                            <div>
+                                <span id="errorMessageEmail" style="display: none;"></span>
+                                <div class="campo">
+                                    <label for="nombre">Correo:</label>
+                                    <input id="email" name="email" placeholder="usuario@empresa.com" oninput="validarEmail(this.id)" required />
+                                </div>
                             </div>
 
                             <div class="campo">
                                 <label for="nombre">Contraseña:</label>
-                                <input type="password" id="passwordLogin" name="passwordLogin" placeholder="Ingresa tu contraseña" required />
+                                <input id="passwordLogin" name="passwordLogin" type="password" placeholder="Ingresa tu contraseña" oninput="validarPass(this.id)" required />
                             </div>
+
                         </div>
 
                         <div class="captcha__container">
@@ -60,6 +70,9 @@
         </div>
 
     </div>
+
 </body>
 
 </html>
+
+<script src="funciones/funciones.js"></script>

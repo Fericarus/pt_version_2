@@ -20,27 +20,30 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
         </div>
 
         <!-- Campo Nombre -->
-        <div class="campo">
-            <label for="nombre">Nombre: </label>
+        <div>
+            <span id="errorMessageNombre" style="display: none;"></span>
+            <div class="campo">
+                <label for="nombre">Nombre: </label>
 
-            <?php
-            // Incluimos la conexión a la base de datos
-            include "../../../includes/config/database.php";
+                <?php
+                // Incluimos la conexión a la base de datos
+                include "../../../includes/config/database.php";
 
-            // Sentencia sql
-            $sql = "SELECT * FROM clientes WHERE id_cliente = " . $_SESSION['id'];
+                // Sentencia sql
+                $sql = "SELECT * FROM clientes WHERE id_cliente = " . $_SESSION['id'];
 
-            // Preparamos la sentencia
-            $stmt = $dbh->prepare($sql);
+                // Preparamos la sentencia
+                $stmt = $dbh->prepare($sql);
 
-            // Ejecutamos la sentencia
-            $stmt->execute();
+                // Ejecutamos la sentencia
+                $stmt->execute();
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' name='nombre' value='" . $row['nombre'] . "'/>";
-            }
-            ?>
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<input id='nombre' name='nombre' value='" . $row['nombre'] . "' oninput='validarEmail(this.id)'/>";
+                }
+                ?>
 
+            </div>
         </div>
 
         <!-- Campo apellido paterno -->
@@ -145,3 +148,5 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     </form>
 
 </div>
+
+<script src="../../funciones/funciones.js"></script>

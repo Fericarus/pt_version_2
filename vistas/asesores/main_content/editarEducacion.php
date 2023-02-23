@@ -55,29 +55,32 @@ $id_educacion = $_GET['id_educacion'];
         </div>
 
         <!-- Título -->
-        <div class="campo">
-            <label for="nombre">Título obtenido:</label>
+        <div>
+            <span id="errorMessageLetras" style="display: none;"></span>
+            <div class="campo">
+                <label for="nombre">Título obtenido:</label>
 
-            <?php
+                <?php
 
-            // Incluimos la conexión a la base de datos
-            include "../../../includes/config/database.php";
+                // Incluimos la conexión a la base de datos
+                include "../../../includes/config/database.php";
 
-            // Sentencia sql
-            $sql = "SELECT * FROM asesoresEducaciones WHERE id_asesorEducacion = " . $id_asesorEducacion;
+                // Sentencia sql
+                $sql = "SELECT * FROM asesoresEducaciones WHERE id_asesorEducacion = " . $id_asesorEducacion;
 
-            // Preparamos la sentencia
-            $stmt = $dbh->prepare($sql);
+                // Preparamos la sentencia
+                $stmt = $dbh->prepare($sql);
 
-            // Ejecutamos la sentencia
-            $stmt->execute();
+                // Ejecutamos la sentencia
+                $stmt->execute();
 
-            // Mostramos los resultados de la consulta en un input
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input onkeyup='validadescripcion2(this.value)' type='text' class='campo' name='titulo' value='" . $row['titulo'] . "'/>";
-            }
+                // Mostramos los resultados de la consulta en un input
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<input id='titulo' class='campo' name='titulo' value='" . $row['titulo'] . "' oninput='validarLetras(this.id, 15)'/>";
+                }
 
-            ?>
+                ?>
+            </div>
 
         </div>
 
@@ -89,7 +92,7 @@ $id_educacion = $_GET['id_educacion'];
 
 </div>
 
-<script>
+<!-- <script>
     function validadescripcion2(valor) {
         if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(valor)) {
             console.log("ERROR");
@@ -98,4 +101,6 @@ $id_educacion = $_GET['id_educacion'];
             console.log("SUCCESS");
         }
     }
-</script>
+</script> -->
+
+<script src="../../funciones/funciones.js"></script>

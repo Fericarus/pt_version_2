@@ -4,7 +4,7 @@
 include "../includes/config/database.php";
 
 // Mandamos llamar la libreria de sweetalert2
-include "./scripts.php";
+include "./mensajesSweetAlert.php";
 
 // Capturamos la información de los formularios en las variables $email y $passwordLogin
 $email = $_POST["email"];
@@ -12,14 +12,12 @@ $passwordLogin = $_POST["passwordLogin"];
 
 // Validar email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo '<script>alert("Ingrese un correo electrónico válido.")</script>';
-    echo '<script type="text/javascript" >window.location.href="../login.php";</script>';
+    mensajeError("Ingrese un correo electrónico válido.", "../login.php");
 }
 
 // Validar contraseña
 if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $passwordLogin)) {
-    echo '<script>alert("La contraseña se compone de al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial (@$!%*#?&).")</script>';
-    echo '<script type="text/javascript" >window.location.href="../login.php";</script>';
+    mensajeError("La contraseña se compone de al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.", "../login.php");
 }
 
 // Preparamos las distintas sentencias sql
@@ -50,18 +48,19 @@ try {
         login($email, $passwordLogin, $sqlClientes, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
     ) {
 
+        mensajeError('Usuario o contraseña incorrectos', '../index.php');
         // Mensaje de error
-        echo "
-            <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Ups...',
-                    text: 'Usuario o contraseña incorrectos'
-                }) .then(function() {
-                    window.location.href='../index.php'
-                });
-            </script>
-            ";
+        // echo "
+        //     <script>
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'Ups...',
+        //             text: 'Usuario o contraseña incorrectos'
+        //         }) .then(function() {
+        //             window.location.href='../index.php'
+        //         });
+        //     </script>
+        //     ";
 
     }
 } catch (Exception $e) {

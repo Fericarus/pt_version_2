@@ -19,7 +19,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             <p>Citas agendadas</p>
         </div>
 
-        <table class="table-7-col">
+        <table class="table-7-col tableMostrarCitas">
             <tr>
                 <td class="title">Cliente</td>
                 <td class="title">Fecha</td>

@@ -25,7 +25,7 @@ $id_cita = $_GET['id_cita'];
         <!-- Fecha -->
         <div class="campo">
             <label for="Fecha">Fecha</label>
-            <input name="fecha" type="date">
+            <input id="fecha" name="fecha" type="date" oninput="validarEmail(this.id)">
         </div>
 
         <!-- Hora -->
@@ -43,6 +43,8 @@ $id_cita = $_GET['id_cita'];
     </form>
 
 </div>
+
+<script src="../../funciones/funciones.js"></script>
 
 <!-- <script>
     function validadescripcion2(valor) {

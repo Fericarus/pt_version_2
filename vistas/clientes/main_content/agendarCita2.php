@@ -89,8 +89,7 @@ $id_asesor = $_GET['id_asesor'];
         }
     });
 
-
-    // Validar Días 
+    // Validar Días
     const dateInput = document.getElementById('myDateInput');
     const msjErrorDia = document.getElementById('msjErrorDia');
 
@@ -106,17 +105,15 @@ $id_asesor = $_GET['id_asesor'];
             // El día seleccionado está inhabilitado
             msjErrorDia.classList.remove("hidden");
             msjErrorDia.classList.add("msjError");
-
         } else {
             msjErrorDia.classList.add("hidden");
         }
-
     });
 
-    /* Función que suma o resta días a una fecha, si el parámetro
-   días es negativo restará los días*/
+    // Función que suma o resta días a una fecha, si el parámetro días es negativo restará los días
     function sumarDias(fecha, dias) {
         fecha.setDate(fecha.getDate() + dias);
         return fecha;
     }
+
 </script>
