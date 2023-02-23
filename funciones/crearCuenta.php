@@ -37,22 +37,22 @@ if (isset($_POST['submit'])) {
                             if (validarPassword($confirmarPassword, "../crearCuenta.php")) {
                                 if (compararPasword($password, $confirmarPassword, "../crearCuenta.php")) {
 
-                                    // Sentencia sql
+                                    // 1. Sentencia sql
                                     $sql = "SELECT * FROM clientes WHERE email = :email LIMIT 1";
 
-                                    // Preparamos la sentencia sql
+                                    // 2. Preparamos la sentencia sql
                                     $stmt = $dbh->prepare($sql);
 
-                                    // Establecemos la relación entre los marcadores y su correspondiente valor
+                                    // 3. Establecemos la relación entre los marcadores y su correspondiente valor
                                     $stmt->bindValue(':email', $email);
 
-                                    // PDOStatement::setFetchMode — Establece el modo de obtención para esta sentencia
+                                    // 4. PDOStatement::setFetchMode — Establece el modo de obtención para esta sentencia
                                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
-                                    // Ejecutamos la sentencia
+                                    // 5. Ejecutamos la sentencia
                                     $stmt->execute();
 
-                                    // PDOStatement::fetch — Obtiene la siguiente fila de un conjunto de resultados
+                                    // 6. PDOStatement::fetch — Obtiene la siguiente fila de un conjunto de resultados
                                     $datos = $stmt->fetch();
 
                                     // Si no se encuentra una coincidencia en la BD

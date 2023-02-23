@@ -629,9 +629,34 @@ tbody tr td:nth-child(4) {
   padding-left: 1rem;
 }
 
+.table-8-col tr {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.table-9-col tr {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
 .tableMostrarClientes tr {
   display: grid;
   grid-template-columns: 3rem 19rem 1fr 8rem repeat(3, 1fr);
+}
+
+.tableMostrarClientesAdmin tr {
+  display: grid;
+  grid-template-columns: 2rem repeat(8, 1fr);
+}
+
+.tableMostrarClientesAdmin tr td:nth-child(3),
+.tableMostrarClientesAdmin tr td:nth-child(4) {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .tableMostrarAsesores tr {
