@@ -91,7 +91,7 @@ function validarEmail(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(email)) {
-    errorMessageEmail.innerHTML = "Escriba un correo válido.";
+    errorMessageEmail.innerHTML = "Escriba un correo válido";
     errorMessageEmail.style.color = "red";
     errorMessageEmail.style.display = "block";
     errorMessageEmail.style.paddingLeft = "14.5rem";
@@ -125,7 +125,6 @@ function validarTelefono(id) {
   }
 }
 
-
 // Función para validar el password
 function validarPass(id) {
   var password1 = document.getElementById(id).value;
@@ -134,8 +133,7 @@ function validarPass(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(password1)) {
-    errorMessagePass.innerHTML =
-      "La contraseña debe tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial";
+    errorMessagePass.innerHTML = "Las contraseñas deben tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial";
     errorMessagePass.style.color = "red";
     errorMessagePass.style.display = "block";
     errorMessagePass.style.paddingLeft = "14.5rem";
@@ -152,12 +150,11 @@ function validarPass(id) {
 function validarPassConfirm(id) {
   var passwordConfirm = document.getElementById(id).value;
   var errorMessagePassConfirm = document.getElementById("errorMessagePassConfirm");
-  var Pattern = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+  var Pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
   // Validamos contra la expresión regular
   if (!Pattern.test(passwordConfirm)) {
-    errorMessagePassConfirm.innerHTML =
-      "La contraseña debe tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.";
+    errorMessagePassConfirm.innerHTML = "Las contraseñas deben tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.";
     errorMessagePassConfirm.style.color = "red";
     errorMessagePassConfirm.style.display = "block";
     errorMessagePassConfirm.style.paddingLeft = "14.5rem";
@@ -169,5 +166,3 @@ function validarPassConfirm(id) {
     return true;
   }
 }
-
-

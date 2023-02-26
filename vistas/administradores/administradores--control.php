@@ -36,7 +36,7 @@
                 <a href="administradores.php">
                     <h2>Inicio</h2>
                 </a>
-                <h2>/ Gestionar asesores</h2>
+                <h2>/ Control</h2>
             </span>
 
             <!-- Sección que se recargará con la función ajax -->

@@ -286,6 +286,7 @@ body {
 .ruta h2 {
   text-decoration: none;
   color: var(--moradoOscuro);
+  font-weight: lighter;
 }
 
 /* Details */
@@ -448,13 +449,19 @@ table tr {
 }
 
 .campo input,
-.campo select {
+.campo select,
+.campo textarea {
   width: 100%;
   border-radius: 0.4rem;
   border: solid 1px rgb(206, 212, 218);
   padding: 0.5rem;
   color: #394147;
   height: 3rem;
+}
+
+.campo textarea {
+  height: 20rem;
+  resize: none;
 }
 
 .campo input::placeholder,
@@ -622,6 +629,12 @@ tbody tr td:nth-child(4) {
   gap: 1rem;
 }
 
+.table-6-col tr {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
 .table-7-col tr {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -664,15 +677,32 @@ tbody tr td:nth-child(4) {
   grid-template-columns: 5rem 20rem 20rem 15rem;
 }
 
+.tableMostrarAsesores2 tr {
+  display: grid;
+  grid-template-columns: 5rem 20rem 20rem 15rem 1fr 1fr;
+}
+
+.tableMostrarAsesores2 tr td:nth-child(3),
+.tableMostrarAsesores2 tr td:nth-child(4) {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .tableMostrarServicios tr {
   display: grid;
   grid-template-columns: 10rem 65rem;
 }
 
-/* .table-7-col tr:not(:first-child):hover {
-  background-color: var(--azul);
-  color: var(--blanco);
-} */
+.tableMostrarServiciosAdmin tr {
+  display: grid;
+  grid-template-columns: 3rem 13rem 45rem 1fr 1fr;
+}
+
+.tableEliminarServiciosAdmin tr {
+  display: grid;
+  grid-template-columns: 3rem 13rem 45rem 1fr;
+}
+
 
 .table-7-col tr td:nth-child(3),
 .table-7-col tr td:nth-child(4),

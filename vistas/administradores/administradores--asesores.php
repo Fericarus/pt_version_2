@@ -33,10 +33,9 @@
 
             <!-- Barra de dirección -->
             <span class="ruta">
-                <a href="administradores.php">
-                    <h2>Inicio</h2>
-                </a>
-                <h2>/ Gestionar asesores</h2>
+                <a href="administradores.php"><h2>Inicio</h2></a>
+                <a href="administradores--asesores.php"><h2>/ Gestionar asesores</h2></a>
+                <h2 id="ruta"></h2>
             </span>
 
             <!-- Sección que se recargará con la función ajax -->
@@ -60,6 +59,9 @@
                 $("#details").html(details);
             }
         })
+
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Agregar asesor";
     })
 
     // Para ir a la sección mostrar_educacion
@@ -71,6 +73,9 @@
                 $("#details").html(details);
             }
         })
+
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Mostrar asesores";
     })
 </script>
 
