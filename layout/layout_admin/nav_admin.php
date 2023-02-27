@@ -15,25 +15,31 @@
         <li>
             <a href="administradores--clientes.php">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Gestionar clientes</span>
+                <span class="titulo">Administrar clientes</span>
             </a>
         </li>
         <li>
             <a href="administradores--asesores.php">
                 <span class="icono"><i class="fa-solid fa-briefcase"></i></span>
-                <span class="titulo">Gestionar asesores</span>
+                <span class="titulo">Administrar asesores</span>
             </a>
         </li>
         <li>
             <a href="administradores--servicios.php">
                 <span class="icono"><i class="fa-solid fa-user-tie"></i></span>
-                <span class="titulo">Gestionar servicios</span>
+                <span class="titulo">Administrar servicios</span>
+            </a>
+        </li>
+        <li>
+            <a href="administradores--giros.php">
+                <span class="icono"><i class="fa-solid fa-user"></i></span>
+                <span class="titulo">Administrar giros</span>
             </a>
         </li>
         <li>
             <a href="administradores--citas.php">
                 <span class="icono"><i class="fa-solid fa-user"></i></span>
-                <span class="titulo">Gestionar citas</span>
+                <span class="titulo">Administrar citas</span>
             </a>
         </li>
         <li>
