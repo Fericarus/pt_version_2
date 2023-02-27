@@ -43,15 +43,15 @@ if ($count > 0) {
 
     // Preparamos las sentencias
     $stmt_asesoresservicios = $dbh->prepare($sql_asesoresservicios);
-    $sql_asesoreseducaciones = $dbh->prepare($sql_asesoreseducaciones);
-    $sql_asesorescertificaciones = $dbh->prepare($sql_asesorescertificaciones);
-    $sql_asesores = $dbh->prepare($sql_asesores);
+    $stmt_asesoreseducaciones = $dbh->prepare($sql_asesoreseducaciones);
+    $stmt_asesorescertificaciones = $dbh->prepare($sql_asesorescertificaciones);
+    $stmt_asesores = $dbh->prepare($sql_asesores);
 
     // Ejecutamos la sentencia
     if ($stmt_asesoresservicios->execute()) {
-        if ($sql_asesoreseducaciones->execute()) {
-            if ($sql_asesorescertificaciones->execute()) {
-                if ($sql_asesores->execute()) {
+        if ($stmt_asesoreseducaciones->execute()) {
+            if ($stmt_asesorescertificaciones->execute()) {
+                if ($stmt_asesores->execute()) {
                     mensajeGoodJob("Asesor eliminado exitosamente", $redirect);
                 } else {
                     mensajeError("Error 4", $redirect);
