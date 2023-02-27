@@ -13,9 +13,9 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0)" code-val="+val.codigo+" class="crear_servicio">
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="agregar_servicio">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Crear servicio</span>
+                <span class="titulo">Agregar nuevo servicio</span>
             </a>
         </li>
         <li>

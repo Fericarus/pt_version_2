@@ -465,14 +465,16 @@ table tr {
 }
 
 .campo input::placeholder,
-.campo select::placeholder {
+.campo select::placeholder,
+.campo textarea::placeholder {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.4rem;
   color: darkgray;
 }
 
 .campo input:focus,
-.campo select:focus {
+.campo select:focus,
+.campo textarea:focus {
   outline: none;
   border-color: rgb(51, 154, 240);
   border-radius: 0.4rem;

@@ -1,10 +1,4 @@
 <?php
-// $sql = "INSERT INTO asesores (nombre, apellido_paternoA, apellido_maternoA, email, telefono, password) 
-// VALUES ('Pepe','Juarez','Juarez','correo2@correo.com','0123456789','Kreativika2#')";
-?>
-
-
-<?php
 
 // Incluimos la conexión a la BD
 include "../includes/config/database.php";

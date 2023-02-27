@@ -51,11 +51,11 @@
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
     // Para ir a la sección agregar_educacion
-    $(".crear_servicio").click(function() {
+    $(".agregar_servicio").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
             // Insertamos en #details el contenido de main_content/agregarEducacion.php
-            url: "main_content/crearServicio.php",
+            url: "main_content/agregarServicio.php",
             success: function(details) {
                 $("#details").html(details);
             }
