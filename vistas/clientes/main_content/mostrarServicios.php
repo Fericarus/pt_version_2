@@ -29,7 +29,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             include "../../../includes/config/database.php";
 
             // Esta variables indica cuantos registros veremos por página
-            $tamano_paginas = 3;
+            $tamano_paginas = 6;
 
             // Este bloque de código solo se ejecutará si se le ha dado click a la paginación
             if (isset($_GET['pagina'])) {
@@ -120,7 +120,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
 
 <script>
-    // Botón Editar
+    // Paginación
     function mostrar($i) {
         let pagina = document.getElementById('pagina');
         let page = document.getElementById('page' + $i);

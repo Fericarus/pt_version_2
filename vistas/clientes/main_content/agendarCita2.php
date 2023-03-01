@@ -6,32 +6,30 @@ session_start();
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     header("location: ../../login.php");
 }
-
 $id_asesor = $_GET['id_asesor'];
 
 ?>
 
-<input id="id_asesor" class="hidden" value="<?php echo $id_asesor ?>"></input>
+<div class="main__container--table title_table">
 
-<!-- Título -->
-<div class="main__container--title title__agendarCita">
-    <h1>Selecciona fecha y hora de tu cita</h1>
-</div>
+    <form class="formulario" action="" method="GET">
 
-<div class="main__container--table">
-
-    <!-- Mensaje de error por hora -->
-    <div id="msjErrorHora" class="hidden">
-        <p>La hora seleccionada no está permitida. Por favor, seleccione una hora entre las 09:00 y las 17:00.</p>
-    </div>
-
-    <!-- Mensaje de error por día -->
-    <div id="msjErrorDia" class="hidden">
-        <p>El día seleccionado no está permitido. Por favor, seleccione un día de la semana hábil.</p>
-    </div>
-
-    <form class="formulario">
         <div class="campo__container fecha__container">
+
+            <!-- Título -->
+            <div class="main__container--title">
+                <h1>Agenda tu cita eligiendo fecha y hora adecuadas para ti</h1>
+            </div>
+
+            <!-- Mensaje de error por hora -->
+            <div id="msjErrorHora" class="hidden">
+                <p>Lo siento, la hora seleccionada no está disponible. Por favor, elige una hora entre las 09:00 y las 17:00.</p>
+            </div>
+
+            <!-- Mensaje de error por día -->
+            <div id="msjErrorDia" class="hidden">
+                <p>Lo siento, el día seleccionado no está disponible. Por favor, seleccione un día de la semana hábil.</p>
+            </div>
 
             <!-- Campo día -->
             <div class="campo">
@@ -47,7 +45,11 @@ $id_asesor = $_GET['id_asesor'];
 
             <!-- Botón -->
             <a onclick="agregarFechaHora()" href="javascript:void(0)" code-val="+val.codigo+" class="boton" id="boton">Siguiente</a>
+
         </div>
+
+        <input id="id_asesor" class="hidden" value="<?php echo $id_asesor ?>"></input>
+
     </form>
 
 </div>
@@ -116,4 +118,5 @@ $id_asesor = $_GET['id_asesor'];
         return fecha;
     }
 
+    // 
 </script>

@@ -15,7 +15,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
         <!-- Título del formulario -->
         <div class="main__container--title">
-            <h1>Mostrar Asesores</h1>
+            <h1>Conoce a nuestros asesores</h1>
         </div>
 
         <table class="table-4-col tableMostrarAsesores">

@@ -9,72 +9,150 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
 ?>
 
-<!-- Título de la página -->
-<div class="main__container--title title__agendarCita">
-    <h1>Selecciona un asesor</h1>
-</div>
+<div class="main__container--table title_table">
 
+    <form class="formulario" action="" method="GET">
 
-<div class="main__container--table">
+        <!-- Título -->
+        <div class="main__container--title">
+            <h1>Encuentra al asesor perfecto para ti</h1>
+        </div>
 
-    <!-- Contenedor de cards -->
-    <div class='card__container'>
+        <table class="table-5-col ">
+            <!-- tableMostrarAsesores -->
+            <tr>
+                <td class="title">Nombre</td>
+                <td class="title">Título</td>
+                <td class="title">Email</td>
+                <td class="title">Telefono</td>
+                <td class="title"></td>
+            </tr>
+
+            <?php
+            // Incluimos la conexión a la base de datos
+            include "../../../includes/config/database.php";
+
+            // Esta variables indica cuantos registros veremos por página
+            $tamano_paginas = 6;
+
+            // Este bloque de código solo se ejecutará si se le ha dado click a la paginación
+            if (isset($_GET['pagina'])) {
+                if ($_GET["pagina"] == 0) {
+                    header("Location:main_content/mostrarAsesor.php");
+                } else {
+                    $pagina = $_GET['pagina'];
+                }
+            } else {
+                // Esta variable indica la página que se carga al inicio
+                $pagina = 1;
+            }
+
+            echo "<input id='pagina' class='hidden' value='$pagina'></input>";
+
+            // Almacenamos en esta variable desde que página queremos que cargué la páginación
+            $empezar_desde = ($pagina - 1) * $tamano_paginas;
+
+            // Sentencia sql
+            $sql = "SELECT * FROM asesores INNER JOIN asesoreseducaciones ON asesoreseducaciones.id_asesor3 = asesores.id_asesor";
+
+            // Preparamos la sentencia
+            $stmt = $dbh->prepare($sql);
+
+            // Ejecutamos la sentencia
+            $stmt->execute();
+
+            // Este método nos devuelve el número de registros de la consulta
+            $num_filas = $stmt->rowCount();
+
+            // Dividimos el total de registros de la consulta entre el numero de paginas y lo redondeamos con el método ceil
+            $total_paginas = ceil($num_filas / $tamano_paginas);
+
+            // Mostramos cuantos resultados se encontraron en la consulta
+            echo "<div>";
+            echo "<p>Se encontraron " . $num_filas . " resultados</p>";
+            echo "</div>";
+
+            $stmt->closeCursor();
+
+            $sql_limite =
+                "SELECT * FROM asesores 
+                INNER JOIN asesoreseducaciones ON asesoreseducaciones.id_asesor3 = asesores.id_asesor 
+                LIMIT $empezar_desde, $tamano_paginas";
+
+            // Preparamos la sentencia
+            $stmt = $dbh->prepare($sql_limite);
+
+            // Ejecutamos la sentencia
+            $stmt->execute();
+
+            $n = 1;
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<tr>";
+                echo "<td>" . $row['nombre'] . " " . $row['apellido_paternoA'] . "</td>";
+                echo "<td>" . $row['titulo'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['telefono'] . "</td>";
+                echo "<input class='hidden' id='id_asesor" . $n . "' value='" . $row['id_asesor'] . "'></input>";
+                echo "<td><a onclick='seleccionar(" . $n . ")' class='boton boton-editar' href='javascript:void(0)' code-val='+val.codigo+''>Seleccionar</a></td>";
+                echo "</tr>";
+                $n++;
+            }
+
+            ?>
+
+        </table>
 
         <?php
 
-        // Incluimos la conexión a la base de datos
-        include "../../../includes/config/database.php";
+        // Mostramos la página en la que nos encontramos y el número total de páginas
+        echo "<div>";
+        echo "<p>Página " . $pagina . " de " . $total_paginas . "</p>";
+        echo "</div>";
 
-        // Sentencia sql
-        $sql = "SELECT * FROM asesores";
-
-        // Preparamos la sentencia
-        $stmt = $dbh->prepare($sql);
-
-        // Ejecutamos la sentencia
-        $stmt->execute();
-
-        // Imprimimos tantas cards como asesores existan en la BD
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-            echo "<div class='card' onclick='agregarAsesor(" . $row['id_asesor'] . ")'>";
-                echo "<div>";
-                    echo "<p>Nombre: </p>";
-                    echo "<div class='card-data'>";
-                        echo "<span class='cardNombre'><strong>" . $row['nombre'] ." </strong></span>";
-                        echo "<span class='cardNombre'><strong>" . $row['apellido_paternoA'] ." </strong></span>";
-                        echo "<span class='cardNombre'><strong>" . $row['apellido_maternoA'] ." </strong></span>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "<div>";
-                    echo "<span>Email: </span>";
-                    echo "<div class='card-data'>";
-                    echo "<span class='cardEmail'><strong>" . $row['email'] . " </strong></span>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "<div>";
-                    echo "<span>Teléfono: </span>";
-                    echo "<div class='card-data'>";
-                    echo "<span class='cardTelefono'><strong>" . $row['telefono'] . " </strong></span>";
-                    echo "</div>";
-                echo "</div>";
-            echo "</div>";
+        // ------------------------------------------------ Paginación -------------------------------------------------------
+        echo "<div class='paginacion'>";
+        for ($i = 1; $i <= $total_paginas; $i++) {
+            // href='javascript:void(0)' code-val='+val.codigo+'
+            echo " <a id='page" . $i . "' name='" . $i . "' onclick='mostrar(" . $i . ")' href='javascript:void(0)' code-val='+val.codigo+'>$i</a> ";
+            // echo " <a href='?pagina=" . $i . "'> " . $i . " </a> ";
         }
+        echo "</div>";
+
         ?>
 
-    </div>
+    </form>
 
 </div>
 
 <script>
-    function agregarAsesor(n) {
+    // Paginación
+    function mostrar($i) {
+        let pagina = document.getElementById('pagina');
+        let page = document.getElementById('page' + $i);
 
+        console.log(page.name);
+
+        var dato = $(this).attr("code-val");
         $.ajax({
-            url: "main_content/agendarCita2.php?id_asesor=" + n,
+            url: "main_content/agendarCita1.php?pagina=" + page.name,
             success: function(details) {
                 $("#details").html(details);
             }
         })
+    }
 
+    // Botón Seleccionar
+    function seleccionar($i) {
+        let id_asesor = document.getElementById('id_asesor' + $i);
+        console.log(id_asesor.value);
+
+        var dato = $(this).attr("code-val");
+        $.ajax({
+            url: "main_content/agendarCita2.php?id_asesor=" + id_asesor.value,
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
     }
 </script>

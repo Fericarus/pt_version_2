@@ -17,73 +17,71 @@ $hora = $_GET['hora'];
 <input name="fecha" class="hidden" value="<?php echo $fecha ?>"></input>
 <input name="hora" class="hidden" value="<?php echo $hora ?>"></input>
 
-<!-- Título -->
-<div class="main__container--title title__agendarCita">
-    <h1>Verifique los datos de su cita</h1>
-</div>
+<div class="main__container--table title_table">
 
-<div class="main__container--table confirmar_cita">
+    <form class="formulario" action="" method="GET">
 
-    <div class="card2">
-
-        <?php
-
-        // Incluimos la conexión a la base de datos
-        include "../../../includes/config/database.php";
-
-        // Sentencia sql
-        $sql = "SELECT * FROM asesores WHERE id_asesor = " . $id_asesor;
-
-        // Preparamos la sentencia
-        $stmt = $dbh->prepare($sql);
-
-        // Ejecutamos la sentencia
-        $stmt->execute();
-
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        echo "<form action='../../funciones/agendarCita.php' method='POST'>";
-        echo "<input name='id_asesor' class='hidden' value='" . $id_asesor . "'></input>";
-        echo "<input name='fecha' class='hidden' value='" . $fecha . "'></input>";
-        echo "<input name='hora' class='hidden' value='" . $hora . "'></input>";
-        echo "<div>";
-        echo "<p>Nombre del asesor: </p>";
-        echo "<div class='card-data'>";
-        echo "<span class='cardNombre'><strong>" . $row['nombre'] . " </strong></span>";
-        echo "<span class='cardNombre'><strong>" . $row['apellido_paternoA'] . " </strong></span>";
-        echo "<span class='cardNombre'><strong>" . $row['apellido_maternoA'] . " </strong></span>";
-        echo "</div>";
-        echo "</div>";
-        echo "<div>";
-        echo "<p>Fecha: </p>";
-        echo "<div class='card-data'>";
-        echo "<span class='cardFecha'><strong>" . $fecha . "</strong></span>";
-        echo "</div>";
-        echo "</div>";
-        echo "<div>";
-        echo "<p>Hora: </p>";
-        echo "<div class='card-data'>";
-        echo "<span class='cardHora'><strong>" . $hora . "</strong></span>";
-        echo "</div>";
-        echo "</div>";
-        //echo "</form>";
-
-        ?>
-
-        <div class="contenedorBotones2">
-            <input type="submit" value="Confirmar Cita" class="boton boton-confirmar">
-            <a onclick="volver()" href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-eliminar">Volver</a>
+        <!-- Título -->
+        <div class="main__container--title">
+            <h1>Elige el servicio que necesitas</h1>
         </div>
 
-        </form>
+        <!-- Campo día -->
+        <div class="campo">
+            <label for="Servicios: ">Servicio: </label>
+            <select name="id_servicio" id="id_servicio">
+
+                <option value="">Seleccione una opción</option>
+
+                <?php
+
+                // Incluimos la conexión a la base de datos
+                include "../../../includes/config/database.php";
+
+                // Sentencia sql
+                $sql = "SELECT * FROM servicios";
+
+                // Preparamos la sentencia
+                $stmt = $dbh->prepare('SELECT * FROM servicios');
+
+                // Ejecutamos la sentencia
+                $stmt->execute();
+
+                // Llenamos el select con los resultados de la consulta
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value=" . $row['id_servicio'] . ">" . $row['servicio'] . "</option>";
+                }
+
+                ?>
+
+            </select>
+        </div>
+
+        <!-- Botón -->
+        <a onclick="agregarServicio()" href="javascript:void(0)" code-val="+val.codigo+" class="boton" id="boton">Siguiente</a>
+
+        <input id="id_asesor" class="hidden" value="<?php echo $id_asesor ?>"></input>
+
+    </form>
+
+</div>
 
 
-    </div>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<div class="main__container--table confirmar_cita">
 
 </div>
 
 <script>
-    function volver() {
-        window.location.href = "../clientes/clientes.php";
+    // Función para pasar por GET los parametros a la siguiente pantalla
+    function agregarServicio() {
+        $.ajax({
+            url: "main_content/agendarCita4.php?id_asesor=" + id_asesor + "&fecha=" + fecha.value + "&hora=" + hora.value + "&id_servicio=" + id_servicio.value,
+            success: function(details) {
+                $("#details").html(details);
+            }
+        })
     }
 </script>
