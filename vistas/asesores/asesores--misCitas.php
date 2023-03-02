@@ -35,8 +35,13 @@
             <!-- Barra de dirección -->
             <span class="ruta">
                 <a href="asesores.php"><h2>Inicio</h2></a>
-                <h2>/ Mis citas</h2>
+                <a href="asesores--misCitas.php"><h2>/ Mis citas</h2></a>
+                <h2 id="ruta"></h2>
             </span>
+
+
+
+
 
             <!-- Sección que se recargará con la función ajax -->
             <div class="details" id="details"></div>

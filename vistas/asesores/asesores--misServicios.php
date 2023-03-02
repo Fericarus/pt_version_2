@@ -35,8 +35,12 @@
             <!-- Barra de dirección -->
             <span class="ruta">
                 <a href="asesores.php"><h2>Inicio</h2></a>
-                <h2>/ Mis servicios</h2>
+                <a href="asesores--misServicios.php"><h2>/ Mis servicios</h2></a>
+                <h2 id="ruta"></h2>
             </span>
+
+
+
 
             <!-- Sección que se recargará con la función ajax -->
             <div class="details" id="details"></div>
@@ -57,6 +61,10 @@
                 $("#details").html(details);
             }
         })
+
+        // Adjuntamos la el nombre a la barra de dirección ruta
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Agregar servicio";
     })
 
     $(".mostrar_servicio").click(function() {
@@ -67,6 +75,10 @@
                 $("#details").html(details);
             }
         })
+
+        // Adjuntamos la el nombre a la barra de dirección ruta
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Mostrar servicio";
     })
 </script>
 

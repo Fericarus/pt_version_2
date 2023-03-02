@@ -35,7 +35,8 @@
             <!-- Barra de dirección -->
             <span class="ruta">
                 <a href="asesores.php"><h2>Inicio</h2></a>
-                <h2>/ Clientes</h2>
+                <a href="asesores--clientes.php"><h2>/ Mostrar clientes</h2></a>
+                <h2 id="ruta"></h2>
             </span>
 
             <!-- Sección que se recargará con la función ajax -->

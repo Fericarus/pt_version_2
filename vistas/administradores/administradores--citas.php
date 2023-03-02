@@ -60,6 +60,10 @@
                 $("#details").html(details);
             }
         })
+
+        // Adjuntamos la el nombre a la barra de dirección ruta
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Mostrar citas";
     })
 </script>
 
