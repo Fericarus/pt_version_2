@@ -48,3 +48,5 @@ function eliminarCita($dbh, $redirect)
         mensajeError("Ups, algo salió mal", $redirect);
     }
 }
+
+echo "</body>";

@@ -32,3 +32,5 @@ if ($stmt->execute()) {
 } else {
     mensajeError("Ups, algo salió mal", "../vistas/asesores/asesores.php");
 }
+
+echo "</body>";

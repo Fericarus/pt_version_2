@@ -136,7 +136,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
     }
 }
 
-
+echo "</body>";
 
 
 
