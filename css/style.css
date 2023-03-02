@@ -6,6 +6,7 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+/*************************************** Colores ***************************************/
 :root {
   --blue: #287bff;
   --white: #fff;
@@ -43,16 +44,77 @@ body {
   width: 100%;
 }
 
+/*************************************** 1. Barra lateral (Aside) ***************************************/
+/* Elementos:
+  - 1.1. Logo dibujado con CSS
+  - 1.2. UL 
+*/
+
 .navegacion {
-  position: fixed; /* Investigar */
+  position: fixed;
   width: 300px;
   height: 100%;
-  background: var(--moradoOscuro);
-  border-left: 10px solid var(--moradoOscuro);
-  transition: 0.5s; /* Investigar */
-  overflow: hidden; /* Investigar */
+  background: rgb(165, 43, 155);
+  background: linear-gradient(90deg, rgba(165, 43, 155, 1) 0%, rgba(105, 49, 160, 1) 100%);
+  border-left: 10px solid rgba(105, 49, 160, 1) 100%; 
+  transition: 0.5s;
+  overflow: hidden;
 }
 
+/*************************************** 1.1. Logo dibujado con CSS ***************************************/
+.logo {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 1.6rem;
+  padding-top: 1rem;
+}
+
+.logo h1 {
+  font-size: 3.2rem;
+}
+
+.contenedor__logo p {
+  font-size: 1.2rem;
+  padding-left: 1.6rem;
+}
+
+.puntoAzul,
+.puntoAmarrillo,
+.puntoRojo,
+.puntoVerde {
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+}
+
+.puntoAzul {
+  background-color: var(--azulKreativika);
+}
+
+.puntoAmarrillo {
+  background-color: var(--amarillo);
+  margin-left: 2px;
+}
+
+.puntoRojo {
+  background-color: var(--rojo);
+  margin-left: 2px;
+}
+
+.puntoVerde {
+  background-color: var(--verde);
+  margin-left: 2px;
+}
+
+.contenedor__logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*************************************** Opciones de la UL ***************************************/
 .navegacion ul {
   position: absolute;
   top: 0;
@@ -131,6 +193,7 @@ body {
   box-shadow: 3.5rem 3.5rem 0 1rem var(--white);
   pointer-events: none;
 }
+
 .navegacion ul li:hover a::after,
 .navegacion ul li.hovered a::after {
   content: "";
@@ -145,60 +208,12 @@ body {
   pointer-events: none;
 }
 
-/* Logo */
-.logo {
-  display: flex;
-  align-items: flex-end;
-  padding-left: 1.6rem;
-  padding-top: 1rem;
-}
-
-.logo h1 {
-  font-size: 3.2rem;
-}
-
-.contenedor__logo p {
-  font-size: 1.2rem;
-  padding-left: 1.6rem;
-}
-
-.puntoAzul,
-.puntoAmarrillo,
-.puntoRojo,
-.puntoVerde {
-  height: 0.8rem;
-  width: 0.8rem;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 0.5rem;
-}
-
-.puntoAzul {
-  background-color: var(--azulKreativika);
-}
-
-.puntoAmarrillo {
-  background-color: var(--amarillo);
-  margin-left: 2px;
-}
-
-.puntoRojo {
-  background-color: var(--rojo);
-  margin-left: 2px;
-}
-
-.puntoVerde {
-  background-color: var(--verde);
-  margin-left: 2px;
-}
-
-.contenedor__logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* main */
+/*************************************** 2. SECCIÓN PRINCIPAL (main) ***************************************/
+/* Elementos:
+  - 2.1 topbar
+  - 2.2 ruta
+  - 2.3 details
+*/
 .main {
   position: absolute;
   width: calc(100% - 300px);
@@ -208,6 +223,12 @@ body {
   transition: 0.5s;
 }
 
+/********************************************* 2.1 TOPBAR *********************************************/
+/* Elementos:
+  - 2.1.1 toggle
+  - 2.1.2 buscar
+  - 2.1.3 usuario
+*/
 .topbar {
   width: 100%;
   height: 8vh;
@@ -216,6 +237,8 @@ body {
   align-items: center;
   padding: 0 1rem;
 }
+
+/********************************************* 2.1.1 toggle *********************************************/
 .toggle {
   position: relative;
   width: 6rem;
@@ -224,13 +247,14 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 2.5rem;
-  cursor: pointer; /* El mouse cambiará de forma despues de posicionarse sobre el elemento */
+  cursor: pointer;
 }
 
 .toggle a i {
   color: black;
 }
 
+/********************************************* 2.1.2 toggle *********************************************/
 .buscar {
   position: relative;
   width: 40rem;
@@ -260,6 +284,7 @@ body {
   font-size: 1.2rem;
 }
 
+/********************************************* 2.1.3 usuario *********************************************/
 .usuario {
   font-size: 1.6rem;
 }
@@ -276,6 +301,7 @@ body {
   }
 }
 
+/********************************************* 2.2 RUTA *********************************************/
 .ruta {
   padding-left: 3rem;
   height: 2vh;
@@ -285,11 +311,11 @@ body {
 .ruta a,
 .ruta h2 {
   text-decoration: none;
-  color: var(--moradoOscuro);
+  color: #6931A0;
   font-weight: lighter;
 }
 
-/* Details */
+/********************************************* 2.3 TOPBAR *********************************************/
 .details_index {
   height: 90vh;
   display: flex;
@@ -314,13 +340,12 @@ body {
   height: auto;
 }
 
-/* Formulario */
+/********************************************* FORMULARIO *********************************************/
 .main__container--form {
   display: fle;
   justify-content: center;
   min-width: 55rem;
   max-width: 55rem;
-  /*height: 35rem;*/
   position: absolute;
   z-index: 10;
   margin: 5rem 0 5rem 0;
@@ -334,7 +359,7 @@ body {
   width: 90rem;
   min-width: 65rem;
   max-width: 120rem;
-  /*height: 35rem;*/
+  /* height: 35rem; */
   position: absolute;
   z-index: 10;
   margin: 5rem 0 5rem 0;
@@ -345,11 +370,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 1rem;
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 3rem;
   border-radius: 1rem;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  /* height: 35rem; */
 }
 
 .formulario div {
@@ -361,11 +386,10 @@ body {
   justify-content: center;
 }
 
-/*********************************** Tabla **********************************************/
+/********************************************* TABLE *********************************************/
 .formulario table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
   background-color: #fff;
   margin-bottom: 2rem;
 }
@@ -379,8 +403,10 @@ table tr {
 }
 
 .title {
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  color: #222;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
 }
 
 @media (max-width: 991px) {
@@ -393,15 +419,16 @@ table tr {
   }
 }
 
+/* Titulo de los formularios */
 .main__container--title {
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .main__container--title h1,
 .main__container--title p {
   display: flex;
-  justify-content: center;
+  color: #6931A0;
 }
 
 .title__agendarCita {
@@ -416,16 +443,19 @@ table tr {
 .title_table p {
   display: flex;
   justify-content: flex-start;
+  padding-bottom: .5rem;
 }
 
 .title_table p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: lighter;
 }
 
 .fecha__container {
   width: 90%;
 }
 
+/* Campos de formularios */
 .campo__container {
   display: flex;
   flex-direction: column;
@@ -437,15 +467,17 @@ table tr {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-top: 2rem;
 }
 
 .campo label {
-  color: #7d858b;
+  color: #222;
   margin: 0.5rem 0;
   font-size: 1.6rem;
   padding-right: 1rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  width: 17.5rem;
+  font-family: 'Ubuntu', sans-serif;
+  width: 20.5rem;
+  font-weight: lighter;
 }
 
 .campo input,
@@ -453,10 +485,12 @@ table tr {
 .campo textarea {
   width: 100%;
   border-radius: 0.4rem;
-  border: solid 1px rgb(206, 212, 218);
+  border: solid 1px #999;
   padding: 0.5rem;
   color: #394147;
   height: 3rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: lighter;
 }
 
 .campo textarea {
@@ -476,7 +510,7 @@ table tr {
 .campo select:focus,
 .campo textarea:focus {
   outline: none;
-  border-color: rgb(51, 154, 240);
+  border-color: #A52B9B;
   border-radius: 0.4rem;
   transition: 0.2s;
 }
@@ -485,12 +519,13 @@ table tr {
   color: #394147;
 }
 
+/********************************************* BOTONES *********************************************/
 .boton {
-  margin: 1rem 0 1rem auto;
+  margin: 3rem 0 1rem auto;
   display: flex;
   height: 3.8rem;
   width: 12rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   background-color: var(--azul);
   color: var(--blanco);
   border: 0;
@@ -499,9 +534,10 @@ table tr {
   text-decoration: none;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
   text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: lighter;
 }
 
 .boton:hover {
@@ -523,6 +559,7 @@ table tr {
   background-color: var(--verde);
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
   width: 10rem;
+  margin-top: 1rem;
 }
 
 .boton-editar:hover {
@@ -558,6 +595,7 @@ table tr {
   background-color: #dd0016;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
   width: 10rem;
+  margin-top: 1rem;
 }
 
 .boton-eliminar:hover {
@@ -572,6 +610,43 @@ table tr {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
 }
 
+.contenedorBotones {
+  display: flex;
+  gap: 4rem;
+}
+
+/* Botones de paginación */
+.paginacion a {
+  margin-right: 1rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--black2);
+  justify-content: center;
+  align-items: center;
+  border-radius: 4rem;
+  color: #000;
+}
+
+.paginacion a:hover {
+  color: #fff;
+  background-color: #0c8ce9;
+}
+
+.contenedorBotones2 {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.contenedorBotones2 a {
+  margin: 0;
+}
+
+/********************************************* TABLAS *********************************************/
 tbody tr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -580,14 +655,17 @@ tbody tr {
 }
 
 tbody tr td:first-child {
-  margin-right: .6rem;
+  margin-right: 0.6rem;
 }
 
 tbody tr td {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   height: 5.7rem;
+  color: #222;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: lighter;
 }
 
 tbody tr td:nth-child(3),
@@ -596,21 +674,7 @@ tbody tr td:nth-child(4) {
   justify-content: flex-end;
 }
 
-
-.hidden {
-  display: none;
-}
-
-.tableCuenta tr {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.tableEliminar tr {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
+/****************************** Configuración de las distintas tablas ******************************/
 .table-2-col tr {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -622,7 +686,6 @@ tbody tr td:nth-child(4) {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  padding-left: 1rem;
 }
 
 .table-5-col tr {
@@ -656,6 +719,38 @@ tbody tr td:nth-child(4) {
   grid-template-columns: repeat(9, 1fr);
   gap: 1rem;
   padding-left: 1rem;
+}
+
+.table-7-col tr td:nth-child(3),
+.table-7-col tr td:nth-child(4),
+.table-5-col tr td:nth-child(3),
+.table-5-col tr td:nth-child(4),
+.table-4-col tr td:nth-child(3),
+.table-4-col tr td:nth-child(4) {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.child3,
+.child4 {
+  display: flex;
+  justify-content: flex-start !important;
+}
+
+/****************************** Configuración de tablas específicas ******************************/
+.tableCuenta tr {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.tableEliminar tr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tableMostrarEducación tr {
+  display: grid;
+  grid-template-columns: 28rem 28rem 12rem 12rem;
 }
 
 .tableMostrarClientes tr {
@@ -705,60 +800,19 @@ tbody tr td:nth-child(4) {
   grid-template-columns: 3rem 13rem 45rem 1fr;
 }
 
-
-.table-7-col tr td:nth-child(3),
-.table-7-col tr td:nth-child(4),
-.table-5-col tr td:nth-child(3),
-.table-5-col tr td:nth-child(4),
-.table-4-col tr td:nth-child(3),
-.table-4-col tr td:nth-child(4) {
-  display: flex;
-  justify-content: flex-start;
+.table_confirmar_cita {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 50%;
 }
 
-.child3,
-.child4 {
-  display: flex;
-  justify-content: flex-start !important; 
-}
-
-.contenedorBotones {
-  display: flex;
-  gap: 4rem;
-}
-
-.paginacion a {
-  margin-right: 1rem;
-  text-decoration: none;
-  font-size: 1.4rem;
-  display: flex;
-  width: 4rem;
-  height: 4rem;
-  background-color: var(--black2);
-  justify-content: center;
-  align-items: center;
-  border-radius: 4rem;
-  color: #000;
-}
-
-.paginacion a:hover {
-  color: #fff;
-  background-color: #0c8ce9;
-}
-
-/*********************************** Card ***********************************/
+/*************************************** CARDS ***************************************/
 .card__container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
   width: 100%;
   padding: 2rem;
-}
-
-.confirmar_cita {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  width: 50%;
 }
 
 .card {
@@ -820,18 +874,12 @@ tbody tr td:nth-child(4) {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
 }
 
-.contenedorBotones2 {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding-top: 2rem;
-}
-
-.contenedorBotones2 a {
-  margin: 0;
-}
-
-/********************************** MENSAJES **************************************/
+/********************************************* MENSAJES *********************************************/
 .msjError {
   color: red;
+}
+
+/********************************************* HIDDEN *********************************************/
+.hidden {
+  display: none;
 }

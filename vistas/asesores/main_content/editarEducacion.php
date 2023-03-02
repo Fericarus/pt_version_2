@@ -21,6 +21,7 @@ $id_educacion = $_GET['id_educacion'];
         <div class="main__container--title">
             <h1>Editar educación</h1>
             <p>Edita tu información:</p>
+            <span id="errorMessageLetras" style="display: none;"></span>
         </div>
 
         <!-- Institución -->
@@ -56,7 +57,6 @@ $id_educacion = $_GET['id_educacion'];
 
         <!-- Título -->
         <div>
-            <span id="errorMessageLetras" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Título obtenido:</label>
 
@@ -76,7 +76,7 @@ $id_educacion = $_GET['id_educacion'];
 
                 // Mostramos los resultados de la consulta en un input
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<input id='titulo' class='campo' name='titulo' value='" . $row['titulo'] . "' oninput='validarLetras(this.id, 15)'/>";
+                    echo "<input id='titulo' class='campo' name='titulo' value='" . $row['titulo'] . "' oninput='validarLetras(this.id, 1)'/>";
                 }
 
                 ?>

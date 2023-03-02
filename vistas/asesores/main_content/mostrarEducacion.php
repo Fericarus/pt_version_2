@@ -19,10 +19,11 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             <p>Educación del asesor:</p>
         </div>
 
-        <table>
+        <table class="table-4-col tableMostrarEducación">
             <tr>
                 <td class="title">Institución educativa</td>
                 <td class="title">Título obtenido</td>
+                <td class="title"></td>
                 <td class="title"></td>
             </tr>
 

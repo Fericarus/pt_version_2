@@ -7,10 +7,11 @@ function validarNombre(id) {
   // Validamos contra la expresión regular
   if (!Pattern.test(nombre)) {
     errorMessageNombre.innerHTML = "Solo se permiten letras y espacios.";
-    errorMessageNombre.style.color = "red";
+    errorMessageNombre.style.backgroundColor = "red";
+    errorMessageNombre.style.color = "white";
     errorMessageNombre.style.display = "block";
-    errorMessageNombre.style.paddingLeft = "14.5rem";
-    errorMessageNombre.style.paddingBottom = ".5rem";
+    errorMessageNombre.style.padding = ".5rem";
+    errorMessageNombre.style.paddingLeft = paddingLeft + "rem";
     return false;
   } else {
     errorMessageNombre.innerHTML = "";
@@ -28,10 +29,11 @@ function validarPaterno(id) {
   // Validamos contra la expresión regular
   if (!Pattern.test(apellido_paterno)) {
     errorMessagePaterno.innerHTML = "Solo se permiten letras";
-    errorMessagePaterno.style.color = "red";
+    errorMessagePaterno.style.backgroundColor = "red";
+    errorMessagePaterno.style.color = "white";
     errorMessagePaterno.style.display = "block";
-    errorMessagePaterno.style.paddingLeft = "14.5rem";
-    errorMessagePaterno.style.paddingBottom = ".5rem";
+    errorMessagePaterno.style.padding = ".5rem";
+    errorMessagePaterno.style.paddingLeft = paddingLeft + "rem";
     return false;
   } else {
     errorMessagePaterno.innerHTML = "";
@@ -49,10 +51,11 @@ function validarMaterno(id) {
   // Validamos contra la expresión regular
   if (!Pattern.test(apellido_materno)) {
     errorMessageMaterno.innerHTML = "Solo se permiten letras";
-    errorMessageMaterno.style.color = "red";
+    errorMessageMaterno.style.backgroundColor = "red";
+    errorMessageMaterno.style.color = "white";
     errorMessageMaterno.style.display = "block";
-    errorMessageMaterno.style.paddingLeft = "14.5rem";
-    errorMessageMaterno.style.paddingBottom = ".5rem";
+    errorMessageMaterno.style.padding = ".5rem";
+    errorMessageMaterno.style.paddingLeft = paddingLeft + "rem";
     return false;
   } else {
     errorMessageMaterno.innerHTML = "";
@@ -69,11 +72,12 @@ function validarLetras(id, paddingLeft) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(apellido_materno)) {
-    errorMessageLetras.innerHTML = "Solo se permiten letras";
-    errorMessageLetras.style.color = "red";
+    errorMessageLetras.innerHTML = "Solo se permiten letras";//////////////////////////////////////
+    errorMessageLetras.style.backgroundColor = "red";
+    errorMessageLetras.style.color = "white";
     errorMessageLetras.style.display = "block";
+    errorMessageLetras.style.padding = ".5rem";
     errorMessageLetras.style.paddingLeft = paddingLeft + "rem";
-    errorMessageLetras.style.paddingBottom = ".5rem";
     return false;
   } else {
     errorMessageLetras.innerHTML = "";
@@ -92,10 +96,11 @@ function validarEmail(id) {
   // Validamos contra la expresión regular
   if (!Pattern.test(email)) {
     errorMessageEmail.innerHTML = "Escriba un correo válido";
-    errorMessageEmail.style.color = "red";
+    errorMessageEmail.style.backgroundColor = "red";
+    errorMessageEmail.style.color = "white";
     errorMessageEmail.style.display = "block";
-    errorMessageEmail.style.paddingLeft = "14.5rem";
-    errorMessageEmail.style.paddingBottom = ".5rem";
+    errorMessageEmail.style.padding = ".5rem";
+    errorMessageEmail.style.paddingLeft = paddingLeft + "rem";
     return false;
   } else {
     errorMessageEmail.innerHTML = "";
@@ -113,10 +118,11 @@ function validarTelefono(id) {
   // Validamos contra la expresión regular
   if (!Pattern.test(telefono)) {
     errorMessageTelefono.innerHTML = "Escriba un teléfono válido. 10 dígitos";
-    errorMessageTelefono.style.color = "red";
+    errorMessageTelefono.style.backgroundColor = "red";
+    errorMessageTelefono.style.color = "white";
     errorMessageTelefono.style.display = "block";
-    errorMessageTelefono.style.paddingLeft = "14.5rem";
-    errorMessageTelefono.style.paddingBottom = ".5rem";
+    errorMessageTelefono.style.padding = ".5rem";
+    errorMessageTelefono.style.paddingLeft = paddingLeft + "rem";
     return false;
   } else {
     errorMessageTelefono.innerHTML = "";
@@ -134,10 +140,11 @@ function validarPass(id) {
   // Validamos contra la expresión regular
   if (!Pattern.test(password1)) {
     errorMessagePass.innerHTML = "Las contraseñas deben tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial";
-    errorMessagePass.style.color = "red";
+    errorMessagePass.style.backgroundColor = "red";
+    errorMessagePass.style.color = "white";
     errorMessagePass.style.display = "block";
-    errorMessagePass.style.paddingLeft = "14.5rem";
-    errorMessagePass.style.paddingBottom = ".5rem";
+    errorMessagePass.style.padding = ".5rem";
+    errorMessagePass.style.paddingLeft = paddingLeft + "rem";
     return false;
   } else {
     errorMessagePass.innerHTML = "";
@@ -155,10 +162,11 @@ function validarPassConfirm(id) {
   // Validamos contra la expresión regular
   if (!Pattern.test(passwordConfirm)) {
     errorMessagePassConfirm.innerHTML = "Las contraseñas deben tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.";
-    errorMessagePassConfirm.style.color = "red";
+    errorMessagePassConfirm.style.backgroundColor = "red";
+    errorMessagePassConfirm.style.color = "white";
     errorMessagePassConfirm.style.display = "block";
-    errorMessagePassConfirm.style.paddingLeft = "14.5rem";
-    errorMessagePassConfirm.style.paddingBottom = ".5rem";
+    errorMessagePassConfirm.style.padding = ".5rem";
+    errorMessagePassConfirm.style.paddingLeft = paddingLeft + "rem";
     return false;
   } else {
     errorMessagePassConfirm.innerHTML = "";

@@ -17,6 +17,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
         <div class="main__container--title">
             <h1>Agregar educación</h1>
             <p>Ingresa los datos de tu educación:</p>
+            <span id="errorMessageLetras" style="display: none;"></span>
         </div>
 
         <!-- Campo Institución -->
@@ -48,10 +49,9 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
         <!-- Campo Título -->
         <div>
-            <span id="errorMessageLetras" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Título obtenido:</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título obtenido" class="form_educacion" oninput="validarLetras(this.id, 16.3)" required />
+                <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título obtenido" class="form_educacion" oninput="validarLetras(this.id, 1)" required />
             </div>
         </div>
 

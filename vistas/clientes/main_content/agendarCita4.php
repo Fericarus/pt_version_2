@@ -14,7 +14,7 @@ $id_servicio = $_GET['id_servicio'];
 
 ?>
 
-<div class="main__container--table confirmar_cita">
+<div class="main__container--table table_confirmar_cita">
 
     <div class="card2">
 

@@ -66,14 +66,6 @@ $hora = $_GET['hora'];
 
 </div>
 
-
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
-<div class="main__container--table confirmar_cita">
-
-</div>
-
 <script>
     // Función para pasar por GET los parametros a la siguiente pantalla
     function agregarServicio() {
@@ -84,4 +76,6 @@ $hora = $_GET['hora'];
             }
         })
     }
+
+    console.log(hora.value);
 </script>

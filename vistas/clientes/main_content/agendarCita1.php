@@ -22,7 +22,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             <!-- tableMostrarAsesores -->
             <tr>
                 <td class="title">Nombre</td>
-                <td class="title">Título</td>
+                <td class="title">Rol</td>
                 <td class="title">Email</td>
                 <td class="title">Telefono</td>
                 <td class="title"></td>
@@ -53,7 +53,8 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             $empezar_desde = ($pagina - 1) * $tamano_paginas;
 
             // Sentencia sql
-            $sql = "SELECT * FROM asesores INNER JOIN asesoreseducaciones ON asesoreseducaciones.id_asesor3 = asesores.id_asesor";
+            $sql = "SELECT * FROM asesores 
+            INNER JOIN roles_asesores ON roles_asesores.id_asesor5 = asesores.id_asesor";
 
             // Preparamos la sentencia
             $stmt = $dbh->prepare($sql);
@@ -76,7 +77,8 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
             $sql_limite =
                 "SELECT * FROM asesores 
-                INNER JOIN asesoreseducaciones ON asesoreseducaciones.id_asesor3 = asesores.id_asesor 
+                INNER JOIN roles_asesores ON roles_asesores.id_asesor5 = asesores.id_asesor 
+                INNER JOIN roles ON roles.id_roles = roles_asesores.id_roles1 
                 LIMIT $empezar_desde, $tamano_paginas";
 
             // Preparamos la sentencia
@@ -90,7 +92,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 echo "<td>" . $row['nombre'] . " " . $row['apellido_paternoA'] . "</td>";
-                echo "<td>" . $row['titulo'] . "</td>";
+                echo "<td>" . $row['nombre_rol'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['telefono'] . "</td>";
                 echo "<input class='hidden' id='id_asesor" . $n . "' value='" . $row['id_asesor'] . "'></input>";

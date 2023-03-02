@@ -19,11 +19,12 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             <p>Citas agendadas</p>
         </div>
 
-        <table class="table-5-col">
+        <table class="table-6-col">
             <tr>
                 <td class="title">Asesor</td>
                 <td class="title">Fecha de la cita</td>
                 <td class="title">Hora</td>
+                <td class="title">Estado</td>
                 <td class="title"></td>
                 <td class="title"></td>
             </tr>
@@ -97,6 +98,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
                 echo "<td>" . $row['nombre'] . " " . $row['apellido_paternoA'] . " " . $row['apellido_maternoA'] . "</td>";
                 echo "<td>" . $row['fecha'] . "</td>";
                 echo "<td>" . $row['hora'] . "</td>";
+                echo "<td><span>" . $row['estado_cita'] . "</span></td>";
                 echo "<td><a onclick='editar(" . $n . ")' class='boton boton-editar' href='javascript:void(0)' code-val='+val.codigo+''>Editar</a></td>";
                 echo "<td><a onclick='eliminar(" . $n . ")'class='boton boton-eliminar' href='javascript:void(0)' code-val='+val.codigo+''>Eliminar</a></td>";
                 echo "<input class='hidden' id='id_cita" . $n . "' value='" . $row['id_cita'] . "'></input>";
@@ -132,7 +134,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 </div>
 
 <script>
-    // Paginación
+    // Funcionalidad de la paginación
     function mostrar($i) {
         let pagina = document.getElementById('pagina');
         let page = document.getElementById('page' + $i);
@@ -176,22 +178,35 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     }
 
 
-    // Obtenemos la fecha actual con el objeto Date
-    var fechaActual = new Date();
+    //////////////////////////// MOSTRAMOS LOS ESTADOS DE LAS CITAS CON COLORES ///////////////////////////////
+    // Obtenemos todos los elemtos <td>
+    var spans = document.getElementsByTagName("span");
 
-    var tds = document.getElementsByTagName("td");
-    var trs = document.getElementsByTagName("tr");
-
-    var msjError = document.getElementById("msjError");
-
-    // Aquí recorremos el arreglo de elementos <td> que son (5 * n) registros en la tabla
-    for (var i = 0; i < tds.length; i++) {
+    // Aquí recorremos el arreglo de elementos <td>
+    for (var i = 0; i < spans.length; i++) {
 
         // Con textContent obtengo el texto que se encuentra dentro de la eiqueta <td> y creamos un objeto del tipo Date
-        var fechaCelda = new Date(tds[i].textContent);
+        var statusCelda = spans[i].textContent;
 
-        if (fechaCelda < fechaActual) {
-            tds[i].style.color = "red";
+        if (statusCelda == "pendiente") {
+            spans[i].style.backgroundColor = "#FF0000";
+            spans[i].style.color = "white";
+            spans[i].style.padding = "2px";
+            spans[i].style.borderRadius = "5px";
+        }
+
+        if (statusCelda == "en progreso") {
+            spans[i].style.backgroundColor = "#F9CA3F";
+            spans[i].style.color = "white";
+            spans[i].style.padding = "2px";
+            spans[i].style.borderRadius = "5px";
+        }
+
+        if (statusCelda == "completada") {
+            spans[i].style.backgroundColor = "#8DE02C";
+            spans[i].style.color = "white";
+            spans[i].style.padding = "2px";
+            spans[i].style.borderRadius = "5px";
         }
     }
 </script>
