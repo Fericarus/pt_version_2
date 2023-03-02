@@ -19,7 +19,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             <p>Certificaciones del asesor:</p>
         </div>
 
-        <table>
+        <table class="table-4-col tableMostrarCertificacion">
             <tr>
                 <td class="title">Entidad certificadora</td>
                 <td class="title">Certificado obtenido</td>

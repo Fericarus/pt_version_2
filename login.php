@@ -36,18 +36,17 @@
 
                     <form class="formulario" action="funciones/validarLogin.php" method="POST">
 
+                        <!-- Titulo -->
                         <div class="main__container--title">
                             <h1>Inicio de sesión</h1>
                             <p>Inicia sesión con tus datos</p>
+                            <span id="errorMessageEmail" style="display: none;"></span>
                         </div>
 
                         <div class="campo__container">
-                            <div>
-                                <span id="errorMessageEmail" style="display: none;"></span>
-                                <div class="campo">
-                                    <label for="nombre">Correo:</label>
-                                    <input id="email" name="email" placeholder="usuario@empresa.com" oninput="validarEmail(this.id)" required />
-                                </div>
+                            <div class="campo">
+                                <label for="nombre">Correo:</label>
+                                <input id="email" name="email" placeholder="usuario@empresa.com" oninput="validarEmail(this.id)" required />
                             </div>
 
                             <div class="campo">
@@ -57,9 +56,7 @@
 
                         </div>
 
-                        <div class="captcha__container">
-                            <input type="submit" value="Iniciar Sesión" class="boton">
-                        </div>
+                        <input type="submit" value="Iniciar Sesión" class="boton">
 
                     </form>
 

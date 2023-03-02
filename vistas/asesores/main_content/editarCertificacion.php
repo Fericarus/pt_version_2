@@ -21,6 +21,7 @@ $id_certificacion = $_GET['id_certificacion'];
         <div class="main__container--title">
             <h1>Editar Certificacion</h1>
             <p>Edita tu información:</p>
+            <span id="errorMessageLetras" style="display: none;"></span>
         </div>
 
         <!-- Entidad certificadora -->
@@ -41,7 +42,7 @@ $id_certificacion = $_GET['id_certificacion'];
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' class='campo' name='entidad_certificadora' value='" . $row['entidad_certificadora'] . "'/>";
+                echo "<input id='entidad_certificadora' class='campo' name='entidad_certificadora' value='" . $row['entidad_certificadora'] . "' oninput='validarLetras(this.id, 1)'/>";
             }
             ?>
         </div>
@@ -65,7 +66,7 @@ $id_certificacion = $_GET['id_certificacion'];
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' class='campo' name='certificado' value='" . $row['certificado'] . "'/>";
+                echo "<input id='certificado' class='campo' name='certificado' value='" . $row['certificado'] . "' oninput='validarLetras(this.id, 1)'/>";
             }
 
             ?>
@@ -80,3 +81,5 @@ $id_certificacion = $_GET['id_certificacion'];
     </form>
 
 </div>
+
+<script src="../../funciones/funciones.js"></script>

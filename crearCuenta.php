@@ -38,11 +38,17 @@
                         <div class="main__container--title">
                             <h1>Cliente nuevo</h1>
                             <p>Llena el siguiente formulario para crear una cuenta</p>
+                            <span id="errorMessageNombre" style="display: none;"></span>
+                            <span id="errorMessagePaterno" style="display: none;"></span>
+                            <span id="errorMessageMaterno" style="display: none;"></span>
+                            <span id="errorMessageEmail" style="display: none;"></span>
+                            <span id="errorMessageTelefono" style="display: none;"></span>
+                            <span id="errorMessagePass" style="display: none;"></span>
+                            <span id="errorMessagePassConfirm" style="display: none;"></span>
                         </div>
 
                         <!-- Campo Nombre -->
                         <div>
-                            <span id="errorMessageNombre" style="display: none;"></span>
                             <div class="campo">
                                 <label for="nombre">Nombre<span>*</span></label>
                                 <input type="text" id="nombre" name="nombre" placeholder="Juán" oninput="validarNombre(this.id)" />
@@ -53,7 +59,7 @@
 
                         <!-- Campo apellido paterno -->
                         <div>
-                            <span id="errorMessagePaterno" style="display: none;"></span>
+
                             <div class="campo">
                                 <label for="nombre">Paterno<span>*</span></label>
                                 <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="González" oninput="validarPaterno(this.id)" />
@@ -63,7 +69,7 @@
 
                         <!-- Campo apellido materno -->
                         <div>
-                            <span id="errorMessageMaterno" style="display: none;"></span>
+
                             <div class="campo">
                                 <label for="nombre">Materno<span>*</span></label>
                                 <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Martínez" oninput="validarMaterno(this.id)" />
@@ -72,7 +78,7 @@
 
                         <!-- Campo Email -->
                         <div>
-                            <span id="errorMessageEmail" style="display: none;"></span>
+
                             <div class="campo">
                                 <label for="nombre">Correo<span>*</span></label>
                                 <input type="email" id="email" name="email" placeholder="usuario@empresa.com" oninput="validarEmail(this.id)" />
@@ -81,7 +87,7 @@
 
                         <!-- Campo Telefono -->
                         <div>
-                            <span id="errorMessageTelefono" style="display: none;"></span>
+
                             <div class="campo">
                                 <label for="nombre">Teléfono<span>*</span></label>
                                 <input type="number" id="telefono" name="telefono" placeholder="55 1234 1234" oninput="validarTelefono(this.id)" />
@@ -144,7 +150,7 @@
 
                         <!-- Password -->
                         <div>
-                            <span id="errorMessagePass" style="display: none;"></span>
+
                             <div class="campo">
                                 <label for="nombre">Contraseña<span>*</span></label>
                                 <input type="password" id="password" name="password" placeholder="Tu contraseña" oninput="validarPass(this.id)" />
@@ -154,7 +160,7 @@
 
                         <!-- Confirmar Password -->
                         <div>
-                            <span id="errorMessagePassConfirm" style="display: none;"></span>
+
                             <div class="campo">
                                 <label for="nombre">Confirmación<span>*</span></label>
                                 <input type="password" id="passwordConfirm" name="confirmarPassword" placeholder="Confirma tu contraseña" oninput="validarPassConfirm(this.id)" />

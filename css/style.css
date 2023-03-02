@@ -459,7 +459,6 @@ table tr {
 .campo__container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   margin-top: 1rem;
 }
 
@@ -751,6 +750,11 @@ tbody tr td:nth-child(4) {
 .tableMostrarEducación tr {
   display: grid;
   grid-template-columns: 28rem 28rem 12rem 12rem;
+}
+
+.tableMostrarCertificacion tr {
+  display: grid;
+  grid-template-columns: 20rem 38rem 12rem 12rem;
 }
 
 .tableMostrarClientes tr {

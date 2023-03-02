@@ -17,18 +17,19 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
         <div class="main__container--title">
             <h1>Agregar Certificacion</h1>
             <p>Ingresa los datos de tu Certificacion:</p>
+            <span id="errorMessageLetras" style="display: none;"></span>
         </div>
 
         <!-- Campo Entidad certificadora -->
         <div class="campo">
             <label for="nombre">Entidad certificadora:</label>
-            <input type="text" id="entidad_certificadora" name="entidad_certificadora" placeholder="Entidad que emite la certificación" class="form_educacion" required />
+            <input type="text" id="entidad_certificadora" name="entidad_certificadora" placeholder="Entidad que emite la certificación" class="form_educacion" oninput="validarLetras(this.id, 1)" required />
         </div>
 
         <!-- Certificación -->
         <div class="campo">
             <label for="nombre">Certificado obtenido:</label>
-            <input type="text" id="certificacion" name="certificacion" placeholder="Ingresa el certificado obtenido" class="form_educacion" required />
+            <input type="text" id="certificacion" name="certificacion" placeholder="Ingresa el certificado obtenido" class="form_educacion" oninput="validarLetras(this.id, 1)" required />
         </div>
 
         <!-- Boton para actualizar cambios -->
@@ -36,5 +37,6 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
     </form>
 
-
 </div>
+
+<script src="../../funciones/funciones.js"></script>

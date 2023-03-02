@@ -6,12 +6,13 @@ function validarNombre(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(nombre)) {
-    errorMessageNombre.innerHTML = "Solo se permiten letras y espacios.";
+    errorMessageNombre.innerHTML = "Por favor, introduce sólo letras y espacios en el campo del nombre.";
     errorMessageNombre.style.backgroundColor = "red";
     errorMessageNombre.style.color = "white";
     errorMessageNombre.style.display = "block";
     errorMessageNombre.style.padding = ".5rem";
-    errorMessageNombre.style.paddingLeft = paddingLeft + "rem";
+    errorMessageNombre.style.paddingLeft = ".5rem";
+    errorMessageNombre.style.marginBottom = ".2rem";
     return false;
   } else {
     errorMessageNombre.innerHTML = "";
@@ -28,12 +29,13 @@ function validarPaterno(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(apellido_paterno)) {
-    errorMessagePaterno.innerHTML = "Solo se permiten letras";
+    errorMessagePaterno.innerHTML = "Por favor, introduce sólo letras y espacios en el campo del apellido paterno.";
     errorMessagePaterno.style.backgroundColor = "red";
     errorMessagePaterno.style.color = "white";
     errorMessagePaterno.style.display = "block";
     errorMessagePaterno.style.padding = ".5rem";
-    errorMessagePaterno.style.paddingLeft = paddingLeft + "rem";
+    errorMessagePaterno.style.paddingLeft = ".5rem";
+    errorMessagePaterno.style.marginBottom = ".2rem";
     return false;
   } else {
     errorMessagePaterno.innerHTML = "";
@@ -50,12 +52,13 @@ function validarMaterno(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(apellido_materno)) {
-    errorMessageMaterno.innerHTML = "Solo se permiten letras";
+    errorMessageMaterno.innerHTML = "Por favor, introduce sólo letras y espacios en el campo del apellido materno.";
     errorMessageMaterno.style.backgroundColor = "red";
     errorMessageMaterno.style.color = "white";
     errorMessageMaterno.style.display = "block";
     errorMessageMaterno.style.padding = ".5rem";
-    errorMessageMaterno.style.paddingLeft = paddingLeft + "rem";
+    errorMessageMaterno.style.paddingLeft = ".5rem";
+    errorMessageMaterno.style.marginBottom = ".2rem";
     return false;
   } else {
     errorMessageMaterno.innerHTML = "";
@@ -72,12 +75,13 @@ function validarLetras(id, paddingLeft) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(apellido_materno)) {
-    errorMessageLetras.innerHTML = "Solo se permiten letras";//////////////////////////////////////
+    errorMessageLetras.innerHTML = "Por favor, introduce sólo letras y espacios.";
     errorMessageLetras.style.backgroundColor = "red";
     errorMessageLetras.style.color = "white";
     errorMessageLetras.style.display = "block";
     errorMessageLetras.style.padding = ".5rem";
     errorMessageLetras.style.paddingLeft = paddingLeft + "rem";
+    errorMessageLetras.style.marginBottom = ".2rem";
     return false;
   } else {
     errorMessageLetras.innerHTML = "";
@@ -95,12 +99,13 @@ function validarEmail(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(email)) {
-    errorMessageEmail.innerHTML = "Escriba un correo válido";
+    errorMessageEmail.innerHTML = "Por favor, introduce una dirección de correo electrónico válida.";
     errorMessageEmail.style.backgroundColor = "red";
     errorMessageEmail.style.color = "white";
     errorMessageEmail.style.display = "block";
     errorMessageEmail.style.padding = ".5rem";
-    errorMessageEmail.style.paddingLeft = paddingLeft + "rem";
+    errorMessageEmail.style.paddingLeft = ".5rem";
+    errorMessageEmail.style.marginBottom = ".2rem";
     return false;
   } else {
     errorMessageEmail.innerHTML = "";
@@ -117,12 +122,13 @@ function validarTelefono(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(telefono)) {
-    errorMessageTelefono.innerHTML = "Escriba un teléfono válido. 10 dígitos";
+    errorMessageTelefono.innerHTML = "Por favor, introduce un número de teléfono válido con 10 dígitos.";
     errorMessageTelefono.style.backgroundColor = "red";
     errorMessageTelefono.style.color = "white";
     errorMessageTelefono.style.display = "block";
     errorMessageTelefono.style.padding = ".5rem";
-    errorMessageTelefono.style.paddingLeft = paddingLeft + "rem";
+    errorMessageTelefono.style.paddingLeft = ".5rem";
+    errorMessageTelefono.style.marginBottom = ".2rem";
     return false;
   } else {
     errorMessageTelefono.innerHTML = "";
@@ -139,16 +145,15 @@ function validarPass(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(password1)) {
-    errorMessagePass.innerHTML = "Las contraseñas deben tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial";
+    errorMessagePass.innerHTML = "Asegúrateque la contraseña tenga al menos 8 caracteres, incluyendo al menos una letra minúscula, una letra mayúscula, un número y un caracter especial.";
     errorMessagePass.style.backgroundColor = "red";
     errorMessagePass.style.color = "white";
     errorMessagePass.style.display = "block";
     errorMessagePass.style.padding = ".5rem";
-    errorMessagePass.style.paddingLeft = paddingLeft + "rem";
+    errorMessagePass.style.paddingLeft = ".5rem";
+    errorMessagePass.style.marginBottom = ".2rem";
     return false;
   } else {
-    errorMessagePass.innerHTML = "";
-    errorMessagePass.style.display = "none";
     return true;
   }
 }
@@ -161,12 +166,13 @@ function validarPassConfirm(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(passwordConfirm)) {
-    errorMessagePassConfirm.innerHTML = "Las contraseñas deben tener al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.";
+    errorMessagePassConfirm.innerHTML = "Asegúrateque la contraseña tenga al menos 8 caracteres, incluyendo al menos una letra minúscula, una letra mayúscula, un número y un caracter especial.";
     errorMessagePassConfirm.style.backgroundColor = "red";
     errorMessagePassConfirm.style.color = "white";
     errorMessagePassConfirm.style.display = "block";
     errorMessagePassConfirm.style.padding = ".5rem";
-    errorMessagePassConfirm.style.paddingLeft = paddingLeft + "rem";
+    errorMessagePassConfirm.style.paddingLeft = ".5rem";
+    errorMessagePassConfirm.style.marginBottom = ".2rem";
     return false;
   } else {
     errorMessagePassConfirm.innerHTML = "";

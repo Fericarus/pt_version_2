@@ -64,23 +64,3 @@ $id_asesorCertificacion = $_GET['id_asesorCertificacion'];
 </div>
 
 </div>
-
-<!--
-<script>
-    // Botón Eliminar
-    function eliminar($i) {
-        let id_asesorCertificacion = document.getElementById('id_asesorCertificacion' + $i);
-        let id_certificacion = document.getElementById('id_certificacion' + $i);
-        //console.log(id_asesorEducacion.value);
-
-        var dato = $(this).attr("code-val");
-        $.ajax({
-            url: "../../funciones/eliminarCertificacion.php?id_asesorCertificacion=" + id_asesorCertificacion.value + "&id_certificacion=" + id_certificacion.value,
-            success: function(details) {
-                $("#details").html(details);
-            }
-        })
-
-    }
-</script>
--->
