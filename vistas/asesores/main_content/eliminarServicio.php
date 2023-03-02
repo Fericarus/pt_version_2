@@ -14,7 +14,7 @@ $id_asesorServicio = $_GET['id_asesorServicio'];
 
 <div class="main__container--table title_table">
 
-    <form class='formulario'>";
+    <form class='formulario'>
 
         <!-- Título del formulario -->
         <div class="main__container--title">
@@ -22,7 +22,7 @@ $id_asesorServicio = $_GET['id_asesorServicio'];
             <p>¿Realmente desea eliminar los siguientes datos?</p>
         </div>
 
-        <table class="tableEliminar">
+        <table class="table-3-col tableMostrarServicios">
 
             <!-- Cabeceras de la tabla -->
             <tr>

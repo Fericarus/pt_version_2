@@ -6,6 +6,8 @@ include "../includes/config/database.php";
 // Mandamos llamar la libreria de sweetalert2
 include "./mensajesSweetAlert.php";
 
+echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90deg, rgba(165, 43, 155, 1) 0%, rgba(105, 49, 160, 1) 100%);'>";
+
 // Capturamos la información de los formularios en las variables $email y $passwordLogin
 $email = $_POST["email"];
 $passwordLogin = $_POST["passwordLogin"];

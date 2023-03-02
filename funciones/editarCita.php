@@ -12,6 +12,8 @@ include "./mensajesSweetAlert.php";
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 
+echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90deg, rgba(165, 43, 155, 1) 0%, rgba(105, 49, 160, 1) 100%);'>";
+
 // Si queremos editar citas desde un perfil del tipo cliente
 if (isset($_POST['submitClientes'])) {
     editarCita($dbh, "../vistas/clientes/clientes.php");
@@ -47,3 +49,5 @@ function editarCita($dbh, $redirect)
         mensajeError("Ups, algo falló", $redirect);
     }
 }
+
+echo "</body>";

@@ -12,6 +12,8 @@ include "./mensajesSweetAlert.php";
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 
+echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90deg, rgba(165, 43, 155, 1) 0%, rgba(105, 49, 160, 1) 100%);'>";
+
 // Capturamos la información de los formularios
 $servicio = $_POST["servicio"];
 $descripcion = $_POST["descripcion"];
@@ -36,3 +38,5 @@ if (soloLetras($servicio, $redirect)) {
         mensajeError("Ups, algo salió mal", $redirect);
     }
 }
+
+echo "</body>";
