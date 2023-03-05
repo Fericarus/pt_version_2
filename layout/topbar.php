@@ -18,11 +18,8 @@
 
     <!-- Mensaje de bienvenida personalizado -->
     <div class="usuario">
-        <p>
-            <?php
-            echo "Bienvenido <strong>" . $_SESSION["nombre"] . "</strong>";
-            ?>
-        </p>
+        <p>Hola</p>
+        <p><?php echo "<strong>" . $_SESSION["nombre"] . "</strong>";?></p>
     </div>
 
 </div>

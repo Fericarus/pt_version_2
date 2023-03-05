@@ -291,6 +291,8 @@ body {
   font-size: 1.6rem;
   font-weight: lighter;
   font-family: "Ubuntu", sans-serif;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
 }
 
 .usuario p strong {
@@ -443,6 +445,7 @@ table tr {
 }
 
 .main__container--title h1,
+.main__container--title h2,
 .main__container--title p {
   display: flex;
   color: #6931a0;
@@ -917,6 +920,19 @@ tbody tr td:nth-child(4) {
   display: none;
 }
 
+/**************************************** ADMIN DASHBOARD ******************************************/
+.admin_dashboard {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  gap: 2rem;
+}
+
 /********************************************* TARJETAS *********************************************/
 /* Pantalla de movil */
 .contenedor_tarjetas {
@@ -942,7 +958,7 @@ tbody tr td:nth-child(4) {
 }
 
 .tarjeta:hover {
-  transition: .15s;
+  transition: 0.15s;
   transform: scale(1.02);
 }
 
@@ -963,28 +979,113 @@ tbody tr td:nth-child(4) {
   margin-right: 1rem;
 }
 
-
 .tarjeta1 {
-  background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
+  background-image: linear-gradient(135deg, #6b73ff 10%, #000dff 100%);
   color: #fff;
 }
 
 .tarjeta2 {
-  background-image: linear-gradient( 135deg, #FDEB71 5%, #ffbd0b 100%);
+  background-image: linear-gradient(135deg, #fdeb71 5%, #ffbd0b 100%);
 }
 
 .tarjeta3 {
-  background-image: linear-gradient( 135deg, #FE9672 10%, #FB4445 100%);
+  background-image: linear-gradient(135deg, #fe9672 10%, #fb4445 100%);
 }
 
 .tarjeta4 {
-  background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+  background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
 }
 
+/*********************************** CONTENEDOR DETALLES ***********************************/
+.contenedor_detalles {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 90%;
+  height: 100%;
+  gap: 2rem;
+}
+
+/************************************** GRAFICO *******************************************/
+.contenedor_grafico {
+  /* width: 70%;*/
+  height: 95%;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  transition-duration: 300ms;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+
+/************************************ ÚLTIMOS CLIENTES **************************************/
+.contenedor_ultimos_clientes {
+  /* width: 30%;*/
+  height: 95%;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  transition-duration: 300ms;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.contenedor_ultimos_clientes ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedor_ultimos_clientes ul div {
+  display: flex;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.contenedor_ultimos_clientes ul div:hover {
+  background-color: #287BFF;
+  color: #fff;
+}
+
+.contenedor_ultimos_clientes ul div:first-child {
+  padding-bottom: 1rem;
+}
+
+.contenedor_ultimos_clientes ul div li {
+  list-style: none;
+  width: 18rem;
+  font-size: 1.4rem;
+  padding-left: 1rem;
+}
+
+.contenedor_ultimos_clientes .main__container--title {
+  margin: 0;
+}
+
+/************************************ MEDIA QUERIES ****************************************/
 /* Pantalla a 575px */
 @media (min-width: 768px) {
   .contenedor_tarjetas {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contenedor_detalles {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+  }
+
+  .admin_dashboard {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem auto;
+  }
+
+  .contenedor_ultimos_clientes ul div {
+    display: flex;
+    padding: 1.5rem 0;
+    width: 100%;
   }
 }
 
