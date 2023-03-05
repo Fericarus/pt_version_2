@@ -1073,7 +1073,7 @@ tbody tr td:nth-child(4) {
 
   .contenedor_detalles {
     display: grid;
-    grid-template-columns: 5fr 3fr;
+    grid-template-columns: 1fr;
   }
 
   .admin_dashboard {
@@ -1082,7 +1082,6 @@ tbody tr td:nth-child(4) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     margin: 1rem auto;
   }
 
@@ -1098,5 +1097,13 @@ tbody tr td:nth-child(4) {
   .contenedor_tarjetas {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contenedor_detalles {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    width: 90%;
+    height: 100%;
+    gap: 2rem;
   }
 }
