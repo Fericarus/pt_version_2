@@ -26,7 +26,8 @@
         <!-- Menu vertical -->
         <?php require('../../layout/layout_admin/nav_admin--asesores.php') ?>
 
-        <div class="main">
+        <!-- Sección principal -->
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
@@ -49,22 +50,22 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
-    // Para ir a la sección agregar_educacion
+    // Para ir a la sección agregar asesor
     $(".agregar_asesor").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
-            // Insertamos en #details el contenido de main_content/agregarEducacion.php
             url: "main_content/agregarAsesor.php",
             success: function(details) {
                 $("#details").html(details);
             }
         })
 
+        // Adjuntamos la el nombre a la barra de dirección ruta
         let ruta = document.getElementById('ruta');
         ruta.innerHTML = "/ Agregar asesor";
     })
 
-    // Para ir a la sección mostrar_educacion
+    // Para ir a la sección mostrar asesores
     $(".mostrar_asesores").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({

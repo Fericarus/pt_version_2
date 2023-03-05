@@ -26,17 +26,17 @@
         <!-- Menu vertical -->
         <?php require('../../layout/layout_admin/nav_admin--giros.php') ?>
 
-        <div class="main">
+        <!-- Seción principal -->
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
 
             <!-- Barra de dirección -->
             <span class="ruta">
-                <a href="administradores.php">
-                    <h2>Inicio</h2>
-                </a>
-                <h2>/ Administrar giros</h2>
+                <a href="administradores.php"><h2>Inicio</h2></a>
+                <a href="administradores--giros.php"><h2>/ Administrar giros</h2></a>
+                <h2 id="ruta"></h2>
             </span>
 
             <!-- Sección que se recargará con la función ajax -->
@@ -60,6 +60,10 @@
                 $("#details").html(details);
             }
         })
+
+        // Adjuntamos la el nombre a la barra de dirección ruta
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Agregar giro";
     })
 
     // Para ir a la sección mostrar_educacion
@@ -71,6 +75,10 @@
                 $("#details").html(details);
             }
         })
+
+        // Adjuntamos la el nombre a la barra de dirección ruta
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Mostrar giros";
     })
 
 </script>

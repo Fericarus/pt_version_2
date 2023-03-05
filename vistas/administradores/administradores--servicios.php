@@ -26,17 +26,17 @@
         <!-- Menu vertical -->
         <?php require('../../layout/layout_admin/nav_admin--servicios.php') ?>
 
-        <div class="main">
+        <!-- Sección principal -->
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
 
             <!-- Barra de dirección -->
             <span class="ruta">
-                <a href="administradores.php">
-                    <h2>Inicio</h2>
-                </a>
-                <h2>/ Gestionar servicios</h2>
+                <a href="administradores.php"><h2>Inicio</h2></a>
+                <a href="administradores--servicios.php"><h2>/ Gestionar servicios</h2></a>
+                <h2 id="ruta"></h2>
             </span>
 
             <!-- Sección que se recargará con la función ajax -->
@@ -60,6 +60,9 @@
                 $("#details").html(details);
             }
         })
+
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Agregar servicio";
     })
 
     // Para ir a la sección mostrar_educacion
@@ -71,6 +74,9 @@
                 $("#details").html(details);
             }
         })
+
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Mostrar servicios";
     })
 
 </script>

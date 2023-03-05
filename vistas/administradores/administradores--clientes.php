@@ -26,17 +26,17 @@
         <!-- Menu vertical -->
         <?php require('../../layout/layout_admin/nav_admin--clientes.php') ?>
 
-        <div class="main">
+        <!-- Sección principal -->
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
 
             <!-- Barra de dirección -->
             <span class="ruta">
-                <a href="administradores.php">
-                    <h2>Inicio</h2>
-                </a>
-                <h2>/ Gestionar clientes</h2>
+                <a href="administradores.php"><h2>Inicio</h2></a>
+                <a href="administradores--clientes.php"><h2>/ Gestionar clientes</h2></a>
+                <h2 id="ruta"></h2>
             </span>
 
             <!-- Sección que se recargará con la función ajax -->
@@ -50,7 +50,7 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
-    // Para ir a la sección agregar_educacion
+    // Para ir a la sección mostrar clientes
     $(".mostrar_clientes").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
@@ -60,6 +60,10 @@
                 $("#details").html(details);
             }
         })
+
+        // Adjuntamos la el nombre a la barra de dirección ruta
+        let ruta = document.getElementById('ruta');
+        ruta.innerHTML = "/ Mostrar clientes";
     })
 </script>
 

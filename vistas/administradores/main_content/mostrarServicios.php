@@ -33,7 +33,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
             include "../../../includes/config/database.php";
 
             // Esta variables indica cuantos registros veremos por página
-            $tamano_paginas = 6;
+            $tamano_paginas = 5;
 
             // Este bloque de código solo se ejecutará si se le ha dado click a la paginación
             if (isset($_GET['pagina'])) {

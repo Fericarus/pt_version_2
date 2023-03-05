@@ -26,17 +26,17 @@
         <!-- Menu vertical -->
         <?php require('../../layout/layout_admin/nav_admin--citas.php') ?>
 
-        <div class="main">
+        <!-- Sección principal -->
+        <div class="main" id="main">
 
             <!-- Toggle, buscador y bienvenida a usuario-->
             <?php require('../../layout/topbar.php') ?>
 
             <!-- Barra de dirección -->
             <span class="ruta">
-                <a href="administradores.php">
-                    <h2>Inicio</h2>
-                </a>
-                <h2>/ Gestionar citas</h2>
+                <a href="administradores.php"><h2>Inicio</h2></a>
+                <a href="administradores--citas.php"><h2>/ Gestionar citas</h2></a>
+                <h2 id="ruta"></h2>
             </span>
 
             <!-- Sección que se recargará con la función ajax -->
@@ -50,11 +50,10 @@
 
 <!-- script para recargar una sección de la página sin renderizar todo el html -->
 <script>
-    // Para ir a la sección agregar_educacion
+    // Para ir a la sección mostrar citas
     $(".mostrar_citas").click(function() {
         var dato = $(this).attr("code-val");
         $.ajax({
-            // Insertamos en #details el contenido de main_content/agregarEducacion.php
             url: "main_content/mostrarCitas.php",
             success: function(details) {
                 $("#details").html(details);
