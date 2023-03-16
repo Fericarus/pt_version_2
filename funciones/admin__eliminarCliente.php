@@ -38,7 +38,6 @@ if ($count > 0) {
     mensajeError("El cliente tiene citas agendadas. Elimínelas primero", $redirect);
 } else {
 
-
     /** ------------------ AHORA SI PROCEDEMOS A ELIMINAR AL CLIENTE DEL SISTEMA ------------------- */
     // Sentencia sql
     $sql = "DELETE FROM clientes WHERE id_cliente = " . $id_cliente;

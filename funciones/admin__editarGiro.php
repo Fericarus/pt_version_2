@@ -24,9 +24,7 @@ $redirect = '../vistas/administradores/administradores--giros.php';
 if (soloLetras($giro_comercial, $redirect)) {
 
     // Sentencia sql
-    $sql = "UPDATE giros SET 
-    giro_comercial = :giro_comercial
-    WHERE id_giro = " . $id_giro;
+    $sql = "UPDATE giros SET giro_comercial = :giro_comercial WHERE id_giro = " . $id_giro;
 
     // Preparamos la sentencia sql
     $stmt = $dbh->prepare($sql);
@@ -38,13 +36,13 @@ if (soloLetras($giro_comercial, $redirect)) {
     if ($stmt->execute()) {
         mensajeGoodJob('¡Cambios guardados con éxito!', $redirect);
     } else {
-        echo "Código de error SQLSTATE: " . $stmt->errorInfo()[0] . "<br>";
-        echo "Código de error específico de la base de datos: " . $stmt->errorInfo()[1] . "<br>";
-        echo "Descripción del error: " . $stmt->errorInfo()[2];
-        echo "<pre>";
-        echo var_dump($stmt);
-        echo "</pre>";
-        // mensajeError('Ups, falló algo', $redirect);
+        mensajeError('Ups, falló algo', $redirect);
+        // echo "Código de error SQLSTATE: " . $stmt->errorInfo()[0] . "<br>";
+        // echo "Código de error específico de la base de datos: " . $stmt->errorInfo()[1] . "<br>";
+        // echo "Descripción del error: " . $stmt->errorInfo()[2];
+        // echo "<pre>";
+        // echo var_dump($stmt);
+        // echo "</pre>";
     }
 
 }

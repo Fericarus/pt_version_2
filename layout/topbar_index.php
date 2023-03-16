@@ -9,7 +9,7 @@
     </div>
 
     <!-- Mensaje de bienvenida -->
-    <div class="usuario">
+    <div class="usuario usuario-index">
         <p>Bienvenido</p>
     </div>
 

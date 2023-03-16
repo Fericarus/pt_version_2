@@ -36,8 +36,9 @@ if (soloLetras($titulo, "../vistas/asesores/asesores.php")) {
     if ($stmt->execute()) {
         mensajeGoodJob("¡Cambios guardados con éxito!", "../vistas/asesores/asesores.php");
     } else {
-        mensajeError("Ups, algo falló", "../vistas/asesores/asesores.php");
+        mensajeError("Ups, algo falló. Por favor inténtelo más tarde.", "../vistas/asesores/asesores.php");
     }
-} else {
-    echo "no jalo";
+
 }
+
+echo "</body>";

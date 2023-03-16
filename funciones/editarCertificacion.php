@@ -22,6 +22,7 @@ $id_certificacion = $_POST["id_certificacion"];
 
 // Validación de formularios
 if (soloLetras($entidad_certificadora, "../vistas/asesores/asesores.php")) {
+
     if (soloLetras($certificado, "../vistas/asesores/asesores.php")) {
 
         // Sentencia sql

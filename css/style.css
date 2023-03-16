@@ -295,6 +295,10 @@ body {
   grid-template-columns: 4rem 1fr;
 }
 
+.usuario-index {
+  display: block;
+}
+
 .usuario p strong {
   font-family: "Ubuntu", sans-serif;
   background-image: linear-gradient(135deg, #43cbff 10%, #9708cc 100%);
@@ -543,7 +547,7 @@ table tr {
   margin: 3rem 0 1rem auto;
   display: flex;
   height: 3.4rem;
-  width: 8rem;
+  width: 10rem;
   font-size: 1.2rem;
   background-color: var(--azul);
   color: var(--blanco);

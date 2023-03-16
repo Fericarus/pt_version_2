@@ -37,7 +37,7 @@ if ($stmt->execute()) {
     // echo "<pre>";
     // echo var_dump($stmt);
     // echo "</pre>";
-    mensajeError("Algo falló", $redirect);
+    mensajeError("Algo falló. Por favor inténtelo más tarde.", $redirect);
 }
 
 echo "</body>";

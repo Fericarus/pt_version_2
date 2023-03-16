@@ -42,6 +42,7 @@ if ($stmt->rowCount() > 0) {
 
 } else {
 
+    // Validamos que la cita se encuentre entre la hora de apertura y la hora de cierre del establecimiento
     if ($hora >= $hora_de_apertura && $hora <= $hora_de_cierre) {
 
         // Sentencia sql
