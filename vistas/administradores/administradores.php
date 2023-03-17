@@ -226,6 +226,30 @@
 
             </div>
 
+            <?php
+            // Incluimos la conexión a la base de datos
+            include "../../includes/config/database.php";
+
+            // Sentencia sql para obtener los grupos de clientes por alcaldía
+            $sql = "SELECT id_alcaldia1, COUNT(id_cliente) as num_clientes 
+                    FROM clientes 
+                    WHERE id_alcaldia1 IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+                    GROUP BY id_alcaldia1";
+
+            // Preparamos la sentencia
+            $stmt = $dbh->prepare($sql);
+
+            // Ejecutamos la sentencia
+            $stmt->execute();
+
+            // Recorrido de los resultados y visualización de los datos
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<input id='alcaldia" . $row["id_alcaldia1"] . "' value='" . $row["id_alcaldia1"] . "'>";
+                echo "<input id='clientes" . $row["id_alcaldia1"] . "' value='" . $row["num_clientes"] . "'><br>";
+            }
+
+            ?>
+
         </div>
 
     </div>
@@ -235,10 +259,93 @@
 </html>
 
 <script src="https://kit.fontawesome.com/e5d8247fe1.js" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    // Declaración de variables
+    let clientesAzcapotzalco = 0;
+    let clientesAlvaroObregon = 0;
+    let clientesBenitoJuarez = 0;
+    let clientesCoyoacan = 0;
+    let clientesCuajimalpaDeMorelos = 0;
+    let clientesCuauhtemoc = 0;
+    let clientesGustavoAMadero = 0;
+    let clientesIztacalco = 0;
+    let clientesIztapalapa = 0;
+    let clientesLaMagdalenaContreras = 0;
+    let clientesMiguelHidalgo = 0;
+    let clientesMilpaAlta = 0;
+    let clientesTlalpan = 0;
+    let clientesTlahuac = 0;
+    let clientesVenustianoCarranza = 0;
+    let clientesXochimilco = 0;
+
+    // Asignamos valor a las variables dependiendo si el valor es nulo o no
+    if (document.getElementById('clientes1') != null) {
+        clientesAzcapotzalco = document.getElementById('clientes1').value;
+    }
+
+    if (document.getElementById('clientes2') != null) {
+        clientesAlvaroObregon = document.getElementById('clientes2').value;
+    }
+
+    if (document.getElementById('clientes5') != null) {
+        clientesBenitoJuarez = document.getElementById('clientes5').value;
+    }
+
+    if (document.getElementById('clientes6') != null) {
+        clientesCoyoacan = document.getElementById('clientes6').value;
+    }
+
+    if (document.getElementById('clientes7') != null) {
+        clientesCuajimalpaDeMorelos = document.getElementById('clientes7').value;
+    }
+
+    if (document.getElementById('clientes8') != null) {
+        clientesCuauhtemoc = document.getElementById('clientes8').value;
+    }
+
+    if (document.getElementById('clientes9') != null) {
+        clientesGustavoAMadero = document.getElementById('clientes9').value;
+    }
+
+    if (document.getElementById('clientes10') != null) {
+        clientesIztacalco = document.getElementById('clientes10').value;
+    }
+
+    if (document.getElementById('clientes11') != null) {
+        clientesIztapalapa = document.getElementById('clientes11').value;
+    }
+
+    if (document.getElementById('clientes12') != null) {
+        clientesLaMagdalenaContreras = document.getElementById('clientes12').value;
+    }
+
+    if (document.getElementById('clientes13') != null) {
+        clientesMiguelHidalgo = document.getElementById('clientes13').value;
+    }
+
+    if (document.getElementById('clientes14') != null) {
+        clientesMilpaAlta = document.getElementById('clientes14').value;
+    }
+
+    if (document.getElementById('clientes15') != null) {
+        clientesTlalpan = document.getElementById('clientes15').value;
+    }
+
+    if (document.getElementById('clientes16') != null) {
+        clientesTlahuac = document.getElementById('clientes16').value;
+    }
+
+    if (document.getElementById('clientes17') != null) {
+        clientesVenustianoCarranza = document.getElementById('clientes17').value;
+    }
+
+    if (document.getElementById('clientes18') != null) {
+        clientesXochimilco = document.getElementById('clientes18').value;
+    }
+
+    // Gráfica de barras
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -264,22 +371,22 @@
             datasets: [{
                 label: 'Clientes por alcaldía',
                 data: [
-                    12,
-                    19,
-                    3,
-                    5,
-                    2,
-                    3,
-                    12,
-                    19,
-                    3,
-                    5,
-                    2,
-                    3,
-                    12,
-                    19,
-                    3,
-                    5
+                    clientesAzcapotzalco,
+                    clientesAlvaroObregon,
+                    clientesBenitoJuarez,
+                    clientesCoyoacan,
+                    clientesCuajimalpaDeMorelos,
+                    clientesCuauhtemoc,
+                    clientesGustavoAMadero,
+                    clientesIztacalco,
+                    clientesIztapalapa,
+                    clientesLaMagdalenaContreras,
+                    clientesMiguelHidalgo,
+                    clientesMilpaAlta,
+                    clientesTlalpan,
+                    clientesTlahuac,
+                    clientesVenustianoCarranza,
+                    clientesXochimilco
                 ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
