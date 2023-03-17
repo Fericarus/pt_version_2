@@ -820,6 +820,11 @@ tbody tr td {
   justify-content: flex-start;
 }
 
+.tableMostrarGirosAdmin tr {
+  display: grid;
+  grid-template-columns: 10rem 40rem repeat(2, 1fr);
+}
+
 .tableMostrarServicios tr {
   display: grid;
   grid-template-columns: 10rem 65rem;
