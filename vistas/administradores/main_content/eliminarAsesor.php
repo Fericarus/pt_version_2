@@ -22,7 +22,7 @@ $id_asesor = $_GET['id_asesor'];
             <p>¿Realmente desea eliminar a este asesor?</p>
         </div>
 
-        <table class="table-5-col">
+        <table class="table-5-col tableEliminarAsesor">
 
             <!-- Cabeceras de la tabla -->
             <tr>

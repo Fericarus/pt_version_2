@@ -20,11 +20,15 @@ $id_asesor = $_GET['id_asesor'];
         <div class="main__container--title title_table">
             <h1>Editar cuenta</h1>
             <p>Modifica la información personal del asesor</p>
+            <span id="errorMessageNombre" style="display: none;"></span>
+            <span id="errorMessagePaterno" style="display: none;"></span>
+            <span id="errorMessageMaterno" style="display: none;"></span>
+            <span id="errorMessageEmail" style="display: none;"></span>
+            <span id="errorMessageTelefono" style="display: none;"></span>
         </div>
 
         <!-- Campo Nombre -->
         <div>
-            <span id="errorMessageNombre" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Nombre: </label>
 
@@ -52,7 +56,6 @@ $id_asesor = $_GET['id_asesor'];
 
         <!-- Campo apellido paterno -->
         <div>
-            <span id="errorMessagePaterno" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Paterno: </label>
 
@@ -79,7 +82,6 @@ $id_asesor = $_GET['id_asesor'];
 
         <!-- Campo apellido materno -->
         <div>
-            <span id="errorMessageMaterno" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Materno: </label>
 
@@ -106,7 +108,6 @@ $id_asesor = $_GET['id_asesor'];
 
         <!-- Campo Email -->
         <div>
-            <span id="errorMessageEmail" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Email: </label>
 
@@ -133,7 +134,6 @@ $id_asesor = $_GET['id_asesor'];
 
         <!-- Campo Teléfono -->
         <div>
-            <span id="errorMessageTelefono" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Teléfono: </label>
 

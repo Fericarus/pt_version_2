@@ -846,6 +846,11 @@ tbody tr td {
   grid-template-columns: 3rem 9rem 13rem repeat(5, 10rem);
 }
 
+.tableEliminarAsesor tr {
+  display: grid;
+  grid-template-columns: 3rem repeat(4, 1fr);
+}
+
 /*************************************** CARDS ***************************************/
 .card__container {
   display: grid;
