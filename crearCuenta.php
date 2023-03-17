@@ -163,7 +163,7 @@
 
                             <div class="campo">
                                 <label for="nombre">Confirmación<span>*</span></label>
-                                <input type="password" id="passwordConfirm" name="confirmarPassword" placeholder="Confirma tu contraseña" oninput="validarPassConfirm(this.id)" />
+                                <input type="password" id="passwordConfirm" name="confirmarPassword" placeholder="Confirma tu contraseña" oninput="validarPass(this.id)" />
                             </div>
                         </div>
 

@@ -145,7 +145,7 @@ function validarPass(id) {
 
   // Validamos contra la expresión regular
   if (!Pattern.test(password1)) {
-    errorMessagePass.innerHTML = "Asegúrateque la contraseña tenga al menos 8 caracteres, incluyendo al menos una letra minúscula, una letra mayúscula, un número y un caracter especial.";
+    errorMessagePass.innerHTML = "Asegúrate que la contraseña tenga al menos 8 caracteres, incluyendo al menos una letra minúscula, una letra mayúscula, un número y un caracter especial.";
     errorMessagePass.style.backgroundColor = "red";
     errorMessagePass.style.color = "white";
     errorMessagePass.style.display = "block";
@@ -154,29 +154,31 @@ function validarPass(id) {
     errorMessagePass.style.marginBottom = ".2rem";
     return false;
   } else {
+    errorMessagePass.innerHTML = "";
+    errorMessagePass.style.display = "none";
     return true;
   }
 }
 
 // Función para validar el password confirm
-function validarPassConfirm(id) {
-  var passwordConfirm = document.getElementById(id).value;
-  var errorMessagePassConfirm = document.getElementById("errorMessagePassConfirm");
-  var Pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+// function validarPassConfirm(id) {
+//   var passwordConfirm = document.getElementById(id).value;
+//   var errorMessagePass = document.getElementById("errorMessagePass");
+//   var Pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
-  // Validamos contra la expresión regular
-  if (!Pattern.test(passwordConfirm)) {
-    errorMessagePassConfirm.innerHTML = "Asegúrateque la contraseña tenga al menos 8 caracteres, incluyendo al menos una letra minúscula, una letra mayúscula, un número y un caracter especial.";
-    errorMessagePassConfirm.style.backgroundColor = "red";
-    errorMessagePassConfirm.style.color = "white";
-    errorMessagePassConfirm.style.display = "block";
-    errorMessagePassConfirm.style.padding = ".5rem";
-    errorMessagePassConfirm.style.paddingLeft = ".5rem";
-    errorMessagePassConfirm.style.marginBottom = ".2rem";
-    return false;
-  } else {
-    errorMessagePassConfirm.innerHTML = "";
-    errorMessagePassConfirm.style.display = "none";
-    return true;
-  }
-}
+//   // Validamos contra la expresión regular
+//   if (!Pattern.test(passwordConfirm)) {
+//     errorMessagePass.innerHTML = "Asegúrateque la contraseña tenga al menos 8 caracteres, incluyendo al menos una letra minúscula, una letra mayúscula, un número y un caracter especial.";
+//     errorMessagePass.style.backgroundColor = "red";
+//     errorMessagePass.style.color = "white";
+//     errorMessagePass.style.display = "block";
+//     errorMessagePass.style.padding = ".5rem";
+//     errorMessagePass.style.paddingLeft = ".5rem";
+//     errorMessagePass.style.marginBottom = ".2rem";
+//     return false;
+//   } else {
+//     errorMessagePass.innerHTML = "";
+//     errorMessagePass.style.display = "none";
+//     return true;
+//   }
+// }
