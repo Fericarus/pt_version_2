@@ -20,11 +20,11 @@ $id_servicio = $_GET['id_servicio'];
         <div class="main__container--title title_table">
             <h1>Editar servicio</h1>
             <p>Modifica la información del servicio</p>
+            <span id="errorMessageLetras" style="display: none;"></span>
         </div>
 
         <!-- Campo Servicio -->
         <div>
-            <span id="errorMessageLetras" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Servicio: </label>
 
@@ -52,7 +52,6 @@ $id_servicio = $_GET['id_servicio'];
 
         <!-- Campo Descripción -->
         <div>
-            <!-- <span id="errorMessagePaterno" style="display: none;"></span> -->
             <div class="campo">
                 <label for="nombre">Descripción: </label>
 

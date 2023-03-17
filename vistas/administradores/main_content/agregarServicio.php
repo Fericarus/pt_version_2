@@ -17,11 +17,11 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
         <div class="main__container--title title_table">
             <h1>Agregar servicio</h1>
             <p>Ingresa la información del nuevo servicio</p>
+            <span id="errorMessageLetras" style="display: none;"></span>
         </div>
 
         <!-- Campo Servicio -->
         <div>
-            <span id="errorMessageLetras" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Servicio: </label>
                 <input id='servicio' name='servicio' placeholder="Nombre del servicio" oninput='validarLetras(this.id)' />
@@ -30,7 +30,6 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
 
         <!-- Campo Descripción -->
         <div>
-            <span id=" errorMessagePaterno" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Descripción: </label>
                 <textarea id='descripcion' name='descripcion' placeholder="Escribe las descripción del servicio..."></textarea>
