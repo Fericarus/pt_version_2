@@ -233,7 +233,7 @@
             // Sentencia sql para obtener los grupos de clientes por alcaldía
             $sql = "SELECT id_alcaldia1, COUNT(id_cliente) as num_clientes 
                     FROM clientes 
-                    WHERE id_alcaldia1 IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+                    WHERE id_alcaldia1 IN (1,2,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
                     GROUP BY id_alcaldia1";
 
             // Preparamos la sentencia
@@ -244,8 +244,8 @@
 
             // Recorrido de los resultados y visualización de los datos
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input id='alcaldia" . $row["id_alcaldia1"] . "' value='" . $row["id_alcaldia1"] . "'>";
-                echo "<input id='clientes" . $row["id_alcaldia1"] . "' value='" . $row["num_clientes"] . "'><br>";
+                echo "<input class='hidden' id='alcaldia" . $row["id_alcaldia1"] . "' value='" . $row["id_alcaldia1"] . "'>";
+                echo "<input class='hidden' id='clientes" . $row["id_alcaldia1"] . "' value='" . $row["num_clientes"] . "'><br>";
             }
 
             ?>
@@ -344,6 +344,7 @@
     if (document.getElementById('clientes18') != null) {
         clientesXochimilco = document.getElementById('clientes18').value;
     }
+
 
     // Gráfica de barras
     var ctx = document.getElementById('myChart').getContext('2d');

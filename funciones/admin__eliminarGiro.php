@@ -20,24 +20,31 @@ $id_giro = $_POST['id_giro'];
 $redirect = '../vistas/administradores/administradores--giros.php';
 
 // Sentencias sql
-$sql_clientes = "DELETE id_giro1 FROM clientes WHERE id_giro1 = " . $id_giro;
+$sql_clientes = "SELECT * FROM clientes WHERE id_giro1 = " . $id_giro;
 $sql = "DELETE FROM giros WHERE id_giro = " . $id_giro;
 
 // Preparamos las sentencias
 $stmt_clientes = $dbh->prepare($sql_clientes);
 $stmt = $dbh->prepare($sql);
 
-// Ejecutamos las sentencias
-if ($stmt->execute()) {
-    mensajeGoodJob("Giro eliminado correctamente", $redirect);
+$stmt_clientes->execute();
+$num_registros = $stmt_clientes->rowCount();
+
+if ($num_registros > 0) {
+    mensajeError("Existen clientes con este giro. Por favor verifique", $redirect);
 } else {
-    // echo "Código de error SQLSTATE: " . $stmt->errorInfo()[0] . "<br>";
-    // echo "Código de error específico de la base de datos: " . $stmt->errorInfo()[1] . "<br>";
-    // echo "Descripción del error: " . $stmt->errorInfo()[2];
-    // echo "<pre>";
-    // echo var_dump($stmt);
-    // echo "</pre>";
-    mensajeError("Algo falló. Por favor inténtelo más tarde.", $redirect);
+    // Ejecutamos las sentencias
+    if ($stmt->execute()) {
+        mensajeGoodJob("Giro eliminado correctamente", $redirect);
+    } else {
+        mensajeError("Algo falló. Por favor inténtelo más tarde.", $redirect);
+        // echo "Código de error SQLSTATE: " . $stmt->errorInfo()[0] . "<br>";
+        // echo "Código de error específico de la base de datos: " . $stmt->errorInfo()[1] . "<br>";
+        // echo "Descripción del error: " . $stmt->errorInfo()[2];
+        // echo "<pre>";
+        // echo var_dump($stmt);
+        // echo "</pre>";
+    }
 }
 
 echo "</body>";
@@ -52,5 +59,4 @@ echo "</body>";
 -> ALTER TABLE clientes
 -> DROP FOREIGN KEY clientes_ibfk_3;
 
-*/
-
+ */
