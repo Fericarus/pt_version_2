@@ -691,12 +691,6 @@ tbody tr td {
   font-weight: lighter;
 }
 
-tbody tr td:nth-child(3),
-tbody tr td:nth-child(4) {
-  display: flex;
-  justify-content: flex-end;
-}
-
 /****************************** Configuración de las distintas tablas ******************************/
 .table-2-col tr {
   display: grid;
@@ -845,6 +839,11 @@ tbody tr td:nth-child(4) {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   width: 50%;
+}
+
+.tableEliminarCliente tr {
+  display: grid;
+  grid-template-columns: 3rem 9rem 13rem repeat(5, 10rem);
 }
 
 /*************************************** CARDS ***************************************/

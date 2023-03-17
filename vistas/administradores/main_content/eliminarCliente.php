@@ -24,7 +24,7 @@ echo $id_cliente;
             <p>¿Realmente desea eliminar a este cliente?</p>
         </div>
 
-        <table class="table-8-col">
+        <table class="tableEliminarCliente table-8-col">
 
             <!-- Cabeceras de la tabla -->
             <tr>
