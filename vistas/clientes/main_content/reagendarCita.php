@@ -24,12 +24,12 @@ $id_cita = $_GET['id_cita'];
         <p>El día seleccionado no está permitido. Por favor, seleccione un día de la semana hábil.</p>
     </div>
 
-    <form class='formulario' action='../../funciones/editarCita.php' method='POST'>
+    <form class='formulario' action='../../funciones/asesor__reagendarCita.php' method='POST'>
 
         <!-- Título del formulario -->
         <div class="main__container--title">
-            <h1>Editar cita</h1>
-            <p>Edita la información de la cita</p>
+            <h1>Reagendar cita</h1>
+            <p>Reagenda la información de la cita</p>
         </div>
 
         <!-- Fecha -->
@@ -39,10 +39,30 @@ $id_cita = $_GET['id_cita'];
         </div>
 
         <!-- Hora -->
-        <div class="campo">
+        <!-- <div class="campo">
             <label for="Hora">Hora</label>
             <input id="myTimeInput" name="hora" type="time">
+        </div> -->
+
+        <!-- Campo Hora -->
+        <div class="campo">
+            <label for="hora">Hora</label>
+            <select id="myTimeInput" name="hora" class="hora">
+
+                <option value="">Seleccione una opción</option>
+                <option value="09:00">09:00 a 10:00</option>
+                <option value="10:00">10:00 a 11:00</option>
+                <option value="11:00">11:00 a 12:00</option>
+                <option value="12:00">12:00 a 13:00</option>
+                <option value="13:00">13:00 a 14:00</option>
+                <option value="14:00">14:00 a 15:00</option>
+                <option value="15:00">15:00 a 16:00</option>
+                <option value="16:00">16:00 a 17:00</option>
+
+            </select>
         </div>
+
+
 
         <!-- Input oculto donde almaceno el valor de la variable $id_cita -->
         <input name="id_cita" class="hidden" value="<?php echo $id_cita; ?>">

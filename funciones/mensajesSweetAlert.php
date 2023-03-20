@@ -39,6 +39,15 @@ function mensajeError($mensaje, $href)
     ";
 }
 
+function salir($href) {
+    echo 
+    "
+        <script>
+            window.location = '" . $href . "'
+        </script>
+    ";
+}
+
 
 
 ?>

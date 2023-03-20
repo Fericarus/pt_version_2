@@ -19,13 +19,14 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             <p>Citas agendadas</p>
         </div>
 
-        <table class="table-7-col tableMostrarCitas">
+        <table class="table-8-col tableMostrarCitas">
             <tr>
                 <td class="title">Cliente</td>
                 <td class="title">Fecha</td>
                 <td class="title">Hora</td>
                 <td class="title">Email</td>
                 <td class="title">Teléfono</td>
+                <td class="title">Estado</td>
                 <td class="title"> </td>
                 <td class="title"> </td>
             </tr>
@@ -52,6 +53,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                 echo "<td>" . $row['hora'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['telefono'] . "</td>";
+                echo "<td><span>" . $row['estado_cita'] . "</span></td>";
                 echo "<td><a onclick='editar(" . $n . ")' class='boton boton-editar' href='javascript:void(0)' code-val='+val.codigo+''>Editar</a></td>";
                 echo "<td><a onclick='eliminar(" . $n . ")'class='boton boton-eliminar' href='javascript:void(0)' code-val='+val.codigo+''>Eliminar</a></td>";
                 echo "<input class='hidden' id='id_cita" . $n . "' value='" . $row['id_cita'] . "'></input>";
@@ -93,6 +95,38 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
             }
         })
         
+    }
+
+    //////////////////////////// MOSTRAMOS LOS ESTADOS DE LAS CITAS CON COLORES ///////////////////////////////
+    // Obtenemos todos los elemtos <td>
+    var spans = document.getElementsByTagName("span");
+
+    // Aquí recorremos el arreglo de elementos <td>
+    for (var i = 0; i < spans.length; i++) {
+
+        // Con textContent obtengo el texto que se encuentra dentro de la eiqueta <td> y creamos un objeto del tipo Date
+        var statusCelda = spans[i].textContent;
+
+        if (statusCelda == "pendiente") {
+            spans[i].style.backgroundColor = "#FF0000";
+            spans[i].style.color = "white";
+            spans[i].style.padding = "2px";
+            spans[i].style.borderRadius = "5px";
+        }
+
+        if (statusCelda == "en progreso") {
+            spans[i].style.backgroundColor = "#F9CA3F";
+            spans[i].style.color = "white";
+            spans[i].style.padding = "2px";
+            spans[i].style.borderRadius = "5px";
+        }
+
+        if (statusCelda == "completada") {
+            spans[i].style.backgroundColor = "#8DE02C";
+            spans[i].style.color = "white";
+            spans[i].style.padding = "2px";
+            spans[i].style.borderRadius = "5px";
+        }
     }
 
     //let id_asesorEducacion = document.getElementById('id_asesorEducacion');

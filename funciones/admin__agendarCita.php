@@ -46,7 +46,9 @@ if ($stmt->rowCount() > 0) {
     if ($hora >= $hora_de_apertura && $hora <= $hora_de_cierre) {
 
         // Sentencia sql
-        $sql = "INSERT INTO citas (id_asesor1, id_cliente1, fecha, hora) VALUES (:id_asesor1, :id_cliente1, :fecha, :hora)";
+        $sql = 
+            "INSERT INTO citas (id_asesor1, id_cliente1, fecha, hora, estado_cita) 
+            VALUES (:id_asesor1, :id_cliente1, :fecha, :hora, 'pendiente')";
 
         // Preparamos la sentencia
         $stmt = $dbh->prepare($sql);

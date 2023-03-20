@@ -14,7 +14,7 @@ $id_servicio = $_GET['id_servicio'];
 
 ?>
 
-<div class="main__container--table table_confirmar_cita">
+<div class="main__container--table table_confirmar_cita2">
 
     <div class="card2">
 
@@ -40,9 +40,9 @@ $id_servicio = $_GET['id_servicio'];
 
         ?>
 
-        <form action='../../funciones/agendarCita.php' method='POST'>
+        <form action='../../funciones/admin__agendarCita.php' method='POST'>
 
-            <h3>Estimado/a <?php echo $_SESSION['nombre']; ?></h3>
+            <h3>Estimado/a <?php echo $_SESSION['nombre']; ?></h3><br>
             <p>
                 Este mensaje es para confirmar su cita con el asesor
                 <strong><?php echo $row['nombre'] ?></strong>

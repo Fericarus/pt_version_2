@@ -533,7 +533,7 @@ table tr {
 .campo select:focus,
 .campo textarea:focus {
   outline: none;
-  border-color: #a52b9b;
+  border-color: #6e2b97;
   border-radius: 0.4rem;
   transition: 0.2s;
 }
@@ -592,6 +592,23 @@ table tr {
 }
 
 .boton-editar:active {
+  transition: 0.2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
+}
+
+.boton-reagendar {
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  width: 10rem;
+  margin-top: 1rem;
+}
+
+.boton-reagendar:hover {
+  background-color: var(--blanco);
+  color: var(--verde);
+  transition: 0.2s;
+}
+
+.boton-reagendar:active {
   transition: 0.2s;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
 }
@@ -846,6 +863,15 @@ tbody tr td {
   width: 50%;
 }
 
+.table_confirmar_cita2 {
+  width: 50%;
+}
+
+.table_confirmar_cita2 h3,
+.table_confirmar_cita2 strong {
+  color: #6e2b97;
+}
+
 .tableEliminarCliente tr {
   display: grid;
   grid-template-columns: 3rem 9rem 13rem repeat(5, 10rem);
@@ -854,6 +880,10 @@ tbody tr td {
 .tableEliminarAsesor tr {
   display: grid;
   grid-template-columns: 3rem repeat(4, 1fr);
+}
+
+.tableMostrarCitas td:nth-child(3) {
+  grid-template-columns: repeat(2, 1fr) 4rem 4rem repeat(4, 1fr);
 }
 
 /*************************************** CARDS ***************************************/
@@ -877,7 +907,7 @@ tbody tr td {
   transition-duration: 300ms;
   font-size: 1.5rem;
   background-color: #fff;
-  color: #7d858b;
+  color: #000;
 }
 
 .cardNombre,
@@ -900,7 +930,7 @@ tbody tr td {
   transition-duration: 300ms;
   font-size: 1.4rem;
   background-color: #fff;
-  color: #7d858b;
+  color: #000;
 }
 
 .card2 form {
