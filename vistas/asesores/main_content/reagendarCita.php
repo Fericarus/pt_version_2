@@ -14,12 +14,12 @@ $id_cita = $_GET['id_cita'];
 
 <div class="main__container--table title_table">
 
-    <form class='formulario' action='../../funciones/editarCita.php' method='POST'>";
+    <form class='formulario' action='../../funciones/reagendarCita.php' method='POST'>";
 
         <!-- Título del formulario -->
         <div class="main__container--title">
-            <h1>Editar cita</h1>
-            <p>Edita la información de la cita</p>
+            <h1>Reagendar cita</h1>
+            <p>Elige una nueva fecha para la cita</p>
         </div>
 
         <!-- Fecha -->
@@ -28,10 +28,22 @@ $id_cita = $_GET['id_cita'];
             <input id="fecha" name="fecha" type="date" oninput="validarEmail(this.id)">
         </div>
 
-        <!-- Hora -->
+        <!-- Campo Hora -->
         <div class="campo">
-            <label for="Hora">Hora</label>
-            <input name="hora" type="time">
+            <label for="hora">Hora</label>
+            <select id="myTimeInput" name="hora" class="hora">
+
+                <option value="">Seleccione una opción</option>
+                <option value="09:00">09:00 a 10:00</option>
+                <option value="10:00">10:00 a 11:00</option>
+                <option value="11:00">11:00 a 12:00</option>
+                <option value="12:00">12:00 a 13:00</option>
+                <option value="13:00">13:00 a 14:00</option>
+                <option value="14:00">14:00 a 15:00</option>
+                <option value="15:00">15:00 a 16:00</option>
+                <option value="16:00">16:00 a 17:00</option>
+
+            </select>
         </div>
 
         <!-- Input oculto donde almaceno el valor de la variable $id_cita -->
@@ -45,13 +57,3 @@ $id_cita = $_GET['id_cita'];
 </div>
 
 <script src="../../funciones/funciones.js"></script>
-
-<!-- <script>
-    function validadescripcion2(valor) {
-        if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(valor)) {
-            console.log("ERROR");
-        } else {
-            console.log("SUCCESS");
-        }
-    }
-</script> -->

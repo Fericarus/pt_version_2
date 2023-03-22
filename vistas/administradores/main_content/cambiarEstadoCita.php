@@ -3,7 +3,7 @@
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 // Si no hay nada en la variable de sesión usuario
-if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
+if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
     header("location: ../../login.php");
 }
 
@@ -14,7 +14,7 @@ $id_cita = $_GET['id_cita'];
 
 <div class="main__container--table">
 
-    <form class="formulario" action="../../funciones/cambiarEstadoCita.php" method="POST">
+    <form class="formulario" action="../../funciones/admin__cambiarEstadoCita.php" method="POST">
 
         <!-- Título del formulario -->
         <div class="main__container--title title_table">
@@ -29,7 +29,7 @@ $id_cita = $_GET['id_cita'];
 
                 <option value="">Seleccione una opción</option>
                 <option value="pendiente">Pendiente</option>
-                <option value="atendiendo">Atendiendo</option>
+                <option value="confirmada">Confirmada</option>
                 <option value="completada">Completada</option>
 
             </select>

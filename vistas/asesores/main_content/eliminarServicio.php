@@ -14,7 +14,7 @@ $id_asesorServicio = $_GET['id_asesorServicio'];
 
 <div class="main__container--table title_table">
 
-    <form class='formulario' action="../../funciones/eliminarServicio.php" method="POST">
+    <form class='formulario' action="../../funciones/asesor__eliminarServicio.php" method="POST">
 
         <!-- Título del formulario -->
         <div class="main__container--title">

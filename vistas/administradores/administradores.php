@@ -245,7 +245,7 @@
             // Recorrido de los resultados y visualización de los datos
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<input class='hidden' id='alcaldia" . $row["id_alcaldia1"] . "' value='" . $row["id_alcaldia1"] . "'>";
-                echo "<input class='hidden' id='clientes" . $row["id_alcaldia1"] . "' value='" . $row["num_clientes"] . "'><br>";
+                echo "<input class='hidden' id='clientes" . $row["id_alcaldia1"] . "' value='" . $row["num_clientes"] . "'>";
             }
 
             ?>

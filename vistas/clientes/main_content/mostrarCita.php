@@ -19,7 +19,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             <p>Citas agendadas</p>
         </div>
 
-        <table class="table-7-col">
+        <table class="table-6-col">
             <tr>
                 <td class="title">Asesor</td>
                 <td class="title">Fecha de la cita</td>
@@ -54,9 +54,10 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             $empezar_desde = ($pagina - 1) * $tamano_paginas;
 
             // Sentencia sql
-            $sql = "SELECT * FROM citas 
-            INNER JOIN asesores ON asesores.id_asesor = citas.id_asesor1 
-            WHERE id_cliente1 = " . $_SESSION["id"];
+            $sql = 
+                "SELECT * FROM citas 
+                INNER JOIN asesores ON asesores.id_asesor = citas.id_asesor1 
+                WHERE id_cliente1 = " . $_SESSION["id"];
 
             // Preparamos la sentencia
             $stmt = $dbh->prepare($sql);
@@ -99,7 +100,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
                 echo "<td>" . $row['fecha'] . "</td>";
                 echo "<td>" . $row['hora'] . "</td>";
                 echo "<td><span>" . $row['estado_cita'] . "</span></td>";
-                echo "<td><a onclick='cambiar(" . $n . ")' class='boton boton-editar' href='javascript:void(0)' code-val='+val.codigo+''>Cambiar estado</a></td>";
+                // echo "<td><a onclick='cambiar(" . $n . ")' class='boton boton-editar' href='javascript:void(0)' code-val='+val.codigo+''>Cambiar estado</a></td>";
                 echo "<td><a onclick='reagendar(" . $n . ")' class='boton boton-reagendar' href='javascript:void(0)' code-val='+val.codigo+''>Reagendar</a></td>";
                 echo "<td><a onclick='eliminar(" . $n . ")'class='boton boton-eliminar' href='javascript:void(0)' code-val='+val.codigo+''>Eliminar</a></td>";
                 echo "<input class='hidden' id='id_cita" . $n . "' value='" . $row['id_cita'] . "'></input>";
@@ -145,19 +146,6 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
         var dato = $(this).attr("code-val");
         $.ajax({
             url: "main_content/mostrarCita.php?pagina=" + page.name,
-            success: function(details) {
-                $("#details").html(details);
-            }
-        })
-    }
-
-    // Botón Reagendar
-    function cambiar($i) {
-        let id_cita = document.getElementById('id_cita' + $i);
-
-        var dato = $(this).attr("code-val");
-        $.ajax({
-            url: "main_content/cambiarEstadoCita.php?id_cita=" + id_cita.value,
             success: function(details) {
                 $("#details").html(details);
             }

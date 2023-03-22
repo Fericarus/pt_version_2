@@ -16,7 +16,7 @@ echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90
 
 // Capturamos la información de los formularios
 $id_asesor = $_POST["id_asesor"];
-$nombre = $_POST["nombre"];
+$nombreA = $_POST["nombre"];
 $apellido_paternoA = $_POST["apellido_paterno"];
 $apellido_maternoA = $_POST["apellido_materno"];
 $email = $_POST["email"];
@@ -25,7 +25,7 @@ $telefono = $_POST["telefono"];
 $redirect = '../vistas/administradores/administradores--asesores.php';
 
 // Si todas las validaciones pasan, actualizamos los datos en la BD
-if (validarNombre($nombre, $redirect)) {
+if (validarNombre($nombreA, $redirect)) {
     if (validarApellidoPaterno($apellido_paternoA, $redirect)) {
         if (validarApellidoPaterno($apellido_maternoA, $redirect)) {
             if (validarEmail($email, $redirect)) {
@@ -33,7 +33,7 @@ if (validarNombre($nombre, $redirect)) {
 
                     // Sentencia sql
                     $sql = "UPDATE asesores SET 
-                    nombre = :nombre, 
+                    nombreA = :nombreA, 
                     apellido_paternoA = :apellido_paternoA, 
                     apellido_maternoA = :apellido_maternoA, 
                     email = :email, 
@@ -44,7 +44,7 @@ if (validarNombre($nombre, $redirect)) {
                     $stmt = $dbh->prepare($sql);
 
                     // Establecemos la relación entre los marcadores y su correspondiente valor
-                    $stmt->bindParam(':nombre', $nombre);
+                    $stmt->bindParam(':nombreA', $nombreA);
                     $stmt->bindParam(':apellido_paternoA', $apellido_paternoA);
                     $stmt->bindParam(':apellido_maternoA', $apellido_maternoA);
                     $stmt->bindParam(':email', $email);

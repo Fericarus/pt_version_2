@@ -16,7 +16,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             <p>Datos del usuario</p>
         </div>
 
-        <table class="table-5-col">
+        <table class="table-7-col">
 
             <tbody>
 
@@ -26,6 +26,8 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
                     <td class="title">Apellido materno</td>
                     <td class="title">Email</td>
                     <td class="title">Teléfono</td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
                 <tr>
@@ -46,6 +48,8 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
                         echo "<td>" . $row['apellido_materno'] . "</td>";
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['telefono'] . "</td>";
+                        echo "<td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-editar'>Editar</a></td>";
+                        echo "<td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-contrasena'>Cambiar contraseña</a></td>";
                     }
                     ?>
 
@@ -55,15 +59,15 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
         </table>
 
-        <div class="contenedorBotones">
+        <!-- <div class="contenedorBotones">
 
             <!-- Boton Editar -->
-            <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-editar">Editar</a></td>
+            <!-- <td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-editar'>Editar</a></td>
 
             <!-- Boton Cambiar contraseña -->
-            <td><a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena">Cambiar contraseña</a></td>
+            <!-- <td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-contrasena'>Cambiar contraseña</a></td>
 
-        </div>
+        </div> -->
 
 
 

@@ -15,7 +15,7 @@ $id_certificacion = $_GET['id_certificacion'];
 
 <div class="main__container--table title_table">
 
-    <form class='formulario' action='../../funciones/editarCertificacion.php' method='POST'>";
+    <form class='formulario' action='../../funciones/asesor__editarCertificacion.php' method='POST'>";
 
         <!-- Título del formulario -->
         <div class="main__container--title">

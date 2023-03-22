@@ -24,7 +24,7 @@ $id_cita = $_GET['id_cita'];
         <p>El día seleccionado no está permitido. Por favor, seleccione un día de la semana hábil.</p>
     </div>
 
-    <form class='formulario' action='../../funciones/asesor__reagendarCita.php' method='POST'>
+    <form class='formulario' action='../../funciones/reagendarCita.php' method='POST'>
 
         <!-- Título del formulario -->
         <div class="main__container--title">
@@ -37,12 +37,6 @@ $id_cita = $_GET['id_cita'];
             <label for="Fecha">Fecha</label>
             <input id="myDateInput" name="fecha" type="date">
         </div>
-
-        <!-- Hora -->
-        <!-- <div class="campo">
-            <label for="Hora">Hora</label>
-            <input id="myTimeInput" name="hora" type="time">
-        </div> -->
 
         <!-- Campo Hora -->
         <div class="campo">
@@ -61,8 +55,6 @@ $id_cita = $_GET['id_cita'];
 
             </select>
         </div>
-
-
 
         <!-- Input oculto donde almaceno el valor de la variable $id_cita -->
         <input name="id_cita" class="hidden" value="<?php echo $id_cita; ?>">

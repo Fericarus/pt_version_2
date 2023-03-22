@@ -51,18 +51,6 @@ try {
     ) {
 
         mensajeError('Usuario o contraseña incorrectos', '../index.php');
-        // Mensaje de error
-        // echo "
-        //     <script>
-        //         Swal.fire({
-        //             icon: 'error',
-        //             title: 'Ups...',
-        //             text: 'Usuario o contraseña incorrectos'
-        //         }) .then(function() {
-        //             window.location.href='../index.php'
-        //         });
-        //     </script>
-        //     ";
 
     }
 } catch (Exception $e) {

@@ -17,7 +17,7 @@ echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90
 // Capturamos la información de los formularios
 $estado_cita = $_POST["estado"];
 $id_cita = $_POST["id_cita"];
-$redirect = "../vistas/clientes/clientes.php";
+$redirect = "../vistas/administradores/administradores.php";
 
 // Sentencia sql
 $sql = "UPDATE citas SET estado_cita = :estado_cita WHERE id_cita = " . $id_cita;

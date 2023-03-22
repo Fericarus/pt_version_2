@@ -344,7 +344,7 @@ body {
 }
 
 .details {
-  height: 90vh;
+  height: 88vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -618,6 +618,7 @@ table tr {
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
   width: 10rem;
   text-align: center;
+  margin-top: 1rem;
 }
 
 .boton-contrasena:hover {
@@ -750,7 +751,7 @@ tbody tr td {
 
 .table-8-col tr {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: 10rem 6.5rem 5rem repeat(5, 1fr);
   gap: 1rem;
   padding-left: 1rem;
 }
@@ -811,7 +812,7 @@ tbody tr td {
 
 .tableMostrarClientesAdmin tr {
   display: grid;
-  grid-template-columns: 2rem 9rem 13rem repeat(6, 8.5rem);
+  grid-template-columns: 1rem 8rem 13rem 8rem 8rem 8rem 8rem 10rem 10rem;
 }
 
 .tableMostrarClientesAdmin tr td:nth-child(3),
@@ -883,7 +884,11 @@ tbody tr td {
 }
 
 .tableMostrarCitas td:nth-child(3) {
-  grid-template-columns: repeat(2, 1fr) 4rem 4rem repeat(4, 1fr);
+  width: 4rem;
+}
+
+.tableMostrarCitasAdmin tr {
+  grid-template-columns: 2rem 10rem 10rem 7rem 7rem 8rem 10rem 10rem 10rem;
 }
 
 /*************************************** CARDS ***************************************/
@@ -961,7 +966,10 @@ tbody tr td {
 
 /********************************************* HIDDEN *********************************************/
 .hidden {
-  display: none;
+  display: inline;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
 }
 
 /**************************************** ADMIN DASHBOARD ******************************************/
@@ -1064,6 +1072,8 @@ tbody tr td {
   padding: 1rem;
 }
 
+
+
 /************************************ ÚLTIMOS CLIENTES **************************************/
 .contenedor_ultimos_clientes {
   /* width: 30%;*/
@@ -1149,5 +1159,12 @@ tbody tr td {
     width: 90%;
     height: 100%;
     gap: 2rem;
+  }
+
+  .reportes {
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    padding: 1rem;
   }
 }

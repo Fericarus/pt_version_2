@@ -40,7 +40,7 @@ $id_servicio = $_GET['id_servicio'];
 
         ?>
 
-        <form action='../../funciones/admin__agendarCita.php' method='POST'>
+        <form action='../../funciones/clientes__agendarCita.php' method='POST'>
 
             <h3>Estimado/a <?php echo $_SESSION['nombre']; ?></h3><br>
             <p>

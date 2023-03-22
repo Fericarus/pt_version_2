@@ -15,7 +15,7 @@ session_start();
 echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90deg, rgba(165, 43, 155, 1) 0%, rgba(105, 49, 160, 1) 100%);'>";
 
 // Capturamos la información de los formularios
-$nombre = $_POST["nombre"];
+$nombreA = $_POST["nombre"];
 $apellido_paternoA = $_POST["apellido_paternoA"];
 $apellido_maternoA = $_POST["apellido_maternoA"];
 $email = $_POST["email"];
@@ -27,7 +27,7 @@ $confirmarPassword = $_POST["confirmarPassword"];
 $redirect = '../vistas/administradores/administradores--asesores.php';
 
 // Si todas las validaciones pasan, actualizamos los datos en la BD
-if (validarNombre($nombre, $redirect)) {
+if (validarNombre($nombreA, $redirect)) {
     if (validarApellidoPaterno($apellido_paternoA, $redirect)) {
         if (validarApellidoPaterno($apellido_maternoA, $redirect)) {
             if (validarEmail($email, $redirect)) {
@@ -53,10 +53,10 @@ if (validarNombre($nombre, $redirect)) {
                                 if ($datos['email'] != $email) {
 
                                     // Preparamos la sentencia
-                                    $stmt = $dbh->prepare("INSERT INTO asesores (nombre, apellido_paternoA, apellido_maternoA, email, telefono, password) VALUES (?, ?, ?, ?, ?, ?)");
+                                    $stmt = $dbh->prepare("INSERT INTO asesores (nombreA, apellido_paternoA, apellido_maternoA, email, telefono, password) VALUES (?, ?, ?, ?, ?, ?)");
 
                                     // Bind params
-                                    $stmt->bindParam(1, $nombre);
+                                    $stmt->bindParam(1, $nombreA);
                                     $stmt->bindParam(2, $apellido_paternoA);
                                     $stmt->bindParam(3, $apellido_maternoA);
                                     $stmt->bindParam(4, $email);

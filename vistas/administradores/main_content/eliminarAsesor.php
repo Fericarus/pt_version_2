@@ -50,7 +50,7 @@ $id_asesor = $_GET['id_asesor'];
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 echo "<td>" . $row['id_asesor'] . "</td>";
-                echo "<td>" . $row['nombre'] . " " . $row['apellido_paternoA'] . " " . $row['apellido_maternoA'] . "</td>";
+                echo "<td>" . $row['nombreA'] . " " . $row['apellido_paternoA'] . " " . $row['apellido_maternoA'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['telefono'] . "</td>";
                 echo "<input class='hidden' name='id_asesor' value='" . $row['id_asesor'] . "'></input>";

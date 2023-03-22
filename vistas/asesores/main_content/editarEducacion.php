@@ -15,7 +15,7 @@ $id_educacion = $_GET['id_educacion'];
 
 <div class="main__container--table title_table">
 
-    <form class='formulario' action='../../funciones/editarEducacion.php' method='POST'>";
+    <form class='formulario' action='../../funciones/asesor__editarEducacion.php' method='POST'>";
 
         <!-- Título del formulario -->
         <div class="main__container--title">
