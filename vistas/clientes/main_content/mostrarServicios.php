@@ -9,130 +9,148 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
 ?>
 
-<div class="main__container--table title_table">
+<div class="details" id="details">
 
-    <form class="formulario" action="" method="GET">
+    <div class="cliente_dashboard">
 
-        <!-- Título del formulario -->
-        <div class="main__container--title">
-            <h1>Mostrar Servicios</h1>
+        <!-- Servicio Marketing Digital -->
+        <div class="marketing_digital tarjeta_servicio" onclick="mensaje__marketing_digital()">
+            <ul>
+                <li>
+                    <?php
+
+                    // Incluimos la conexión a la base de datos
+                    include "../../../includes/config/database.php";
+
+                    // Sentencia sql
+                    $sql = "SELECT * FROM servicios WHERE categorias = 'Marketing Digital'";
+
+                    // Preparamos la sentencia
+                    $stmt = $dbh->prepare($sql);
+
+                    // Ejecutamos la sentencia
+                    $stmt->execute();
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<h3>" . $row['servicio'] . "</h3>";
+                        echo "<p>" . $row['descripcion'] . "</p><br>";
+                    }
+
+                    ?>
+                </li>
+            </ul>
+            <h2 class="tarjeta_servicio--title marketing_digital--title">Marketing Digital</h2>
         </div>
 
-        <table class="table-2-col tableMostrarServicios">
-            <tr>
-                <td class="title">Servicio</td>
-                <td class="title">Descripción</td>
-            </tr>
+        <!-- Servicio Agencia Creativa -->
+        <div class="agencia_creativa tarjeta_servicio" onclick="mensaje__agencia_creativa()">
+            <ul>
+                <li>
+                    <?php
 
-            <?php
-            // Incluimos la conexión a la base de datos
-            include "../../../includes/config/database.php";
+                    // Incluimos la conexión a la base de datos
+                    include "../../../includes/config/database.php";
 
-            // Esta variables indica cuantos registros veremos por página
-            $tamano_paginas = 6;
+                    // Sentencia sql
+                    $sql = "SELECT * FROM servicios WHERE categorias = 'Agencia Creativa'";
 
-            // Este bloque de código solo se ejecutará si se le ha dado click a la paginación
-            if (isset($_GET['pagina'])) {
-                if ($_GET["pagina"] == 0) {
-                    header("Location:main_content/mostrarServicios.php");
-                } else {
-                    $pagina = $_GET['pagina'];
-                }
-            } else {
-                // Esta variable indica la página que se carga al inicio
-                $pagina = 1;
-            }
+                    // Preparamos la sentencia
+                    $stmt = $dbh->prepare($sql);
 
-            echo "<input id='pagina' class='hidden' value='$pagina'></input>";
+                    // Ejecutamos la sentencia
+                    $stmt->execute();
 
-            // Almacenamos en esta variable desde que página queremos que cargué la páginación
-            $empezar_desde = ($pagina - 1) * $tamano_paginas;
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<h3>" . $row['servicio'] . "</h3>";
+                        echo "<p>" . $row['descripcion'] . "</p><br>";
+                    }
 
-            // Sentencia sql
-            $sql = "SELECT * FROM servicios ORDER BY id_servicio";
+                    ?>
+                </li>
+            </ul>
+            <h2 class="tarjeta_servicio--title agencia_creativa--title">Agencia Creativa</h2>
+        </div>
 
-            // Preparamos la sentencia
-            $stmt = $dbh->prepare($sql);
+        <!-- Servicio Experiencia Web -->
+        <div class="experiencia_web tarjeta_servicio" onclick="mensaje__experiencia_web()">
+            <ul>
+                <li>
+                    <?php
 
-            // Ejecutamos la sentencia
-            $stmt->execute();
+                    // Incluimos la conexión a la base de datos
+                    include "../../../includes/config/database.php";
 
-            // Este método nos devuelve el número de registros de la consulta
-            $num_filas = $stmt->rowCount();
+                    // Sentencia sql
+                    $sql = "SELECT * FROM servicios WHERE categorias = 'Experiencia Web'";
 
-            // Dividimos el total de registros de la consulta entre el numero de paginas y lo redondeamos con el método ceil
-            $total_paginas = ceil($num_filas / $tamano_paginas);
+                    // Preparamos la sentencia
+                    $stmt = $dbh->prepare($sql);
 
-            // Mostramos cuantos resultados se encontraron en la consulta
-            echo "<div>";
-            echo "<p>Se encontraron " . $num_filas . " resultados</p>";
-            echo "</div>";
+                    // Ejecutamos la sentencia
+                    $stmt->execute();
 
-            $stmt->closeCursor();
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<h3>" . $row['servicio'] . "</h3>";
+                        echo "<p>" . $row['descripcion'] . "</p><br>";
+                    }
 
-            $sql_limite = "SELECT * FROM servicios 
-            ORDER BY servicio 
-            LIMIT $empezar_desde, $tamano_paginas";
+                    ?>
+                </li>
+            </ul>
+            <h2 class="tarjeta_servicio--title experiencia_web--title">Experiencia Web</h2>
+        </div>
 
-            // Preparamos la sentencia
-            $stmt = $dbh->prepare($sql_limite);
+        <!-- Servicio Comunidad Kreativika -->
+        <div class="comunidad_kreativika tarjeta_servicio" onclick="mensaje__comunidad_kreativika()">
+            <ul>
+                <li>
+                    <h3>Solucionamos,compartimos,crecemos.</h3>
+                    <p>Generamos una red de asesorescolaboradores en distintas áreas comoinformática, legal, seguridad, recursoshumanos, operación, ingeniería, arquitectura ysistemas de gestión empresarial.</p>
+                </li>
+                <li>
+                    <?php
 
-            // Ejecutamos la sentencia
-            $stmt->execute();
+                    // Incluimos la conexión a la base de datos
+                    include "../../../includes/config/database.php";
 
-            $n = 1;
+                    // Sentencia sql
+                    $sql = "SELECT * FROM servicios WHERE categorias = 'Comunidad Kreativika'";
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<tr>";
-                echo "<td>" . $row['servicio'] . "</td>";
-                echo "<td>" . $row['descripcion'] . "</td>";
-                echo "</tr>";
-                $n++;
-            }
+                    // Preparamos la sentencia
+                    $stmt = $dbh->prepare($sql);
 
+                    // Ejecutamos la sentencia
+                    $stmt->execute();
 
-            ?>
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<h3>" . $row['servicio'] . "</h3>";
+                        echo "<p>" . $row['descripcion'] . "</p><br>";
+                    }
 
-        </table>
+                    ?>
+                </li>
+            </ul>
+            <h2 class="tarjeta_servicio--title comunidad_kreativika--title">Comunidad Kreativika</h2>
+        </div>
 
-        <?php
-
-        // Mostramos la página en la que nos encontramos y el número total de páginas
-        echo "<div>";
-        echo "<p>Página " . $pagina . " de " . $total_paginas . "</p>";
-        echo "</div>";
-
-        // ------------------------------------------------ Paginación -------------------------------------------------------
-        echo "<div class='paginacion'>";
-        for ($i = 1; $i <= $total_paginas; $i++) {
-            // href='javascript:void(0)' code-val='+val.codigo+'
-            echo " <a id='page" . $i . "' name='" . $i . "' onclick='mostrar(" . $i . ")' href='javascript:void(0)' code-val='+val.codigo+'>$i</a> ";
-            // echo " <a href='?pagina=" . $i . "'> " . $i . " </a> ";
-        }
-        echo "</div>";
-
-        ?>
-
-    </form>
+    </div>
 
 </div>
 
-
-
 <script>
-    // Paginación
-    function mostrar($i) {
-        let pagina = document.getElementById('pagina');
-        let page = document.getElementById('page' + $i);
+    function mensaje__marketing_digital() {
+        alert("Se redirecciona a la pagina 'Marketing Digital'. Es a solicitud del cliente");
+    }
 
-        console.log(page.name);
+    function mensaje__agencia_creativa() {
+        alert("Se redirecciona a la pagina 'Agencia Creativa'. Es a solicitud del cliente");
+    }
 
-        var dato = $(this).attr("code-val");
-        $.ajax({
-            url: "main_content/mostrarServicios.php?pagina=" + page.name,
-            success: function(details) {
-                $("#details").html(details);
-            }
-        })
+    function mensaje__experiencia_web() {
+        alert("Se redirecciona a la pagina 'Experiencia Web'. Es a solicitud del cliente");
+    }
+
+    function mensaje__comunidad_kreativika() {
+        alert("Se redirecciona a la pagina 'Comunidad Kreativika'. Es a solicitud del cliente");
     }
 </script>

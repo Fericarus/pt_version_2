@@ -96,7 +96,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
-                echo "<td>" . $row['nombre'] . " " . $row['apellido_paternoA'] . " " . $row['apellido_maternoA'] . "</td>";
+                echo "<td>" . $row['nombreA'] . " " . $row['apellido_paternoA'] . " " . $row['apellido_maternoA'] . "</td>";
                 echo "<td>" . $row['fecha'] . "</td>";
                 echo "<td>" . $row['hora'] . "</td>";
                 echo "<td><span>" . $row['estado_cita'] . "</span></td>";
@@ -197,7 +197,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             spans[i].style.borderRadius = "5px";
         }
 
-        if (statusCelda == "atendiendo") {
+        if (statusCelda == "confirmada") {
             spans[i].style.backgroundColor = "#F9CA3F";
             spans[i].style.color = "white";
             spans[i].style.padding = "2px";

@@ -27,7 +27,7 @@
         <li>
             <a href="javascript:void(0)" code-val="+val.codigo+" class="citas_por_cliente">
                 <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
-                <span class="titulo">Citas por cliente</span>
+                <span class="titulo">Servicios más solicitados</span>
             </a>
         </li>
     </ul>

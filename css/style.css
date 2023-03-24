@@ -44,6 +44,10 @@ body {
   width: 100%;
 }
 
+li {
+  list-style: none;
+}
+
 /*************************************** 1. Barra lateral (Aside) ***************************************/
 /* Elementos:
   - 1.1. Logo dibujado con CSS
@@ -397,8 +401,21 @@ body {
   border-radius: 1rem;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
   background-color: #fff;
-  /* height: 35rem; */
 }
+
+@media (min-width: 992px) {
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+    background-color: #fff;
+  }
+} 
 
 .formulario div {
   width: 100%;
@@ -703,11 +720,22 @@ tbody tr td {
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  height: 4.7rem;
   color: #222;
   font-family: "Ubuntu", sans-serif;
   font-weight: lighter;
 }
+
+@media (min-width: 992px) {
+  tbody tr td {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    height: 4.7rem;
+    color: #222;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: lighter;
+  }
+} 
 
 /****************************** Configuración de las distintas tablas ******************************/
 .table-2-col tr {
@@ -850,8 +878,15 @@ tbody tr td {
 
 .tableMostrarServiciosAdmin tr {
   display: grid;
-  grid-template-columns: 3rem 13rem 45rem 1fr 1fr;
+  grid-template-columns: 2rem 8.5rem 1fr 8rem 8rem;
 }
+
+@media (min-width: 1200px) {
+  .tableMostrarServiciosAdmin tr {
+    display: grid;
+    grid-template-columns: 3rem 13rem 1fr 12rem 12rem;
+  }
+} 
 
 .tableEliminarServiciosAdmin tr {
   display: grid;
@@ -983,6 +1018,102 @@ tbody tr td {
   margin: 2rem auto;
   padding-top: 2rem;
   gap: 2rem;
+}
+
+.admin_dashboard__mostrar {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  gap: 2rem;
+}
+
+/**************************************** CLIENTE DASHBOARD ******************************************/
+.cliente_dashboard {
+  width: 90%;
+  height: 90vh;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 1400px) {
+  .cliente_dashboard {
+    width: 90%;
+    height: 80vh;
+    margin: 2rem auto;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+} 
+
+.tarjeta_servicio {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  /* padding: 2rem; */
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 30%);
+  transition-duration: 300ms;
+  font-size: 1.5rem;
+  max-height: 34rem;
+  text-decoration: none;
+}
+
+.tarjeta_servicio:hover {
+  transform: scale(1.02);
+}
+
+.tarjeta_servicio ul {
+  padding: 2rem;
+}
+
+.tarjeta_servicio ul li {
+  margin: 1rem 0;
+}
+
+.tarjeta_servicio ul li p {
+  font-size: 1.4rem;
+}
+
+.tarjeta_servicio h2 {
+  writing-mode: vertical-lr;
+  text-align: center;
+}
+
+.tarjeta_servicio--title {
+  color: #fff;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  min-width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marketing_digital--title {
+  background-color: #6b0dff;
+}
+
+.agencia_creativa--title {
+ background-color: #ffbd0b;
+}
+
+.experiencia_web--title {
+  background-color: #dd0016;
+}
+
+.comunidad_kreativika--title {
+  background-color: #0c8ce9;
 }
 
 /********************************************* TARJETAS *********************************************/

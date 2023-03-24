@@ -45,7 +45,7 @@ $id_servicio = $_GET['id_servicio'];
             <h3>Estimado/a <?php echo $_SESSION['nombre']; ?></h3><br>
             <p>
                 Este mensaje es para confirmar su cita con el asesor
-                <strong><?php echo $row['nombre'] ?></strong>
+                <strong><?php echo $row['nombreA'] ?></strong>
                 <strong><?php echo $row['apellido_paternoA'] ?></strong>
                 <strong><?php echo $row['apellido_paternoA'] ?></strong>
                 para el servicio de

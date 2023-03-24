@@ -3,30 +3,25 @@
 // Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
 // Si no hay nada en la variable de sesión usuario
-if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
+if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     header("location: ../../login.php");
 }
 
 ?>
 
-<div class="admin_dashboard__mostrar">
-<!-- <div class="main__container--table title_table"> -->
+<div class="main__container--table title_table">
 
     <form class="formulario" action="" method="GET">
 
         <!-- Título del formulario -->
         <div class="main__container--title">
-            <h1>Mostrar servicios</h1>
-            <p>Servicios actualmente dados de alta</p>
+            <h1>Mostrar Servicios</h1>
         </div>
 
-        <table class="table-5-col tableMostrarServiciosAdmin">
+        <table class="table-2-col tableMostrarServicios">
             <tr>
-                <td class="title">ID</td>
-                <td class="title">Nombre de servicio</td>
-                <td class="title">Descripción del servicio</td>
-                <td class="title"></td>
-                <td class="title"></td>
+                <td class="title">Servicio</td>
+                <td class="title">Descripción</td>
             </tr>
 
             <?php
@@ -34,12 +29,12 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
             include "../../../includes/config/database.php";
 
             // Esta variables indica cuantos registros veremos por página
-            $tamano_paginas = 7;
+            $tamano_paginas = 6;
 
             // Este bloque de código solo se ejecutará si se le ha dado click a la paginación
             if (isset($_GET['pagina'])) {
                 if ($_GET["pagina"] == 0) {
-                    header("Location:main_content/mostrarServicio.php");
+                    header("Location:main_content/mostrarServicios.php");
                 } else {
                     $pagina = $_GET['pagina'];
                 }
@@ -75,9 +70,9 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
 
             $stmt->closeCursor();
 
-            ///////////////////////////////////////////////////////////////////////////////7
-            // Sentencia sql
-            $sql_limite = "SELECT * FROM servicios LIMIT $empezar_desde, $tamano_paginas";
+            $sql_limite = "SELECT * FROM servicios 
+            ORDER BY servicio 
+            LIMIT $empezar_desde, $tamano_paginas";
 
             // Preparamos la sentencia
             $stmt = $dbh->prepare($sql_limite);
@@ -89,15 +84,13 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
-                    echo "<td>" . $row['id_servicio'] . "</td>";
-                    echo "<td>" . $row['servicio'] . "</td>";
-                    echo "<td>" . $row['descripcion'] . "</td>";
-                    echo "<input class='hidden' id='id_servicio" . $n . "' value='" . $row['id_servicio'] . "'></input>";
-                    echo "<td><a onclick='editar(" . $n . ")' class='boton boton-editar' href='javascript:void(0)' code-val='+val.codigo+''>Editar</a></td>";
-                    echo "<td><a onclick='eliminar(" . $n . ")'class='boton boton-eliminar' href='javascript:void(0)' code-val='+val.codigo+''>Eliminar</a></td>";
+                echo "<td>" . $row['servicio'] . "</td>";
+                echo "<td>" . $row['descripcion'] . "</td>";
                 echo "</tr>";
                 $n++;
             }
+
+
             ?>
 
         </table>
@@ -124,6 +117,8 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
 
 </div>
 
+
+
 <script>
     // Paginación
     function mostrar($i) {
@@ -139,34 +134,5 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
                 $("#details").html(details);
             }
         })
-    }
-
-    // Botón Editar
-    function editar($i) {
-        let id_servicio = document.getElementById('id_servicio' + $i);
-        console.log(id_servicio.value);
-
-        var dato = $(this).attr("code-val");
-        $.ajax({
-            url: "main_content/editarServicio.php?id_servicio=" + id_servicio.value,
-            success: function(details) {
-                $("#details").html(details);
-            }
-        })
-    }
-
-    // Botón Eliminar
-    function eliminar($i) {
-        let id_servicio = document.getElementById('id_servicio' + $i);
-        console.log(id_servicio.value);
-
-        var dato = $(this).attr("code-val");
-        $.ajax({
-            url: "main_content/eliminarServicio.php?id_servicio=" + id_servicio.value,
-            success: function(details) {
-                $("#details").html(details);
-            }
-        })
-
     }
 </script>
