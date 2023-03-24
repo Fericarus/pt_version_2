@@ -56,20 +56,16 @@
                             </div>
                         </div>
 
-
                         <!-- Campo apellido paterno -->
                         <div>
-
                             <div class="campo">
                                 <label for="nombre">Paterno<span>*</span></label>
                                 <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="González" oninput="validarPaterno(this.id)" />
                             </div>
                         </div>
 
-
                         <!-- Campo apellido materno -->
                         <div>
-
                             <div class="campo">
                                 <label for="nombre">Materno<span>*</span></label>
                                 <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Martínez" oninput="validarMaterno(this.id)" />
@@ -78,7 +74,6 @@
 
                         <!-- Campo Email -->
                         <div>
-
                             <div class="campo">
                                 <label for="nombre">Correo<span>*</span></label>
                                 <input type="email" id="email" name="email" placeholder="usuario@empresa.com" oninput="validarEmail(this.id)" />
@@ -87,7 +82,6 @@
 
                         <!-- Campo Telefono -->
                         <div>
-
                             <div class="campo">
                                 <label for="nombre">Teléfono<span>*</span></label>
                                 <input type="number" id="telefono" name="telefono" placeholder="55 1234 1234" oninput="validarTelefono(this.id)" />
@@ -150,7 +144,6 @@
 
                         <!-- Password -->
                         <div>
-
                             <div class="campo">
                                 <label for="nombre">Contraseña<span>*</span></label>
                                 <input type="password" id="password" name="password" placeholder="Tu contraseña" oninput="validarPass(this.id)" />
@@ -160,7 +153,6 @@
 
                         <!-- Confirmar Password -->
                         <div>
-
                             <div class="campo">
                                 <label for="nombre">Confirmación<span>*</span></label>
                                 <input type="password" id="passwordConfirm" name="confirmarPassword" placeholder="Confirma tu contraseña" oninput="validarPass(this.id)" />
