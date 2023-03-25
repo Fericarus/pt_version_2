@@ -47,7 +47,6 @@ $id_servicio = $_GET['id_servicio'];
                 Este mensaje es para confirmar su cita con el asesor
                 <strong><?php echo $row['nombreA'] ?></strong>
                 <strong><?php echo $row['apellido_paternoA'] ?></strong>
-                <strong><?php echo $row['apellido_paternoA'] ?></strong>
                 para el servicio de
                 <strong><?php echo $row_servicio['servicio'] ?></strong>
                 el día
@@ -66,7 +65,11 @@ $id_servicio = $_GET['id_servicio'];
             <p>
                 Si tiene alguna pregunta o inquietud, por favor no dude en ponerse en contacto con nosotros.
             </p>
-            <br>
+            
+            <input name="id_asesor" class="hidden" value="<?php echo $id_asesor ?>"></input>
+            <input name="fecha" class="hidden" value="<?php echo $fecha ?>"></input>
+            <input name="hora" class="hidden" value="<?php echo $hora ?>"></input>
+            <input name="id_servicio" class="hidden" value="<?php echo $id_servicio ?>"></input>
             <p>Atentamente,</p>
             <p>Gerardo Javier García Ruíz</p>
             <p>Kreativika</p>
@@ -75,11 +78,6 @@ $id_servicio = $_GET['id_servicio'];
                 <input type="submit" value="Confirmar Cita" class="boton boton-confirmar">
                 <a onclick="volver()" href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-eliminar">Volver</a>
             </div>
-
-            <input name="id_asesor" class="hidden" value="<?php echo $id_asesor ?>"></input>
-            <input name="fecha" class="hidden" value="<?php echo $fecha ?>"></input>
-            <input name="hora" class="hidden" value="<?php echo $hora ?>"></input>
-            <input name="id_servicio" class="hidden" value="<?php echo $id_servicio ?>"></input>
 
         </form>
 

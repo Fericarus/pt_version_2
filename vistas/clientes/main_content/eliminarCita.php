@@ -48,7 +48,7 @@ $id_cita = $_GET['id_cita'];
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
-                echo "<td>" . $row['nombre'] . " " . $row['apellido_paternoA'] . " " . $row['apellido_maternoA'] . "</td>";
+                echo "<td>" . $row['nombreA'] . " " . $row['apellido_paternoA'] . " " . $row['apellido_maternoA'] . "</td>";
                 echo "<td>" . $row['fecha'] . "</td>";
                 echo "<td>" . $row['hora'] . "</td>";
                 echo "<input class='hidden' name='id_cita' value='" . $row['id_cita'] . "'></input>";

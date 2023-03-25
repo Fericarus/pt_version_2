@@ -32,6 +32,17 @@ function eliminarCita($dbh, $redirect)
     // Capturamos la información de los formularios
     $id_cita = $_POST["id_cita"];
 
+    // Primero eliminamos de citasServicios
+    // Sentencia sql
+    $sql = "DELETE FROM citasservicios WHERE id_cita1 = " . $id_cita;
+
+    // Aquí preparo la sentencia sql DELETE
+    $stmt = $dbh->prepare($sql);
+
+    // Ejecutamos la sentencia
+    $stmt->execute();
+
+    // Ahora si eliminamos la cita
     // Sentencia sql
     $sql = "DELETE FROM citas WHERE id_cita = " . $id_cita;
 
@@ -45,6 +56,12 @@ function eliminarCita($dbh, $redirect)
     if ($stmt->execute()) {
         mensajeGoodJob("Cita eliminada exitosamente", $redirect);
     } else {
+        // echo "Código de error SQLSTATE: " . $stmt->errorInfo()[0] . "<br>";
+        // echo "Código de error específico de la base de datos: " . $stmt->errorInfo()[1] . "<br>";
+        // echo "Descripción del error: " . $stmt->errorInfo()[2];
+        // echo "<pre>";
+        // echo var_dump($stmt);
+        // echo "</pre>";
         mensajeError("Ups, algo salió mal", $redirect);
     }
 }

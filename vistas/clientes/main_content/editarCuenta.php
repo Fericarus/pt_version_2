@@ -17,11 +17,15 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
         <div class="main__container--title title_table">
             <h1>Editar cuenta</h1>
             <p>Modifica tu información personal</p>
+            <span id="errorMessageNombre" style="display: none;"></span>
+            <span id="errorMessagePaterno" style="display: none;"></span>
+            <span id="errorMessageMaterno" style="display: none;"></span>
+            <span id="errorMessageEmail" style="display: none;"></span>
+            <span id="errorMessageTelefono" style="display: none;"></span>
         </div>
 
         <!-- Campo Nombre -->
         <div>
-            <span id="errorMessageNombre" style="display: none;"></span>
             <div class="campo">
                 <label for="nombre">Nombre: </label>
 
@@ -39,7 +43,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
                 $stmt->execute();
 
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<input id='nombre' name='nombre' value='" . $row['nombre'] . "' oninput='validarEmail(this.id)'/>";
+                    echo "<input id='nombre' name='nombre' value='" . $row['nombre'] . "' oninput='validarNombre(this.id)'/>";
                 }
                 ?>
 
@@ -64,7 +68,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' name='apellido_paterno' value='" . $row['apellido_paterno'] . "'/>";
+                echo "<input id='apellido_paterno' name='apellido_paterno' value='" . $row['apellido_paterno'] . "' oninput='validarPaterno(this.id)'/>";
             }
             ?>
 
@@ -88,7 +92,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' name='apellido_materno' value='" . $row['apellido_materno'] . "'/>";
+                echo "<input id='apellido_materno' name='apellido_materno' value='" . $row['apellido_materno'] . "' oninput='validarMaterno(this.id)'/>";
             }
             ?>
 
@@ -112,7 +116,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' name='email' value='" . $row['email'] . "'/>";
+                echo "<input id='email' name='email' value='" . $row['email'] . "' oninput='validarEmail(this.id)'/>";
             }
             ?>
 
@@ -136,7 +140,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<input type='text' name='telefono' value='" . $row['telefono'] . "'/>";
+                echo "<input id='telefono' name='telefono' value='" . $row['telefono'] . "' oninput='validarTelefono(this.id)'/>";
             }
             ?>
 

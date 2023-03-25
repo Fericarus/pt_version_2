@@ -11,69 +11,46 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
 
     <div class="formulario">
 
+        <!-- Titulo -->
         <div class="main__container--title title_table">
             <h1>Mostrar cuenta</h1>
             <p>Datos del usuario</p>
         </div>
 
-        <table class="table-7-col">
+        <table class="mostrar_cuenta">
 
-            <tbody>
+            <tr>
 
-                <tr>
-                    <td class="title">Nombre</td>
-                    <td class="title">Apellido paterno</td>
-                    <td class="title">Apellido materno</td>
-                    <td class="title">Email</td>
-                    <td class="title">Teléfono</td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <?php
+                // Incluimos la conexión a la BD
+                include "../../../includes/config/database.php";
 
-                <tr>
+                // Preparamos la sentencia
+                $stmt = $dbh->prepare('SELECT * FROM clientes WHERE id_cliente = ' . $_SESSION["id"]);
 
-                    <?php
-                    // Incluimos la conexión a la BD
-                    include "../../../includes/config/database.php";
+                // Ejecutamos la sentencia
+                $stmt->execute();
 
-                    // Preparamos la sentencia
-                    $stmt = $dbh->prepare('SELECT * FROM clientes WHERE id_cliente = ' . $_SESSION["id"]);
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<td>Nombre:<strong>" . $row['nombre'] . "</strong></td>";
+                    echo "<td>Apellido paterno: <strong>" . $row['apellido_paterno'] . "</strong></td>";
+                    echo "<td>Apellido paterno: <strong>" . $row['apellido_materno'] . "</strong></td>";
+                    echo "<td>Correo electrónico: <strong>" . $row['email'] . "</strong></td>";
+                    echo "<td>Teléfono: <strong>" . $row['telefono'] . "</strong></td>";
+                }
 
-                    // Ejecutamos la sentencia
-                    $stmt->execute();
+                ?>
 
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<td>" . $row['nombre'] . "</td>";
-                        echo "<td>" . $row['apellido_paterno'] . "</td>";
-                        echo "<td>" . $row['apellido_materno'] . "</td>";
-                        echo "<td>" . $row['email'] . "</td>";
-                        echo "<td>" . $row['telefono'] . "</td>";
-                        echo "<td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-editar'>Editar</a></td>";
-                        echo "<td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-contrasena'>Cambiar contraseña</a></td>";
-                    }
-                    ?>
+                <td>
+                    <a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-editar'>Editar</a>
+                    <a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-contrasena'>Cambiar contraseña</a>
+                </td>
 
-                </tr>
-
-            </tbody>
+            </tr>
 
         </table>
 
-        <!-- <div class="contenedorBotones">
-
-            <!-- Boton Editar -->
-            <!-- <td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-editar'>Editar</a></td>
-
-            <!-- Boton Cambiar contraseña -->
-            <!-- <td><a href='javascript:void(0)' code-val='+val.codigo+' class='boton boton-contrasena'>Cambiar contraseña</a></td>
-
-        </div> -->
-
-
-
     </div>
-
-</div>
 
 </div>
 

@@ -19,7 +19,18 @@
     <!-- Mensaje de bienvenida personalizado -->
     <div class="usuario">
         <p>Hola</p>
-        <p><?php echo "<strong>" . $_SESSION["nombre"] . "</strong>";?></p>
+        <p>
+            <?php
+
+                // var_dump(isset($_SESSION["nombreA"]));
+                if(isset($_SESSION["nombreA"])) {
+                    echo "<strong>" . $_SESSION["nombreA"] . "</strong>";
+                } else {
+                    echo "<strong>" . $_SESSION["nombre"] . "</strong>";
+                }
+
+            ?>
+        </p>
     </div>
 
 </div>

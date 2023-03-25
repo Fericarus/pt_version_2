@@ -100,7 +100,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
 
         if ($tipoCliente == 'asesor') {
             $_SESSION["id"] = $datos["id_asesor"];
-            $_SESSION["nombre"] = $datos["nombre"];
+            $_SESSION["nombreA"] = $datos["nombreA"];
             $_SESSION["apellido_paterno"] = $datos["apellido_paternoA"];
             $_SESSION["apellido_materno"] = $datos["apellido_maternoA"];
             $_SESSION["email"] = $datos["email"];

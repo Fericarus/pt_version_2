@@ -51,7 +51,7 @@
         <li>
             <a href="administradores--control.php">
                 <span class="icono"><i class="fa-solid fa-user"></i></span>
-                <span class="titulo">Control</span>
+                <span class="titulo">Salir</span>
             </a>
         </li>
     </ul>

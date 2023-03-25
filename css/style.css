@@ -949,6 +949,28 @@ tbody tr td {
   grid-template-columns: 2rem 10rem 10rem 7rem 7rem 8rem 10rem 10rem 10rem;
 }
 
+.mostrar_cuenta tr {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.mostrar_cuenta tr td {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 1.6rem;
+}
+
+.mostrar_cuenta td:last-child a {
+  margin: 0;
+  padding-right: 0;
+}
+
+.mostrar_cuenta td:last-child {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
 /*************************************** CARDS ***************************************/
 .card__container {
   display: grid;
@@ -1094,6 +1116,15 @@ tbody tr td {
   }
 } 
 
+.asesor_dashboard {
+  width: 90%;
+  height: 90vh;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
 
 
 .tarjeta_servicio {
@@ -1108,15 +1139,22 @@ tbody tr td {
   font-size: 1.5rem;
   max-height: 34rem;
   text-decoration: none;
+  background-color: #fefefe;
 }
 
+.tarjeta_asesor:hover, 
 .tarjeta_servicio:hover {
   transform: scale(1.02);
 }
 
-.tarjeta_asesor div,
+
+
 .tarjeta_servicio ul {
   padding: 2rem;
+}
+
+.tarjeta_asesor div {
+  padding: 1rem;
 }
 
 .tarjeta_servicio ul li {
@@ -1172,12 +1210,23 @@ tbody tr td {
   font-size: 1.5rem;
   max-height: 18rem;
   text-decoration: none;
+  background-color: #fefefe;
 }
 
 .tarjeta_asesor div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.tarjeta_asesor div div {
+  display: flex;
+  
+}
+
+.tarjeta_asesor h3, 
+.tarjeta_asesor p {
+  color: #000;
 }
 
 .tarjeta_asesor div p:nth-child(3) {
