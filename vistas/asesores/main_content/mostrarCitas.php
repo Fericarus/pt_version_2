@@ -86,8 +86,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                 "SELECT * FROM citas 
                 INNER JOIN clientes ON clientes.id_cliente = citas.id_cliente1 
                 WHERE id_asesor1 = " . $_SESSION["id"] . "
-                LIMIT $empezar_desde, $tamano_paginas
-                ORDER BY fecha";
+                LIMIT $empezar_desde, $tamano_paginas";
 
             // Preparamos la sentencia
             $stmt = $dbh->prepare($sql);

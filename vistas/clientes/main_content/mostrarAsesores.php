@@ -22,8 +22,10 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
         // Sentencia sql
         $sql =
             "SELECT * FROM asesores
-        INNER JOIN roles_asesores ON asesores.id_asesor = roles_asesores.id_asesor5
-        INNER JOIN roles ON roles.id_roles = roles_asesores.id_roles1";
+            INNER JOIN roles_asesores ON asesores.id_asesor = roles_asesores.id_asesor5
+            INNER JOIN roles ON roles.id_roles = roles_asesores.id_roles1
+            
+            ";
 
         // Preparamos la sentencia
         $stmt = $dbh->prepare($sql);
