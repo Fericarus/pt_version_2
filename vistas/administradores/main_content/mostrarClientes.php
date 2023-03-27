@@ -5,6 +5,7 @@ session_start();
 // Si no hay nada en la variable de sesión usuario
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
     header("location: ../../login.php");
+    // echo "<script> window.location = '../../login.php' </script>"; 
 }
 
 ?>
