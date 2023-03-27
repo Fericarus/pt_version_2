@@ -13,14 +13,14 @@ $email = $_POST["email"];
 $passwordLogin = $_POST["passwordLogin"];
 
 // Validar email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    mensajeError("Ingrese un correo electrónico válido.", "../login.php");
-}
+//if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //mensajeError("Ingrese un correo electrónico válido.", "../login.php");
+//}
 
 // Validar contraseña
-if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $passwordLogin)) {
-    mensajeError("La contraseña se compone de al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.", "../login.php");
-}
+//if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $passwordLogin)) {
+    //mensajeError("La contraseña se compone de al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.", "../login.php");
+//}
 
 // Preparamos las distintas sentencias sql
 $sqlClientes = "SELECT * FROM clientes WHERE email = :email AND password = :passwordLogin";
@@ -30,29 +30,30 @@ $sqlAdministradores = "SELECT * FROM administradores WHERE email = :email AND pa
 try {
 
     // Consulta a la tabla Clientes
-    login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente");
+    // login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente");
 
-    // Consulta a la tabla Asesores
-    login($email, $passwordLogin, $sqlAsesores, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor");
+    // // Consulta a la tabla Asesores
+    // login($email, $passwordLogin, $sqlAsesores, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor");
 
-    // Consulta a la tabla Administradores
-    login($email, $passwordLogin, $sqlAdministradores, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador");
+    // // Consulta a la tabla Administradores
+    // login($email, $passwordLogin, $sqlAdministradores, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador");
+    
+    $loginClientes = login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "../vistas/clientes/clientes.php", "cliente");
 
     // Realizamos el login según el tipo de usuario
     if (
         // Login clientes
-        login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente") == NULL
+        $loginClientes == NULL 
         &&
         // Login asesores
-        login($email, $passwordLogin, $sqlClientes, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor") == NULL
+        login($email, $passwordLogin, $sqlAsesores, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor") == NULL
         &&
         // Login administradores
-        login($email, $passwordLogin, $sqlClientes, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
+        login($email, $passwordLogin, $sqlAdministradores, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
     ) {
-
         mensajeError('Usuario o contraseña incorrectos', '../index.php');
-
     }
+    
 } catch (Exception $e) {
     die("Error: " . $e->getMessage());
 }
@@ -79,108 +80,77 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
     // PDOStatement::fetch — Obtiene la siguiente fila de un conjunto de resultados
     $datos = $stmt->fetch();
 
-    // Si se encorntró un registro en la tabla CLIENTE
-    if ($datos[$id] != NULL) {
+
+    if ($datos["id_cliente"] != NULL) {
 
         // Creamos una sesión para el usuario
         session_start();
 
-        if ($tipoCliente == 'cliente') {
-            $_SESSION["id"] = $datos["id_cliente"];
-            $_SESSION["nombre"] = $datos["nombre"];
-            $_SESSION["apellido_paterno"] = $datos["apellido_paterno"];
-            $_SESSION["apellido_materno"] = $datos["apellido_materno"];
-            $_SESSION["email"] = $datos["email"];
-            $_SESSION["telefono"] = $datos["telefono"];
-            $_SESSION["id_alcaldia"] = $datos["id_alcaldia1"];
-            $_SESSION["id_colonia"] = $datos["id_colonia1"];
-            $_SESSION["id_giro"] = $datos["id_giro1"];
-            $_SESSION["tipoUsuario"] = $tipoCliente;
-        }
-
-        if ($tipoCliente == 'asesor') {
-            $_SESSION["id"] = $datos["id_asesor"];
-            $_SESSION["nombreA"] = $datos["nombreA"];
-            $_SESSION["apellido_paterno"] = $datos["apellido_paternoA"];
-            $_SESSION["apellido_materno"] = $datos["apellido_maternoA"];
-            $_SESSION["email"] = $datos["email"];
-            $_SESSION["telefono"] = $datos["telefono"];
-            $_SESSION["tipoUsuario"] = $tipoCliente;
-        }
-
-        if ($tipoCliente == 'administrador') {
-            $_SESSION["id"] = $datos["id_administrador"];
-            $_SESSION["nombre"] = $datos["nombre"];
-            $_SESSION["apellido_paterno"] = $datos["apellido_paternoAd"];
-            $_SESSION["apellido_materno"] = $datos["apellido_maternoAd"];
-            $_SESSION["email"] = $datos["email"];
-            $_SESSION["tipoUsuario"] = $tipoCliente;
-        }
-
+        // Asignamos variables de sesión para cliente
+        $_SESSION["id"] = $datos["id_cliente"];
+        $_SESSION["nombre"] = $datos["nombre"];
+        $_SESSION["apellido_paterno"] = $datos["apellido_paterno"];
+        $_SESSION["apellido_materno"] = $datos["apellido_materno"];
+        $_SESSION["email"] = $datos["email"];
+        $_SESSION["telefono"] = $datos["telefono"];
+        $_SESSION["id_alcaldia"] = $datos["id_alcaldia1"];
+        $_SESSION["id_colonia"] = $datos["id_colonia1"];
+        $_SESSION["id_giro"] = $datos["id_giro1"];
+        $_SESSION["tipoUsuario"] = $tipoCliente;
+        
+        echo $_SESSION["nombre"];
+        
         // Redireccionamos a la página 
-        header($location);
-    } else {
-        //echo "hola";
+        //header('Location: http://www.example.com/');
+        //header('Location: ../vistas/clientes/clientes.php');
+        
+        echo "<script> window.location = '../vistas/clientes/clientes.php' </script>";        
+        
     }
+
+    if ($datos["id_asesor"] != NULL) {
+
+        // Creamos una sesión para el usuario
+        session_start();
+
+        // Asignamos variables de sesión para asesor
+        $_SESSION["id"] = $datos["id_asesor"];
+        $_SESSION["nombreA"] = $datos["nombreA"];
+        $_SESSION["apellido_paterno"] = $datos["apellido_paternoA"];
+        $_SESSION["apellido_materno"] = $datos["apellido_maternoA"];
+        $_SESSION["email"] = $datos["email"];
+        $_SESSION["telefono"] = $datos["telefono"];
+        $_SESSION["tipoUsuario"] = $tipoCliente;
+        
+        // Redireccionamos a la página 
+        //header($location);
+        
+        echo "<script> window.location = '../vistas/asesores/asesores.php' </script>"; 
+    }
+
+    if ($datos["id_administrador"] != NULL) {
+
+        // Creamos una sesión para el usuario
+        session_start();
+
+        $_SESSION["id"] = $datos["id_administrador"];
+        $_SESSION["nombre"] = $datos["nombre"];
+        $_SESSION["apellido_paterno"] = $datos["apellido_paternoAd"];
+        $_SESSION["apellido_materno"] = $datos["apellido_maternoAd"];
+        $_SESSION["email"] = $datos["email"];
+        $_SESSION["tipoUsuario"] = $tipoCliente;
+        
+        // Redireccionamos a la página 
+        //header($location);
+        
+        echo "<script> window.location = '../vistas/administradores/administradores.php' </script>"; 
+    }
+    
+    //  echo "<pre>";
+    //     var_dump($datos["id_cliente"] != NULL);
+    //     echo "</pre>";
+
 }
 
 echo "</body>";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    // Si el usuario existe:
-    if ($numero_registros != 0) {
-
-        // creamos una sesión para el usuario
-        session_start();
-
-        // Almacenamos en la variable de sesión 
-        $_SESSION["usuario"] = $_POST["email"];
-
-        // Redireccionamos a la página clientes
-        header("location:../vistas/clientes/clientes.php");
-
-    } else {
-
-        $sql = "SELECT * FROM asesores WHERE email = :email  AND password = :passwordLogin";
-        $resultado = $dbh->prepare($sql);
-        $email = htmlentities(addslashes($_POST["email"]));
-        $passwordLogin = htmlentities(addslashes($_POST["passwordLogin"]));
-        $resultado->bindValue(":email", $email);
-        $resultado->bindValue(":passwordLogin", $passwordLogin);
-        $resultado->execute();
-        $numero_registros = $resultado->rowCount();
-
-        if ($numero_registros != 0) {
-
-            // creamos una sesión para el usuario
-            session_start();
-            $_SESSION["usuario"] = $_POST["email"];
-            header("location:../vistas/asesores/asesores.php");
-
-        } else {
-            //header("location:../logn.php");
-        }
-
-        
-    }
-    
-} catch (Exception $e) {
-
-    die("Error: " . $e->getMessage());
-}
-*/
