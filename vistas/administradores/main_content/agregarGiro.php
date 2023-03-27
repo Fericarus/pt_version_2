@@ -9,7 +9,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
 
 ?>
 
-<div class="main__container--form">
+<div class="main__container--table title_table">
 
     <form class="formulario" action="../../funciones/admin__agregarGiro.php" method="POST" onsubmit="return validateForm()">
 

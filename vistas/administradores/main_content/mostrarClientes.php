@@ -9,7 +9,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
 
 ?>
 
-<div class="admin_dashboard__mostrar">
+<div class="main__container--table title_table">
 
     <form class="formulario" action="" method="GET">
 

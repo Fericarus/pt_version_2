@@ -11,6 +11,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
     <div class="formulario">
 
+    <!-- Titulo de la página -->
         <div class="main__container--title title_table">
             <h1>Mostrar cuenta</h1>
             <p>Datos del usuario</p>
@@ -21,6 +22,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
             <tbody class="tableCuenta">
 
+                <!-- Títulos de las columnas -->
                 <tr>
                     <td class="title">Nombre</td>
                     <td class="title">Apellido paterno</td>
@@ -42,7 +44,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                     $stmt->execute();
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<td>" . $row['nombre'] . "</td>";
+                        echo "<td>" . $row['nombreA'] . "</td>";
                         echo "<td>" . $row['apellido_paternoA'] . "</td>";
                         echo "<td class='child3'>" . $row['apellido_maternoA'] . "</td>";
                         echo "<td class='child4'>" . $row['email'] . "</td>";
@@ -58,10 +60,10 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
 
         <div class="contenedorBotones">
             <!-- Boton Editar -->
-            <a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-editar">Editar</a>
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-editar boton2">Editar</a>
 
             <!-- Boton Cambiar contraseña -->
-            <a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena">Cambiar contraseña</a>
+            <a href="javascript:void(0)" code-val="+val.codigo+" class="boton boton-contrasena boton2">Cambiar contraseña</a>
         </div>
 
     </div>

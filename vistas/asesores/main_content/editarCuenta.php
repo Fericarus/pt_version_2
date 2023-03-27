@@ -39,7 +39,7 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
                 $stmt->execute();
 
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<input id='nombre' name='nombre' value='" . $row['nombre'] . "' oninput='validarNombre(this.id)'/>";
+                    echo "<input id='nombre' name='nombre' value='" . $row['nombreA'] . "' oninput='validarNombre(this.id)'/>";
                 }
                 ?>
 
