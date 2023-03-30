@@ -1,3 +1,10 @@
+<?php
+session_start();
+// Si no hay nada en la variable de sesión usuario
+if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
+    header("location: ../../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,15 +19,6 @@
 
 <body>
 
-    <?php
-    // Reanudamos sesión en caso de que se haya iniciado antes
-    session_start();
-    // Si no hay nada en la variable de sesión usuario
-    if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
-        header("location: ../../login.php");
-    }
-    ?>
-
     <div class="contenedor">
 
         <!-- Menu vertical -->
@@ -34,8 +32,12 @@
 
             <!-- Barra de dirección -->
             <span class="ruta">
-                <a href="asesores.php"><h2>Inicio</h2></a>
-                <a href="asesores--perfilProf.php"><h2>/ Mi perfil profesional</h2></a>
+                <a href="asesores.php">
+                    <h2>Inicio</h2>
+                </a>
+                <a href="asesores--perfilProf.php">
+                    <h2>/ Mi perfil profesional</h2>
+                </a>
                 <h2 id="ruta"></h2>
             </span>
 

@@ -1,18 +1,11 @@
 <?php
-
-// Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
-// Si no hay nada en la variable de sesión usuario
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
     header("location: ../../login.php");
 }
-
-// Recuperamos las variables
 $id_asesorEducacion = $_GET['id_asesorEducacion'];
 $id_educacion = $_GET['id_educacion'];
-
 ?>
-
 <div class="main__container--table title_table">
 
     <form class='formulario' action='../../funciones/asesor__editarEducacion.php' method='POST'>";

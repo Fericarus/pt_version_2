@@ -1,14 +1,9 @@
 <?php
-
-// Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
-// Si no hay nada en la variable de sesión usuario
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
     header("location: ../../login.php");
 }
-
 ?>
-
 <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>

@@ -1,14 +1,9 @@
 <?php
-
-// Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
-// Si no hay nada en la variable de sesión usuario
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     header("location: ../../login.php");
 }
-
 ?>
-
 <div class="details" id="details">
 
     <div class="cliente_dashboard">

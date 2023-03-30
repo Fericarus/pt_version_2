@@ -1,17 +1,9 @@
 <?php
-
-// Reanudamos sesión en caso de que se haya iniciado antes
-session_start();
-// Si no hay nada en la variable de sesión usuario
-if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
+session_start();if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
     header("location: ../../login.php");
 }
-
-// Recuperamos las variables
 $id_cita = $_GET['id_cita'];
-
 ?>
-
 <div class="main__container--table">
 
     <form class="formulario" action="../../funciones/admin__cambiarEstadoCita.php" method="POST">

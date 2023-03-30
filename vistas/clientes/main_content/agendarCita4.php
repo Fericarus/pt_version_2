@@ -1,19 +1,13 @@
 <?php
-
-// Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
-// Si no hay nada en la variable de sesión usuario
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     header("location: ../../login.php");
 }
-
 $id_asesor = $_GET['id_asesor'];
 $fecha = $_GET['fecha'];
 $hora = $_GET['hora'];
 $id_servicio = $_GET['id_servicio'];
-
 ?>
-
 <div class="main__container--table table_confirmar_cita2">
 
     <div class="card2">

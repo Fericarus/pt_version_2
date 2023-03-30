@@ -13,14 +13,14 @@ $email = $_POST["email"];
 $passwordLogin = $_POST["passwordLogin"];
 
 // Validar email
-//if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //mensajeError("Ingrese un correo electrónico válido.", "../login.php");
-//}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    mensajeError("Ingrese un correo electrónico válido.", "../login.php");
+}
 
 // Validar contraseña
-//if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $passwordLogin)) {
-    //mensajeError("La contraseña se compone de al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.", "../login.php");
-//}
+if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $passwordLogin)) {
+    mensajeError("La contraseña se compone de al menos 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial.", "../login.php");
+}
 
 // Preparamos las distintas sentencias sql
 $sqlClientes = "SELECT * FROM clientes WHERE email = :email AND password = :passwordLogin";
@@ -98,13 +98,13 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["id_giro"] = $datos["id_giro1"];
         $_SESSION["tipoUsuario"] = $tipoCliente;
         
-        echo $_SESSION["nombre"];
+        //echo $_SESSION["nombre"];
         
         // Redireccionamos a la página 
         //header('Location: http://www.example.com/');
-        //header('Location: ../vistas/clientes/clientes.php');
+        header('Location: ../vistas/clientes/clientes.php');
         
-        echo "<script> window.location = '../vistas/clientes/clientes.php' </script>";        
+        //echo "<script> window.location = '../vistas/clientes/clientes.php' </script>";        
         
     }
 
@@ -123,9 +123,9 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["tipoUsuario"] = $tipoCliente;
         
         // Redireccionamos a la página 
-        //header($location);
+        header($location);
         
-        echo "<script> window.location = '../vistas/asesores/asesores.php' </script>"; 
+        //echo "<script> window.location = '../vistas/asesores/asesores.php' </script>"; 
     }
 
     if ($datos["id_administrador"] != NULL) {
@@ -141,9 +141,9 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["tipoUsuario"] = $tipoCliente;
         
         // Redireccionamos a la página 
-        //header($location);
+        header($location);
         
-        echo "<script> window.location = '../vistas/administradores/administradores.php' </script>"; 
+        //echo "<script> window.location = '../vistas/administradores/administradores.php' </script>"; 
     }
     
     //  echo "<pre>";

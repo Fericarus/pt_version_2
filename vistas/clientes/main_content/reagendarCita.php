@@ -1,17 +1,10 @@
 <?php
-
-// Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
-// Si no hay nada en la variable de sesión usuario
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "cliente")) {
     header("location: ../../login.php");
 }
-
-// Recuperamos las variables
 $id_cita = $_GET['id_cita'];
-
 ?>
-
 <div class="main__container--table title_table">
 
     <!-- Mensaje de error por hora -->

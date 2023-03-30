@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
+    header("location: ../../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,15 +17,6 @@
 </head>
 
 <body>
-
-    <?php
-    // Reanudamos sesión en caso de que se haya iniciado antes
-    session_start();
-    // Si la variable email está vacía o el tipo de usuario es diferente a asesor
-    if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "asesor")) {
-        header("location: ../../login.php");
-    }
-    ?>
 
     <div class="contenedor">
 

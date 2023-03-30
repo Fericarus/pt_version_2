@@ -1,17 +1,10 @@
 <?php
-
-// Reanudamos sesión en caso de que se haya iniciado antes
 session_start();
-// Si no hay nada en la variable de sesión usuario
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
     header("location: ../../login.php");
 }
-
-// Recuperamos las variables
 $id_giro = $_GET['id_giro'];
-
 ?>
-
 <div class="main__container--table">
 
     <form class="formulario" action="../../funciones/admin__editarGiro.php" method="POST">
