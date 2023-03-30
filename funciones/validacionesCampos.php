@@ -111,8 +111,4 @@ function soloLetras($campo, $href)
     }
     
 }
-
 ?>
-
-
-</html>

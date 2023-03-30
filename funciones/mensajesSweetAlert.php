@@ -47,7 +47,4 @@ function salir($href) {
         </script>
     ";
 }
-
-
-
 ?>

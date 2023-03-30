@@ -97,14 +97,10 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["id_colonia"] = $datos["id_colonia1"];
         $_SESSION["id_giro"] = $datos["id_giro1"];
         $_SESSION["tipoUsuario"] = $tipoCliente;
-        
-        //echo $_SESSION["nombre"];
-        
+
         // Redireccionamos a la página 
-        //header('Location: http://www.example.com/');
-        header('Location: ../vistas/clientes/clientes.php');
-        
-        //echo "<script> window.location = '../vistas/clientes/clientes.php' </script>";        
+        // header('Location: ../vistas/clientes/clientes.php');
+        echo "<script> window.location = '../vistas/clientes/clientes.php' </script>";        
         
     }
 
@@ -122,10 +118,9 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["telefono"] = $datos["telefono"];
         $_SESSION["tipoUsuario"] = $tipoCliente;
         
-        // Redireccionamos a la página 
-        header($location);
-        
-        //echo "<script> window.location = '../vistas/asesores/asesores.php' </script>"; 
+        // Redireccionamos a la página
+        // header($location);
+        echo "<script> window.location = '../vistas/asesores/asesores.php' </script>"; 
     }
 
     if ($datos["id_administrador"] != NULL) {
@@ -139,18 +134,14 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["apellido_materno"] = $datos["apellido_maternoAd"];
         $_SESSION["email"] = $datos["email"];
         $_SESSION["tipoUsuario"] = $tipoCliente;
-        
+
         // Redireccionamos a la página 
-        header($location);
-        
-        //echo "<script> window.location = '../vistas/administradores/administradores.php' </script>"; 
+        // header($location);
+
+        echo "<script> window.location = '../vistas/administradores/administradores.php' </script>"; 
     }
-    
-    //  echo "<pre>";
-    //     var_dump($datos["id_cliente"] != NULL);
-    //     echo "</pre>";
 
 }
 
 echo "</body>";
-
+?>
