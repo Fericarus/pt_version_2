@@ -1,8 +1,9 @@
 <?php
 session_start();
 if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador")) {
+    // var_dump($_SESSION["tipoUsuario"]);
     header("location: ../../login.php");
-}
+} else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -438,3 +439,6 @@ if (!isset($_SESSION["email"]) || ($_SESSION["tipoUsuario"] != "administrador"))
         }
     });
 </script>
+<?php
+}
+?>

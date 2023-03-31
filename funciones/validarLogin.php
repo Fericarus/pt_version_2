@@ -1,12 +1,12 @@
 <?php
-
+session_start();
 // Incluimos la conexión a la BD
 include "../includes/config/database.php";
 
 // Mandamos llamar la libreria de sweetalert2
 include "./mensajesSweetAlert.php";
 
-echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90deg, rgba(165, 43, 155, 1) 0%, rgba(105, 49, 160, 1) 100%);'>";
+// echo "<body style='background: rgb(165, 43, 155); background: linear-gradient(90deg, rgba(165, 43, 155, 1) 0%, rgba(105, 49, 160, 1) 100%);'>";
 
 // Capturamos la información de los formularios en las variables $email y $passwordLogin
 $email = $_POST["email"];
@@ -29,31 +29,15 @@ $sqlAdministradores = "SELECT * FROM administradores WHERE email = :email AND pa
 
 try {
 
-    // Consulta a la tabla Clientes
-    // login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "location:../vistas/clientes/clientes.php", "cliente");
-
-    // // Consulta a la tabla Asesores
-    // login($email, $passwordLogin, $sqlAsesores, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor");
-
-    // // Consulta a la tabla Administradores
-    // login($email, $passwordLogin, $sqlAdministradores, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador");
-    
     $loginClientes = login($email, $passwordLogin, $sqlClientes, $dbh, "id_cliente", "../vistas/clientes/clientes.php", "cliente");
+    $loginAsesores = login($email, $passwordLogin, $sqlAsesores, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor");
+    $loginAdministradores = login($email, $passwordLogin, $sqlAdministradores, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador");
 
     // Realizamos el login según el tipo de usuario
-    if (
-        // Login clientes
-        $loginClientes == NULL 
-        &&
-        // Login asesores
-        login($email, $passwordLogin, $sqlAsesores, $dbh, "id_asesor", "location:../vistas/asesores/asesores.php", "asesor") == NULL
-        &&
-        // Login administradores
-        login($email, $passwordLogin, $sqlAdministradores, $dbh, "id_administrador", "location:../vistas/administradores/administradores.php", "administrador") == NULL
-    ) {
+    if ( $loginClientes == NULL && $loginAsesores == NULL && $loginAdministradores == NULL ) {
         mensajeError('Usuario o contraseña incorrectos', '../index.php');
     }
-    
+
 } catch (Exception $e) {
     die("Error: " . $e->getMessage());
 }
@@ -65,9 +49,7 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
     // Realizamos la sentencia preparada
     $stmt = $dbh->prepare($sqlClientes);
 
-    // Establecemos la relación entre los marcadores y su correspondiente valor con la función bindValue()
-    // Esta función asigna el valor que tenga en ese momento la variable y aunque ésta cambie a lo 
-    // largo de varias ejecuciones de execute() la sustitución permanece invariable.
+    // Bind Params
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':passwordLogin', $passwordLogin);
 
@@ -80,11 +62,10 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
     // PDOStatement::fetch — Obtiene la siguiente fila de un conjunto de resultados
     $datos = $stmt->fetch();
 
-
     if ($datos["id_cliente"] != NULL) {
 
         // Creamos una sesión para el usuario
-        session_start();
+        // session_start();
 
         // Asignamos variables de sesión para cliente
         $_SESSION["id"] = $datos["id_cliente"];
@@ -98,16 +79,15 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["id_giro"] = $datos["id_giro1"];
         $_SESSION["tipoUsuario"] = $tipoCliente;
 
-        // Redireccionamos a la página 
-        // header('Location: ../vistas/clientes/clientes.php');
-        echo "<script> window.location = '../vistas/clientes/clientes.php' </script>";        
-        
+        // Redireccionamos a la página
+        echo "<script> window.location = '../vistas/clientes/clientes.php' </script>";
+
     }
 
     if ($datos["id_asesor"] != NULL) {
 
         // Creamos una sesión para el usuario
-        session_start();
+        // session_start();
 
         // Asignamos variables de sesión para asesor
         $_SESSION["id"] = $datos["id_asesor"];
@@ -119,14 +99,12 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["tipoUsuario"] = $tipoCliente;
         
         // Redireccionamos a la página
-        // header($location);
         echo "<script> window.location = '../vistas/asesores/asesores.php' </script>"; 
     }
 
     if ($datos["id_administrador"] != NULL) {
-
         // Creamos una sesión para el usuario
-        session_start();
+        // session_start();
 
         $_SESSION["id"] = $datos["id_administrador"];
         $_SESSION["nombre"] = $datos["nombre"];
@@ -135,13 +113,10 @@ function login($email, $passwordLogin, $sqlClientes, $dbh, $id, $location, $tipo
         $_SESSION["email"] = $datos["email"];
         $_SESSION["tipoUsuario"] = $tipoCliente;
 
-        // Redireccionamos a la página 
-        // header($location);
-
+        // Redireccionamos a la página
         echo "<script> window.location = '../vistas/administradores/administradores.php' </script>"; 
     }
 
 }
 
-echo "</body>";
 ?>
