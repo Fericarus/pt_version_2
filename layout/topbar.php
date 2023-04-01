@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 ?>
 <div class="topbar">
 
@@ -11,13 +11,15 @@ session_start();
         <p id="areaContador" class="hidden"></p>
     </div>
 
-    <!-- Barra de busqueda -->
+    <!--
+    <!-- Barra de busqueda
     <div class="buscar">
         <label>
             <input type="text" placeholder="Buscar">
             <i class="fa-solid fa-magnifying-glass"></i>
         </label>
-    </div>
+    </div> 
+    -->
 
     <!-- Mensaje de bienvenida personalizado -->
     <div class="usuario">
